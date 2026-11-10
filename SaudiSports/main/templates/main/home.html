@@ -1,0 +1,221 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الرئيسية | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Hero ===================== -->
+<section class="hero">
+  <img class="hero-bg" src="{% static 'images/home/hero.jpg' %}" alt="ملعب سعودي مضاء في الليل">
+  <div class="hero-overlay"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <h1 class="rise">الرياضة السعودية.. شغف يتجدد وإنجازات تتواصل</h1>
+      <p class="hero-text rise" style="--delay: .15s">
+        اكتشف شغف الرياضة السعودية، وتعرّف على أبرز أنديتها وأبطالها وبطولاتها وإنجازاتها، واستكشف رحلة المملكة نحو مستقبل رياضي استثنائي.
+      </p>
+      <div class="hero-actions rise" style="--delay: .3s">
+        <a href="#categories" class="btn btn-gold btn-lg">تصفح الأقسام</a>
+        <a href="{% url 'events_view' %}" class="btn btn-outline-light btn-lg">الفعاليات والبطولات</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Ticker (moving strip of sports) ===================== -->
+<!-- main.js repeats this group so the loop never shows a gap -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-group">
+      <a href="{% url 'football_view' %}" class="ticker-item"><i class="fa-solid fa-futbol"></i><span>كرة القدم</span></a>
+      <a href="{% url 'formula_view' %}" class="ticker-item"><i class="fa-solid fa-flag-checkered"></i><span>فورمولا 1</span></a>
+      <a href="{% url 'rallies_view' %}" class="ticker-item"><i class="fa-solid fa-car-side"></i><span>الراليات</span></a>
+      <a href="{% url 'esports_view' %}" class="ticker-item"><i class="fa-solid fa-gamepad"></i><span>الرياضات الإلكترونية</span></a>
+      <a href="{% url 'community_view' %}" class="ticker-item"><i class="fa-solid fa-person-running"></i><span>الرياضة المجتمعية</span></a>
+      <a href="{% url 'events_view' %}" class="ticker-item"><i class="fa-solid fa-trophy"></i><span>الفعاليات والبطولات</span></a>
+      <a href="{% url 'stadiums_view' %}" class="ticker-item"><i class="fa-solid fa-ticket"></i><span>الملاعب</span></a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ===================== 3. Categories (bento grid) ===================== -->
+<section class="section" id="categories">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>اختر رياضتك</h2>
+      <p>سبعة أقسام تأخذك من الملعب إلى الحلبة، ومن الصحراء إلى عالم الألعاب.</p>
+    </div>
+
+    <div class="bento">
+
+      <!-- Football (large card) -->
+      <a href="{% url 'football_view' %}" class="bento-card bento-large reveal">
+        <img src="{% static 'images/home/card-football.jpg' %}" alt="مباراة كرة قدم في الدوري السعودي">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>كرة القدم</h3>
+          <p>دوري روشن، الأندية الكبرى، ونجوم المنتخب الأخضر.</p>
+        </div>
+      </a>
+
+      <!-- Formula 1 -->
+      <a href="{% url 'formula_view' %}" class="bento-card reveal" style="--delay: .1s">
+        <img src="{% static 'images/home/card-formula.jpg' %}" alt="سيارة فورمولا 1 على حلبة كورنيش جدة">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>فورمولا 1</h3>
+          <p>سرعة الليل على كورنيش جدة.</p>
+        </div>
+      </a>
+
+      <!-- Rallies -->
+      <a href="{% url 'rallies_view' %}" class="bento-card reveal" style="--delay: .2s">
+        <img src="{% static 'images/home/card-rallies.jpg' %}" alt="سيارة رالي في الصحراء">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>الراليات</h3>
+          <p>داكار وتحدي الكثبان.</p>
+        </div>
+      </a>
+
+      <!-- Esports -->
+      <a href="{% url 'esports_view' %}" class="bento-card reveal" style="--delay: .1s">
+        <img src="{% static 'images/home/card-esports.jpg' %}" alt="لاعبون في بطولة رياضات إلكترونية">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>الرياضات الإلكترونية</h3>
+          <p>بطولات عالمية ومواهب سعودية.</p>
+        </div>
+      </a>
+
+      <!-- Community sports -->
+      <a href="{% url 'community_view' %}" class="bento-card reveal" style="--delay: .2s">
+        <img src="{% static 'images/home/card-community.jpg' %}" alt="مجموعة تمارس رياضة المشي والجري">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>الرياضة المجتمعية</h3>
+          <p>نشاط يومي للجميع.</p>
+        </div>
+      </a>
+
+      <!-- Major events (wide card) -->
+      <a href="{% url 'events_view' %}" class="bento-card bento-wide reveal">
+        <img src="{% static 'images/home/card-events.jpg' %}" alt="حفل افتتاح بطولة رياضية كبرى">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>الفعاليات والبطولات</h3>
+          <p>أحداث كبرى على أرض المملكة.</p>
+        </div>
+      </a>
+
+      <!-- Stadiums (wide card) -->
+      <a href="{% url 'stadiums_view' %}" class="bento-card bento-wide reveal" style="--delay: .1s">
+        <img src="{% static 'images/home/card-stadiums.jpg' %}" alt="ملعب رياضي حديث من الأعلى">
+        <span class="bento-arrow"><i class="bi bi-arrow-up-left"></i></span>
+        <div class="bento-body">
+          <h3>الملاعب والمنشآت</h3>
+          <p>منشآت عالمية تحتضن الحدث القادم.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Timeline: the road to 2034 ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>الطريق إلى 2034</h2>
+      <p>محطات رياضية جعلت المملكة وجهة للأحداث العالمية.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <span class="timeline-year">2020</span>
+        <h3>رالي داكار</h3>
+        <p>ينتقل الرالي الأشهر في العالم إلى صحراء المملكة.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .15s">
+        <span class="timeline-year">2021</span>
+        <h3>فورمولا 1</h3>
+        <p>أول سباق للفورمولا 1 على كورنيش جدة.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .3s">
+        <span class="timeline-year">2024</span>
+        <h3>كأس العالم للرياضات الإلكترونية</h3>
+        <p>انطلاق النسخة الأولى في الرياض.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .45s">
+        <span class="timeline-year">2027</span>
+        <h3>كأس آسيا</h3>
+        <p>السعودية تستضيف كأس آسيا لكرة القدم.</p>
+      </div>
+      <div class="timeline-item timeline-final reveal" style="--delay: .6s">
+        <span class="timeline-year">2034</span>
+        <h3>كأس العالم</h3>
+        <p>المملكة تستضيف كأس العالم لكرة القدم.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 5. Vision 2030 ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Image -->
+      <div class="col-lg-6 reveal">
+        <div class="vision-image">
+          <img src="{% static 'images/home/vision.jpg' %}" alt="شباب سعوديون يمارسون الرياضة">
+          <span class="vision-badge">رؤية 2030</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="col-lg-6 reveal" style="--delay: .15s">
+        <h2 class="vision-title">الرياضة في قلب رؤية 2030</h2>
+        <p class="vision-text">
+          تعمل المملكة على جعل الرياضة جزءاً من الحياة اليومية، واستضافة أكبر الأحداث العالمية،
+          ودعم المواهب والأندية الوطنية.
+        </p>
+        <ul class="vision-list">
+          <li><i class="bi bi-check-circle-fill"></i><span>رياضة للجميع: أسلوب حياة صحي لكل الأعمار.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>استضافة كبرى البطولات والسباقات العالمية.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>دعم المواهب والأندية والمنشآت الرياضية.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 6. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>ابدأ من رياضتك المفضلة</h2>
+    <p>تنقل بين الأقسام واكتشف كل ما تحتاجه عن الرياضة في المملكة.</p>
+    <div class="cta-actions">
+      <a href="{% url 'football_view' %}" class="btn btn-gold btn-lg">كرة القدم</a>
+      <a href="{% url 'stadiums_view' %}" class="btn btn-outline-light btn-lg">الملاعب</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

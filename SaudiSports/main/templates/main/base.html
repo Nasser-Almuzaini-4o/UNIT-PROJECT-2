@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+  SaudiSports - Base Template
+  Every page extends this file. It provides:
+    - Shared <head> assets (fonts, icons, Bootstrap RTL, base.css)
+    - Navbar with the dark / light mode switch (cookie based)
+    - Footer, scroll progress bar and back-to-top button
+  Child pages fill these blocks: title, css, content.
+-->
+<html lang="ar" dir="rtl" data-bs-theme="{{ request.COOKIES.mode|default:'light' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SaudiSports{% endblock %}</title>
+
+  <!-- Google Fonts: Lalezar (headings) + IBM Plex Sans Arabic (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Lalezar&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 (RTL build) and Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+  <!-- Shared styles, then page specific styles -->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% block css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Scroll progress bar (width is updated by main.js) -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===================== Navbar ===================== -->
+  {% with page=request.resolver_match.url_name %}
+  <nav class="navbar navbar-expand-xl sticky-top site-nav" id="siteNav">
+    <div class="container">
+
+      <!-- Brand -->
+        <a class="brand" href="{% url 'home_view' %}">
+        <span class="brand-ar brand-word">الرياضة <b>السعودية</b></span>
+        </a>
+
+
+
+      <!-- Mobile menu button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navMenu" aria-controls="navMenu" aria-label="فتح القائمة">
+        <i class="bi bi-list fs-2"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <!-- Page links -->
+        <ul class="navbar-nav mx-auto align-items-xl-center">
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'home_view' %}active{% endif %}" href="{% url 'home_view' %}">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'football_view' %}active{% endif %}" href="{% url 'football_view' %}">كرة القدم</a>
+          </li>
+
+          <!-- Motorsports dropdown: Formula 1 + Rallies -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if page == 'formula_view' or page == 'rallies_view' %}active{% endif %}"
+               href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">رياضة المحركات</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'formula_view' %}"><i class="bi bi-speedometer2"></i>فورمولا 1</a></li>
+              <li><a class="dropdown-item" href="{% url 'rallies_view' %}"><i class="bi bi-signpost-split"></i>الراليات</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'esports_view' %}active{% endif %}" href="{% url 'esports_view' %}">الرياضات الإلكترونية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'community_view' %}active{% endif %}" href="{% url 'community_view' %}">الرياضة المجتمعية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'events_view' %}active{% endif %}" href="{% url 'events_view' %}">الفعاليات</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'stadiums_view' %}active{% endif %}" href="{% url 'stadiums_view' %}">الملاعب</a>
+          </li>
+        </ul>
+
+        <!-- Dark / light mode switch: sends the user to mode_view, which sets the cookie -->
+        <div class="mt-3 mt-xl-0">
+          {% if request.COOKIES.mode == "dark" %}
+            <a class="mode-btn" href="{% url 'mode_view' 'light' %}?next={{ request.path }}"
+               title="الوضع الفاتح" aria-label="التبديل إلى الوضع الفاتح"><i class="bi bi-sun-fill"></i></a>
+          {% else %}
+            <a class="mode-btn" href="{% url 'mode_view' 'dark' %}?next={{ request.path }}"
+               title="الوضع الداكن" aria-label="التبديل إلى الوضع الداكن"><i class="bi bi-moon-stars-fill"></i></a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+  {% endwith %}
+
+  <!-- ===================== Page content ===================== -->
+
+
+  <main>
+
+    
+    {% block content %}{% endblock %}
+
+
+  </main>
+
+
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- About -->
+        <div class="col-lg-5">
+          <a class="brand" href="{% url 'home_view' %}">
+        <span class="brand-ar brand-word">الرياضة <b>السعودية</b></span>
+        </a>
+          <p class="footer-about">
+           اكتشف شغف الرياضة السعودية، وتعرّف على أبرز أنديتها وأبطالها وبطولاتها وإنجازاتها، واستكشف رحلة المملكة نحو مستقبل رياضي استثنائي.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="Snapchat"><i class="bi bi-snapchat"></i></a>
+          </div>
+        </div>
+
+        <!-- Links: sports -->
+        <div class="col-6 col-lg-3 offset-lg-1">
+          <h5>الأقسام الرياضية</h5>
+          <ul class="footer-links">
+            <li><a href="{% url 'football_view' %}">كرة القدم</a></li>
+            <li><a href="{% url 'formula_view' %}">فورمولا 1</a></li>
+            <li><a href="{% url 'rallies_view' %}">الراليات</a></li>
+            <li><a href="{% url 'esports_view' %}">الرياضات الإلكترونية</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: more -->
+        <div class="col-6 col-lg-3">
+          <h5>المزيد</h5>
+          <ul class="footer-links">
+            <li><a href="{% url 'community_view' %}">الرياضة المجتمعية</a></li>
+            <li><a href="{% url 'events_view' %}">الفعاليات والبطولات</a></li>
+            <li><a href="{% url 'stadiums_view' %}">الملاعب والمنشآت</a></li>
+            <li><a href="{% url 'home_view' %}">الرئيسية</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © {% now "Y" %} SaudiSports - جميع الحقوق محفوظة
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="to-top" id="toTop" aria-label="العودة للأعلى"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Scripts: Bootstrap bundle (navbar + dropdown) then our single JS file -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

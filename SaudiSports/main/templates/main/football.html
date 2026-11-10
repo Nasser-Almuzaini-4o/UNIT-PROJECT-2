@@ -1,0 +1,323 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}كرة القدم | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/football.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/football/hero.jpg' %}" alt="جماهير سعودية في مدرج ملعب كرة قدم">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="breadcrumb">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>كرة القدم</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">كرة القدم السعوديــة</h1>
+      <p class="rise" style="--delay: .2s">
+         اللعبة الأولى في قلوب الجماهير: دوري يضم نجوماً عالميين <br> وأندية بتاريخ طويل، ومنتخب يصنع التاريخ.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid">
+      <div class="fact reveal">
+        <strong>18</strong>
+        <span>نادياً في دوري روشن</span>
+      </div>
+      <div class="fact reveal" style="--delay: .1s">
+        <strong>3</strong>
+        <span>ألقاب لكأس آسيا: 1984 و1988 و1996</span>
+      </div>
+      <div class="fact reveal" style="--delay: .2s">
+        <strong>2034</strong>
+        <span>استضافة كأس العالم</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. The league ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Text -->
+      <div class="col-lg-6 reveal league-text">
+        <h2>دوري روشن السعودي</h2>
+        <p>
+          هو الدوري الأعلى في كرة القدم السعودية، ويتنافس فيه 18 نادياً كل موسم على اللقب.
+          وفي السنوات الأخيرة جذب اهتماماً عالمياً بعد انضمام نجوم كبار إلى أنديته.
+        </p>
+        <ul class="league-list">
+          <li><i class="bi bi-calendar-check"></i><span>18 نادياً تلعب بنظام الذهاب والإياب على مدى الموسم.</span></li>
+          <li><i class="bi bi-globe2"></i><span>أندية الصدارة تمثل المملكة في البطولات الآسيوية.</span></li>
+          <li><i class="bi bi-trophy"></i><span>إلى جانب الدوري: كأس الملك وكأس السوبر السعودي.</span></li>
+        </ul>
+      </div>
+
+      <!-- Image -->
+      <div class="col-lg-6 reveal" style="--delay: .15s">
+        <div class="league-image">
+          <img src="{% static 'images/football/league.jpg' %}" alt="مباراة في دوري روشن السعودي">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Big clubs ===================== -->
+<section class="section clubs-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>الأندية الكبرى</h2>
+      <p>أربعة أندية صنعت تاريخ الكرة السعودية وتملك أكبر الجماهير.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Al-Hilal -->
+      <div class="col-md-6 col-xl-3 reveal">
+        <article class="club club-hilal">
+          <div class="club-stripe"></div>
+          <div class="club-image">
+            <img src="{% static 'images/football/club-hilal.jpg' %}" alt="جماهير نادي الهلال">
+          </div>
+          <div class="club-body">
+            <span class="club-nick">الزعيم</span>
+            <h3>الهلال</h3>
+            <ul class="club-meta">
+              <li><i class="bi bi-geo-alt-fill"></i>الرياض</li>
+              <li><i class="bi bi-calendar3"></i>تأسس 1957</li>
+            </ul>
+            <p>زعيم آسيا وصاحب الحضور القاري اللافت، جمع بين الألقاب الكبرى والنجوم وصناعة اللحظات التاريخية.</p>          </div>
+        </article>
+      </div>
+
+      <!-- Al-Nassr -->
+      <div class="col-md-6 col-xl-3 reveal" style="--delay: .1s">
+        <article class="club club-nassr">
+          <div class="club-stripe"></div>
+          <div class="club-image">
+            <img src="{% static 'images/football/club-nassr.jpg' %}" alt="جماهير نادي النصر">
+          </div>
+          <div class="club-body">
+            <span class="club-nick">العالمي</span>
+            <h3>النصر</h3>
+            <ul class="club-meta">
+              <li><i class="bi bi-geo-alt-fill"></i>الرياض</li>
+              <li><i class="bi bi-calendar3"></i>تأسس 1955</li>
+            </ul>
+            <p>العالمي.. نادٍ صنع لنفسه مكانة بين الكبار، وزادت شهرته العالمية بانضمام الأسطورة كريستيانو رونالدو.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Al-Ittihad -->
+      <div class="col-md-6 col-xl-3 reveal" style="--delay: .2s">
+        <article class="club club-ittihad">
+          <div class="club-stripe"></div>
+          <div class="club-image">
+            <img src="{% static 'images/football/club-ittihad.jpg' %}" alt="جماهير نادي الاتحاد">
+          </div>
+          <div class="club-body">
+            <span class="club-nick">العميد</span>
+            <h3>الاتحاد</h3>
+            <ul class="club-meta">
+              <li><i class="bi bi-geo-alt-fill"></i>جدة</li>
+              <li><i class="bi bi-calendar3"></i>تأسس 1927</li>
+            </ul>
+            <p>عميد الأندية السعودية، حكاية كروية بدأت من جدة، وامتدت إلى منصات التتويج المحلية والآسيوية.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Al-Ahli -->
+      <div class="col-md-6 col-xl-3 reveal" style="--delay: .3s">
+        <article class="club club-ahli">
+          <div class="club-stripe"></div>
+          <div class="club-image">
+            <img src="{% static 'images/football/club-ahli.jpg' %}" alt="جماهير نادي الأهلي">
+          </div>
+          <div class="club-body">
+            <span class="club-nick">الملكي</span>
+            <h3>الأهلي</h3>
+            <ul class="club-meta">
+              <li><i class="bi bi-geo-alt-fill"></i>جدة</li>
+              <li><i class="bi bi-calendar3"></i>تأسس 1937</li>
+            </ul>
+            <p>قلعة الكؤوس،النخبوي، عشق أخضر وجماهير لا تهدأ، وسجل حافل باللحظات التي لا تُنسى في الملاعب السعودية.</p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 5. National team ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-stretch g-5">
+
+      <!-- Image -->
+      <div class="col-lg-5 reveal">
+        <div class="team-image">
+          <img src="{% static 'images/football/national-team.jpg' %}" alt="لاعبو المنتخب السعودي يحتفلون">
+        </div>
+      </div>
+
+      <!-- Moments -->
+      <div class="col-lg-7 reveal" style="--delay: .15s">
+        <h2 class="team-title">المنتخب السعودي: الصقور الخضر</h2>
+        <p class="team-text">لحظات صنعت تاريخ الأخضر في آسيا والعالم.</p>
+
+        <ul class="moments">
+          <li class="moment">
+            <span class="moment-year">1984</span>
+            <p>أول لقب في كأس آسيا.</p>
+          </li>
+          <li class="moment">
+            <span class="moment-year">1988</span>
+            <p>اللقب الآسيوي الثاني على التوالي.</p>
+          </li>
+          <li class="moment">
+            <span class="moment-year">1994</span>
+            <p>هدف سعيد العويران الشهير في مرمى بلجيكا، والوصول إلى دور الـ16 في كأس العالم.</p>
+          </li>
+          <li class="moment">
+            <span class="moment-year">1996</span>
+            <p>اللقب الآسيوي الثالث في الإمارات.</p>
+          </li>
+          <li class="moment">
+            <span class="moment-year">2022</span>
+            <p>الفوز على الأرجنتين 2-1 في كأس العالم بقطر.</p>
+          </li>
+          <li class="moment">
+            <span class="moment-year">2026</span>
+            <p> تحقيق كأس الخليج</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 6. What changed ===================== -->
+<section class="section changes-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ما الذي تغيّر؟</h2>
+      <p>ثلاثة تحولات جعلت الدوري السعودي حديث العالم.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-4 reveal">
+        <div class="change">
+          <span class="change-icon"><i class="bi bi-stars"></i></span>
+          <div>
+            <h3>نجوم عالميون</h3>
+            <p>منذ 2023 انضم إلى الدوري لاعبون من أكبر الأندية الأوروبية.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="--delay: .1s">
+        <div class="change">
+          <span class="change-icon"><i class="bi bi-building"></i></span>
+          <div>
+            <h3>استثمار في الأندية</h3>
+            <p>في 2023 استحوذ صندوق الاستثمارات العامة على حصص في الهلال والنصر والاتحاد والأهلي.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="--delay: .2s">
+        <div class="change">
+          <span class="change-icon"><i class="bi bi-gender-female"></i></span>
+          <div>
+            <h3>كرة القدم النسائية</h3>
+            <p>انطلق دوري السيدات في 2020، وتوسعت المنافسات بعده.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 7. Gallery ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>من المدرجات</h2>
+      <p>لقطات من أجواء المباريات والجماهير.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot shot-tall reveal">
+        <img src="{% static 'images/football/gallery-1.jpg' %}" alt="جماهير تحتفل في المدرج">
+        <figcaption>أجواء المدرجات</figcaption>
+      </figure>
+      <figure class="shot reveal" style="--delay: .1s">
+        <img src="{% static 'images/football/gallery-2.jpg' %}" alt="لاعب يسجل هدفاً">
+        <figcaption>لحظة الهدف</figcaption>
+      </figure>
+      <figure class="shot reveal" style="--delay: .2s">
+        <img src="{% static 'images/football/gallery-3.jpg' %}" alt="احتفال فريق بالكأس">
+        <figcaption>الاحتفال بالكأس</figcaption>
+      </figure>
+      <figure class="shot shot-wide reveal">
+        <img src="{% static 'images/football/gallery-4.jpg' %}" alt="ملعب كرة قدم ليلاً من الأعلى">
+        <figcaption>ليلة المباراة</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <img src="{% static 'images/football/gallery-5.jpg' %}" alt="أطفال يلعبون كرة القدم">
+        <figcaption>جيل المستقبل</figcaption>
+      </figure>
+      <figure class="shot shot-wide reveal" style="--delay: .1s">
+        <img src="{% static 'images/football/gallery-6.jpg' %}" alt="جماهير ترفع الأعلام">
+        <figcaption>عشق الجماهير</figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 8. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>أين تُلعب هذه المباريات؟</h2>
+    <p>تعرف على الملاعب التي تحتضن الكرة السعودية، والبطولات القادمة.</p>
+    <div class="cta-actions">
+      <a href="{% url 'stadiums_view' %}" class="btn btn-gold btn-lg">الملاعب والمنشآت</a>
+      <a href="{% url 'events_view' %}" class="btn btn-outline-light btn-lg">الفعاليات والبطولات</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,412 @@
+/* ==========================================================================
+   SaudiSports - Home Page Styles
+   --------------------------------------------------------------------------
+   1. Hero
+   2. Ticker
+   3. Bento grid (categories)
+   4. Timeline
+   5. Vision 2030
+   6. Call to action
+   ========================================================================== */
+
+
+/* ---------- 1. Hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0a1a12; /* fallback while the image loads */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark scrim so the text stays readable on any photo */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(5, 35, 20, 0.92), rgba(0, 0, 0, 0.35));
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  max-width: 720px;
+  padding: 5rem 0;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.35;
+  margin-bottom: 1.2rem;
+}
+
+.hero-text {
+  max-width: 560px;
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+  
+
+/* ---------- 2. Ticker ---------- */
+.ticker {
+  overflow: hidden;
+  padding: 0.9rem 0;
+  background: var(--green);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+}
+
+/* The animation starts only after main.js has repeated the group */
+.ticker-track.running {
+  animation: ticker 35s linear infinite;
+}
+
+/* Pause while hovering or when a link has keyboard focus */
+.ticker:hover .ticker-track,
+.ticker:focus-within .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding-inline-end: 1rem;
+}
+
+/* One clickable cell: gold icon circle + sport name */
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding-block: 0.4rem;
+  padding-inline: 0.5rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  white-space: nowrap;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.ticker-item i {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-size: 1rem;
+}
+
+.ticker-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--gold);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* The track holds 4 identical groups, so it moves exactly one group (25%) per loop */
+@keyframes ticker {
+  to { transform: translateX(25%); }
+}
+
+
+/* ---------- 3. Bento grid ---------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  gap: 1rem;
+}
+
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  color: #ffffff;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.bento-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-wide {
+  grid-column: span 2;
+}
+
+.bento-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.bento-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Dark gradient at the bottom for text readability */
+.bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.9), rgba(0, 0, 0, 0) 65%);
+}
+
+.bento-arrow {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s, color 0.3s;
+}
+
+.bento-card:hover .bento-arrow {
+  background: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+.bento-body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.25rem;
+}
+
+.bento-body h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.5rem;
+}
+
+.bento-body p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.bento-large .bento-body {
+  padding: 1.75rem;
+}
+
+.bento-large .bento-body h3 {
+  font-size: 2.4rem;
+}
+
+/* Tablet: 2 columns */
+@media (max-width: 991px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Phone: 1 column */
+@media (max-width: 575px) {
+  .bento {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .bento-large,
+  .bento-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-large .bento-body h3 {
+    font-size: 1.8rem;
+  }
+}
+
+
+/* ---------- 4. Timeline ---------- */
+.timeline-section {
+  background: var(--surface);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+/* Grey line (always visible) and gold line (draws itself when revealed) */
+.timeline-item::before,
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  height: 3px;
+}
+
+.timeline-item::before {
+  width: 100%;
+  background: var(--border);
+}
+
+.timeline-item::after {
+  width: 0;
+  background: var(--gold);
+  transition: width 1s ease var(--delay, 0s);
+}
+
+.timeline-item.visible::after {
+  width: 100%;
+}
+
+.timeline-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.timeline-item h3 {
+  margin: 0.4rem 0;
+  font-size: 1.3rem;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* The destination: 2034 */
+.timeline-final .timeline-year {
+  font-size: 3.4rem;
+  color: var(--gold);
+}
+
+
+/* ---------- 5. Vision 2030 ---------- */
+.vision-image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.vision-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.vision-image:hover img {
+  transform: scale(1.05);
+}
+
+.vision-badge {
+  position: absolute;
+  bottom: 1rem;
+  inset-inline-start: 1rem;
+  padding: 0.3rem 1.1rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-weight: 700;
+}
+
+.vision-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.vision-text {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.vision-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.vision-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.vision-list i {
+  font-size: 1.3rem;
+  color: var(--green-bright);
+}
+
+
+/* ---------- 6. Call to action ---------- */
+.cta {
+  padding: 5rem 0;
+  background: var(--green);
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.cta p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}

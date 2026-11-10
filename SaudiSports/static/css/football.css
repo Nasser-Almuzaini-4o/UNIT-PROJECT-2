@@ -1,0 +1,471 @@
+/* ==========================================================================
+   SaudiSports - Football Page Styles
+   --------------------------------------------------------------------------
+   1. Page hero
+   2. Quick facts
+   3. League
+   4. Big clubs
+   5. National team
+   6. What changed
+   7. Gallery
+   8. Call to action
+   ========================================================================== */
+
+
+/* ---------- 1. Page hero ---------- */
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0a1a12; /* fallback while the image loads */
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark scrim so the text stays readable on any photo */
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(5, 35, 20, 0.92), rgba(0, 0, 0, 0.4));
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-inner {
+  max-width: 680px;
+  padding: 4rem 0 6rem; /* extra bottom space for the facts card */
+}
+
+.page-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  margin-bottom: 0.8rem;
+}
+
+.page-hero p {
+  margin: 0;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* Breadcrumb */
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.crumbs a {
+  color: var(--gold);
+}
+
+.crumbs i {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+
+/* ---------- 2. Quick facts ---------- */
+/* The card overlaps the bottom of the hero */
+.facts {
+  position: relative;
+  z-index: 3;
+  margin-top: -3rem;
+}
+
+.facts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.fact {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.fact + .fact {
+  border-inline-start: 1px solid var(--border);
+}
+
+.fact strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+.fact span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+@media (max-width: 767px) {
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fact + .fact {
+    border-inline-start: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+
+/* ---------- 3. League ---------- */
+.league-text h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.league-text > p {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.league-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.league-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.league-list i {
+  font-size: 1.3rem;
+  color: var(--green-bright);
+}
+
+.league-image {
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.league-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.league-image:hover img {
+  transform: scale(1.05);
+}
+
+
+/* ---------- 4. Big clubs ---------- */
+.clubs-section {
+  background: var(--surface);
+}
+
+.club {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.club:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+/* Club colors (used by the stripe at the top of each card) */
+.club-hilal   { --c1: #1a4fa3; --c2: #ffffff; }
+.club-nassr   { --c1: #f2c200; --c2: #1a4fa3; }
+.club-ittihad { --c1: #f2c200; --c2: #111111; }
+.club-ahli    { --c1: #0a7a3d; --c2: #ffffff; }
+
+.club-stripe {
+  height: 8px;
+  background: linear-gradient(to left, var(--c1) 50%, var(--c2) 50%);
+}
+
+.club-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.club-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.club:hover .club-image img {
+  transform: scale(1.08);
+}
+
+.club-body {
+  padding: 1.25rem;
+}
+
+.club-nick {
+  display: inline-block;
+  padding: 0.1rem 0.8rem;
+  border-radius: 50px;
+  background: var(--surface-2);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.club-body h3 {
+  margin: 0.5rem 0;
+  font-size: 1.9rem;
+}
+
+.club-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.club-meta i {
+  margin-inline-end: 0.3rem;
+  color: var(--gold);
+}
+
+.club-body p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+
+/* ---------- 5. National team ---------- */
+.team-image {
+  height: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.team-text {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Vertical timeline: a line on the start side with a gold dot per moment */
+.moments {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  border-inline-start: 3px solid var(--border);
+}
+
+.moment {
+  position: relative;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.moment:last-child {
+  padding-bottom: 0;
+}
+
+.moment::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  inset-inline-start: -9px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg);
+}
+
+.moment-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.moment p {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+/* ---------- 6. What changed ---------- */
+.changes-section {
+  background: var(--surface);
+}
+
+.change {
+  display: flex;
+  gap: 1rem;
+}
+
+.change-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--green);
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.change h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+}
+
+.change p {
+  margin: 0;
+  color: var(--muted);
+}
+
+
+/* ---------- 7. Gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1rem;
+}
+
+.shot {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface-2);
+}
+
+.shot-tall {
+  grid-row: span 2;
+}
+
+.shot-wide {
+  grid-column: span 2;
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.shot:hover img {
+  transform: scale(1.08);
+}
+
+/* Caption appears on hover */
+.shot figcaption {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: 2rem 1rem 0.8rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #ffffff;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.85), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.shot:hover figcaption {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch screens have no hover, so captions are always visible */
+@media (hover: none) {
+  .shot figcaption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Phone: single column */
+@media (max-width: 575px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .shot-tall,
+  .shot-wide {
+    grid-row: span 1;
+    grid-column: span 1;
+  }
+}
+
+
+/* ---------- 8. Call to action ---------- */
+.cta {
+  padding: 5rem 0;
+  background: var(--green);
+  color: #ffffff;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.cta p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
