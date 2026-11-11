@@ -1,0 +1,479 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الرياضات الإلكترونية | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/esports.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/esports/hero.jpg' %}" alt="لاعبون على منصة بطولة رياضات إلكترونية في الرياض">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="مسار التنقل">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>الرياضات الإلكترونية</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">الرياضات الإلكترونية.. المملكة عاصمة اللاعبين</h1>
+      <p class="rise" style="--delay: .2s">
+        من فوز مساعد الدوسري بكأس العالم عام 2018، إلى أندية سعودية تتصدر المنصات العالمية،<br>
+        صارت الرياض مقصد أبطال الشاشة من كل القارات.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid reveal">
+      <div class="fact"><strong>2018</strong><span>مساعد الدوسري بطل <br>FIFA eWorld Cup</span></div>
+      <div class="fact"><strong>2</strong><span>لقبان للصقور في بطولة الأندية العالمية</span></div>
+      <div class="fact"><strong>71.5M$</strong><span>جوائز كأس العالم 2025 في الرياض</span></div>
+      <div class="fact"><strong>+40</strong><span>نادٍ في الدوري السعودي<br> للرياضات الإلكترونية</span></div>
+      <div class="fact"><strong>+100</strong><span>دولة في منظومة كأس الأمم</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. Status board ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>أين وصلت البطولات الكبرى؟</h2>
+      <p>خريطة محدّثة لأضخم أحداث الرياضات الإلكترونية المرتبطة بالمملكة.</p>
+    </div>
+
+    <div class="status-grid">
+
+      <article class="status-card reveal">
+        <div class="status-head">
+          <span class="status-icon"><i class="fa-solid fa-trophy"></i></span>
+          <span class="status-chip">منتهية</span>
+        </div>
+        <h3>كأس العالم للرياضات الإلكترونية 2026</h3>
+        <dl class="status-meta">
+          <div><dt>المكان</dt><dd>باريس (نُقلت من الرياض بسبب ظروف إقليمية)</dd></div>
+          <div><dt>الموعد</dt><dd>6 يوليو – 23 أغسطس 2026</dd></div>
+          <div><dt>بطل الأندية</dt><dd>AG.AL برصيد 5,300 نقطة</dd></div>
+          <div><dt>فالكونز</dt><dd>وصيف بـ 4,600 نقطة</dd></div>
+        </dl>
+      </article>
+
+      <article class="status-card is-next reveal" style="--delay: .15s">
+        <div class="status-head">
+          <span class="status-icon"><i class="fa-solid fa-calendar-days"></i></span>
+          <span class="status-chip">قادمة</span>
+        </div>
+        <h3>كأس العالم للرياضات الإلكترونية 2027</h3>
+        <dl class="status-meta">
+          <div><dt>المكان</dt><dd>الرياض</dd></div>
+          <div><dt>الموعد</dt><dd>يوليو – أغسطس 2027</dd></div>
+          <div><dt>الجديد</dt><dd>عودة الحدث إلى مقره الأصلي بعد نسخة باريس</dd></div>
+          <div><dt>أول لعبة مؤكدة</dt><dd>Counter-Strike 2</dd></div>
+        </dl>
+      </article>
+
+      <article class="status-card is-delay reveal" style="--delay: .3s">
+        <div class="status-head">
+          <span class="status-icon"><i class="fa-solid fa-flag"></i></span>
+          <span class="status-chip">مؤجلة</span>
+        </div>
+        <h3>كأس الأمم للرياضات الإلكترونية</h3>
+        <dl class="status-meta">
+          <div><dt>المكان</dt><dd>الرياض</dd></div>
+          <div><dt>الموعد الجديد</dt><dd>نوفمبر 2027 (كان مقرراً 2 – 29 نوفمبر 2026)</dd></div>
+          <div><dt>الفكرة</dt><dd>منتخبات وطنية تلعب باسم بلدانها لا أنديتها</dd></div>
+          <div><dt>الحجم</dt><dd>منظومة تضم أكثر من 100 دولة</dd></div>
+        </dl>
+      </article>
+
+    </div>
+
+    <div class="status-note reveal">
+      <i class="bi bi-info-circle-fill"></i>
+      <span>أولمبياد الرياضات الإلكترونية التي كانت مقررة في الرياض عام 2027 انتهت الشراكة بشأنها بين اللجنة الأولمبية الدولية والمملكة في أكتوبر 2025، وتواصل المملكة مسارها عبر بطولاتها الخاصة.</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 4. Saudi clubs ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>أندية تحمل راية المملكة</h2>
+      <p>أربعة أندية سعودية تنافس محلياً وعالمياً في عشرات الألعاب.</p>
+    </div>
+
+    <div class="clubs">
+
+      <article class="club is-lead reveal">
+        <span class="club-emblem">TF</span>
+        <h3>فالكونز <small>Team Falcons</small></h3>
+        <p class="club-tagline">أسسه مساعد الدوسري عام 2017، وصار أحد أبرز أندية المنطقة.</p>
+        <div class="club-stat"><b>2017</b><span>سنة التأسيس</span></div>
+        <ul class="club-list">
+          <li><i class="bi bi-check-circle-fill"></i><span>أول بطل أندية في تاريخ كأس العالم للرياضات الإلكترونية (2024).</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>حافظ على اللقب في نسخة 2025.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>في 2026: وصيف الأندية وبطل Street Fighter 6 وRocket League.</span></li>
+        </ul>
+      </article>
+
+      <article class="club reveal" style="--delay: .1s">
+        <span class="club-emblem">TM</span>
+        <h3>تويستد مايندز <small>Twisted Minds</small></h3>
+        <p class="club-tagline">قوة سعودية صاعدة بقيادة فريق Overwatch 2.</p>
+        <div class="club-stat"><b>OW2</b><span>لعبة التخصص</span></div>
+        <ul class="club-list">
+          <li><i class="bi bi-check-circle-fill"></i><span>دافع عن لقب ESL Saudi Challenge في نسخة 2025.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>تصدر ترتيب الدوري السعودي للأندية في منتصف 2025.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>دخل مع فالكونز بطولة MPL الفلبين (Mobile Legends).</span></li>
+        </ul>
+      </article>
+
+      <article class="club reveal" style="--delay: .2s">
+        <span class="club-emblem">TV</span>
+        <h3>تيم فيجن <small>Team Vision</small></h3>
+        <p class="club-tagline">فريق سعودي رفع كأس العالم في لعبة الاستراتيجية.</p>
+        <div class="club-stat"><b>3 - 0</b><span>نتيجة نهائي TFT</span></div>
+        <ul class="club-list">
+          <li><i class="bi bi-check-circle-fill"></i><span>بطل Teamfight Tactics في كأس العالم 2026 على Aurora Gaming.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>جائزة 150 ألف دولار و1,000 نقطة في بطولة الأندية.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>بلغ الدور قبل النهائي في ESL Saudi Challenge 2025.</span></li>
+        </ul>
+      </article>
+
+      <article class="club reveal" style="--delay: .3s">
+        <span class="club-emblem">QA</span>
+        <h3>القادسية <small>Al-Qadsiah Esports</small></h3>
+        <p class="club-tagline">الوجه الجديد الذي قفز إلى المركز الثاني محلياً في موسم واحد.</p>
+        <div class="club-stat"><b>4 / 9</b><span>ألقاب من 9 بطولات</span></div>
+        <ul class="club-list">
+          <li><i class="bi bi-check-circle-fill"></i><span>وصل نهائي ESL Saudi Challenge 2025 أمام تويستد مايندز.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>فريق السيدات Corals فاز بلقب Overwatch 2 Major 1 للسيدات.</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 5. Falcons journey (CSS-only tabs) ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>رحلة فالكونز مع كأس العالم</h2>
+      <p>اضغط على السنة لتشاهد كيف تغيّرت القصة من نسخة إلى نسخة.</p>
+    </div>
+
+    <div class="ftabs reveal">
+
+      <input type="radio" name="falcons-year" id="fy2024" class="ftab-radio" checked>
+      <input type="radio" name="falcons-year" id="fy2025" class="ftab-radio">
+      <input type="radio" name="falcons-year" id="fy2026" class="ftab-radio">
+
+      <div class="ftab-labels">
+        <label for="fy2024">2024</label>
+        <label for="fy2025">2025</label>
+        <label for="fy2026">2026</label>
+      </div>
+
+      <div class="ftab-panels">
+
+        <article class="ftab-panel fp-2024">
+          <div class="ftab-rank"><b>1</b><span>المركز</span></div>
+          <div>
+            <h3>أول بطل في التاريخ</h3>
+            <p>
+              في نسخة الرياض الأولى توّج فالكونز بأول بطولة أندية في كأس العالم للرياضات الإلكترونية，
+              وحصدوا الجائزة الكبرى (7 ملايين دولار) على أرض بوليفارد رياض سيتي.
+            </p>
+            <div class="ftab-stats">
+              <div><b>5,665</b><span>نقطة</span></div>
+              <div><b>3</b><span>بطولات فردية</span></div>
+              <div><b>7M$</b><span>الجائزة الكبرى</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ftab-panel fp-2025">
+          <div class="ftab-rank"><b>1</b><span>المركز</span></div>
+          <div>
+            <h3>اللقب الثاني على التوالي</h3>
+            <p>
+              في نسخة الرياض الثانية (8 يوليو – 24 أغسطس 2025) حافظ فالكونز على لقبهم，
+              متقدمين على تيم ليكويد وتيم فيتاليتي، في بطولة بلغت جوائزها رقماً قياسياً.
+            </p>
+            <div class="ftab-stats">
+              <div><b>2</b><span>لقبان متتاليان</span></div>
+              <div><b>26</b><span>بطولة في 25 لعبة</span></div>
+              <div><b>71.5M$</b><span>إجمالي الجوائز</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="ftab-panel fp-2026">
+          <div class="ftab-rank"><b>2</b><span>المركز</span></div>
+          <div>
+            <h3>وصافة بطعم المنافسة</h3>
+            <p>
+              انتقلت النسخة إلى باريس، وقاد فالكونز الترتيب حتى الأسبوع الأخير، لكن خروجاً مبكراً في Trackmania
+              منح AG.AL اللقب. ومع ذلك رفع فالكونز كأس Street Fighter 6 وكأس Rocket League.
+            </p>
+            <div class="ftab-stats">
+              <div><b>4,600</b><span>نقطة</span></div>
+              <div><b>700</b><span>فارق عن البطل</span></div>
+              <div><b>400K$</b><span>جائزة Rocket League</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 6. Unforgettable moments ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>لحظات لا تُنسى</h2>
+      <p>أرقام صنعت حكايات كأس العالم 2026 مع الأندية السعودية.</p>
+    </div>
+
+    <div class="moments">
+
+      <article class="moment reveal">
+        <span class="moment-num">15</span>
+        <h3>أصغر بطل في التاريخ</h3>
+        <p>لاعب فالكونز Craime فاز بـ Street Fighter 6 وعمره 15 سنة، بنتيجة 5 - 2 في النهائي، وجائزة 250 ألف دولار.</p>
+      </article>
+
+      <article class="moment reveal" style="--delay: .1s">
+        <span class="moment-num">2 - 5</span>
+        <h3>ديربي سعودي بعودة مجنونة</h3>
+        <p>في ربع نهائي Rocket League تأخر فالكونز أمام تويستد مايندز 2 - 5 في المباراة الرابعة، ثم قلبوا الطاولة وفازوا بالسلسلة.</p>
+      </article>
+
+      <article class="moment reveal" style="--delay: .2s">
+        <span class="moment-num">4 - 0</span>
+        <h3>نهائي بلا مقاومة</h3>
+        <p>اكتسح فالكونز Spacestation Gaming ونالوا 400 ألف دولار، ودخل المحترف dralii التاريخ كأول من يفوز بثلاثة ألقاب مع ثلاث تشكيلات.</p>
+      </article>
+
+      <article class="moment reveal" style="--delay: .3s">
+        <span class="moment-num">4 - 3</span>
+        <h3>الفتيات يصنعن الفارق</h3>
+        <p>فريق القادسية Corals هزم تويستد مايندز Orchid في نهائي Overwatch 2 Major 1 للسيدات بعد سلسلة مشدودة.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 7. National team + stars ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>المنتخب الأخضر الإلكتروني</h2>
+      <p>الاتحاد السعودي للرياضات الإلكترونية هو الشريك الرسمي لتمثيل المملكة في كأس الأمم.</p>
+    </div>
+
+    <div class="nat reveal">
+      <img class="nat-bg" src="{% static 'images/esports/national.jpg' %}" alt="منصة منتخبات في بطولة رياضات إلكترونية">
+      <div class="nat-overlay"></div>
+      <div class="nat-inner">
+        <span class="nat-badge"><i class="fa-solid fa-flag"></i> منتخب المملكة</span>
+        <h3>أسماء لعبت باسم الوطن</h3>
+        <p class="nat-text">
+          في كأس الأمم يلعب اللاعبون باسم بلدانهم لا أنديتهم. هذه هي التشكيلات السعودية التي أُعلنت
+          استعداداً للنسخة الأولى.
+        </p>
+
+        <div class="rosters">
+          <div class="roster">
+            <h4>Rocket League</h4>
+            <ul>
+              <li class="player">Rw9</li>
+              <li class="player">trk511</li>
+              <li class="player">Kiileerrz</li>
+              <li class="player">Nwpo</li>
+            </ul>
+          </div>
+          <div class="roster">
+            <h4>Mobile Legends</h4>
+            <ul>
+              <li class="player">Saano</li>
+              <li class="player">Trolll</li>
+              <li class="player">Cuffin</li>
+              <li class="player">K7</li>
+              <li class="player">Arshven</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="nat-note">التشكيلات أُعلنت قبل تأجيل البطولة إلى نوفمبر 2027، وقد تتغير قبل الانطلاقة.</p>
+      </div>
+    </div>
+
+    <div class="section-head sub-head reveal">
+      <h2>نجوم سعوديون</h2>
+      <p>من بطل العالم الأول إلى مواهب المدارس.</p>
+    </div>
+
+    <div class="stars">
+
+      <article class="star reveal">
+        <span class="star-avatar">م</span>
+        <h3>مساعد الدوسري</h3>
+        <div class="star-role">بطل FIFA eWorld Cup 2018</div>
+        <p>فاز بكأس العالم عام 2018، ثم شارك في تأسيس فالكونز الذي صار بيت أبطال المنطقة.</p>
+      </article>
+
+      <article class="star reveal" style="--delay: .15s">
+        <span class="star-avatar">ب</span>
+        <h3>التوأم بخشوين</h3>
+        <div class="star-role">Kiileerrz و Rw9</div>
+        <p>أول لاعبَين سعوديَّين يرفعان كأس العالم للرياضات الإلكترونية، ونال Rw9 جائزة أفضل لاعب في بطولة Rocket League.</p>
+      </article>
+
+      <article class="star reveal" style="--delay: .3s">
+        <span class="star-avatar"><i class="fa-solid fa-graduation-cap"></i></span>
+        <h3>جيل المدارس</h3>
+        <div class="star-role">موهبة بعمر 16 سنة</div>
+        <p>في 2025 وقّع تويستد مايندز لاعباً سعودياً عمره 16 عاماً بعد تألقه في دوري المدارس للرياضات الإلكترونية.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 8. Timeline ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>رحلة الرياضات الإلكترونية السعودية</h2>
+      <p>من نادٍ صغير إلى مركز عالمي للألعاب.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <span class="timeline-year">2017</span>
+        <h3>ولادة فالكونز</h3>
+        <p>تأسيس النادي الذي سيصبح أشهر أندية المملكة.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .15s">
+        <span class="timeline-year">2018</span>
+        <h3>كأس العالم</h3>
+        <p>مساعد الدوسري يتوج بطلاً لـ FIFA eWorld Cup.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .3s">
+        <span class="timeline-year">2022</span>
+        <h3>Gamers8</h3>
+        <p>انطلاق فعاليات Gamers8 في الرياض بتنظيم الاتحاد السعودي.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .45s">
+        <span class="timeline-year">2024</span>
+        <h3>أول كأس عالم</h3>
+        <p>الرياض تستضيف أول كأس العالم للرياضات الإلكترونية، وفالكونز أول الأبطال.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .6s">
+        <span class="timeline-year">2025</span>
+        <h3>رقم قياسي</h3>
+        <p>أكبر جوائز في تاريخ البطولة، وفالكونز يكررون اللقب.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .75s">
+        <span class="timeline-year">2026</span>
+        <h3>محطة باريس</h3>
+        <p>النسخة تنتقل إلى باريس، وفيجن وفالكونز يرفعون كؤوساً سعودية.</p>
+      </div>
+      <div class="timeline-item timeline-final reveal" style="--delay: .9s">
+        <span class="timeline-year">2027</span>
+        <h3>العودة إلى الرياض</h3>
+        <p>كأس العالم في الصيف، وكأس الأمم في نوفمبر.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 9. Ecosystem ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>الأعمدة التي تقف عليها الصناعة</h2>
+      <p>منظومة كاملة تبدأ من الحيّ وتنتهي بأكبر بطولات الكوكب.</p>
+    </div>
+
+    <div class="pillars">
+
+      <article class="pillar reveal">
+        <span class="pillar-icon"><i class="fa-solid fa-flag"></i></span>
+        <h3>الاتحاد السعودي للرياضات الإلكترونية</h3>
+        <p>الجهة الوطنية المشرفة على المنافسات، ويدير المنتخب الوطني، ويستضيف الدوري في قاعة SEF Arena.</p>
+        <span class="pillar-fact">شريك المنتخب في كأس الأمم</span>
+      </article>
+
+      <article class="pillar reveal" style="--delay: .1s">
+        <span class="pillar-icon"><i class="fa-solid fa-trophy"></i></span>
+        <h3>الدوري السعودي</h3>
+        <p>موسم 2025 جمع أكثر من 40 نادياً في 14 لعبة للنخبة وخمس ألعاب لقسم السيدات.</p>
+        <span class="pillar-fact">+40 نادياً</span>
+      </article>
+
+      <article class="pillar reveal" style="--delay: .2s">
+        <span class="pillar-icon"><i class="fa-solid fa-rocket"></i></span>
+        <h3>مجموعة سافي للألعاب</h3>
+        <p>شركة مملوكة بالكامل لصندوق الاستثمارات العامة، وهدفها جعل المملكة مركزاً عالمياً للألعاب والرياضات الإلكترونية بحلول 2030.</p>
+        <span class="pillar-fact">رؤية 2030</span>
+      </article>
+
+      <article class="pillar reveal" style="--delay: .3s">
+        <span class="pillar-icon"><i class="fa-solid fa-globe"></i></span>
+        <h3>مؤسسة الرياضات الإلكترونية</h3>
+        <p>منظمة غير ربحية مقرها الرياض، تنظم كأس العالم وكأس الأمم وتدعم الأندية عبر برنامج الشراكة.</p>
+        <span class="pillar-fact">مقرها الرياض</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 10. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>من الشاشة إلى الملعب</h2>
+    <p>تابع أكبر الأحداث والمنشآت التي تحتضن حماس المملكة.</p>
+    <div class="cta-actions">
+      <a href="{% url 'events_view' %}" class="btn btn-gold btn-lg">الفعاليات والبطولات</a>
+      <a href="{% url 'stadiums_view' %}" class="btn btn-outline-light btn-lg">الملاعب والمنشآت</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
