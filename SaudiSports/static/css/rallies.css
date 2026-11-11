@@ -1,0 +1,471 @@
+/* ==========================================================================
+   SaudiSports - Rallies Page Styles
+   --------------------------------------------------------------------------
+   1. Featured rallies
+   2. Dakar route
+   3. Terrains
+   4. Timeline
+   5. Saudi drivers
+   ========================================================================== */
+
+
+/* ---------- 1. Featured rallies ---------- */
+.rally-list {
+  display: grid;
+  gap: 4.5rem;
+}
+
+.rally {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Every second rally swaps sides */
+.rally.flip .rally-media {
+  order: 2;
+}
+
+.rally-media {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.rally-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+
+/* Dark gradient so the big year stays readable */
+.rally-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.75), rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+
+/* Big outlined year */
+.rally-year {
+  position: absolute;
+  bottom: 0.4rem;
+  inset-inline-start: 1.2rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+}
+
+.rally-status {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  padding: 0.3rem 1.1rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.rally-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.rally-body h3 {
+  margin: 0.8rem 0 0.6rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.rally-body > p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* Small facts grid: date, place, organizer */
+.rally-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  margin: 1.5rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--border);
+}
+
+.rally-meta div {
+  padding: 0.9rem 1.1rem;
+  background: var(--surface);
+}
+
+.rally-meta dt {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.rally-meta dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.rally-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-inline-start: 4px solid var(--gold);
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.rally-note i {
+  margin-top: 0.25rem;
+  color: var(--accent);
+}
+
+/* Tablet and phone: image on top, text below */
+@media (max-width: 991px) {
+  .rally {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .rally.flip .rally-media {
+    order: 0;
+  }
+}
+
+
+/* ---------- 2. Dakar route ---------- */
+.route-section {
+  background: var(--surface);
+}
+
+.route {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  counter-reset: stop;
+}
+
+/* Dashed road behind the stops */
+.route::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  inset-inline: 0;
+  border-top: 3px dashed var(--border);
+}
+
+.route-stop {
+  position: relative;
+  padding-top: 3.8rem;
+  text-align: center;
+}
+
+/* Numbered gold dot */
+.route-stop::before {
+  content: counter(stop);
+  counter-increment: stop;
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  box-shadow: 0 0 0 6px var(--surface);
+}
+
+.route-stop h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.route-stop p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Phone: the road becomes vertical */
+@media (max-width: 767px) {
+  .route {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .route::before {
+    top: 0;
+    bottom: 0;
+    inset-inline: 22px auto;
+    border-top: 0;
+    border-inline-start: 3px dashed var(--border);
+  }
+
+  .route-stop {
+    padding-top: 0;
+    padding-inline-start: 4rem;
+    text-align: start;
+  }
+
+  .route-stop::before {
+    inset-inline: 0 auto;
+    margin-inline: 0;
+  }
+}
+
+
+/* ---------- 3. Terrains ---------- */
+.terrain {
+  display: flex;
+  gap: 1rem;
+  height: 440px;
+}
+
+.terrain-card {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 22px;
+  color: #ffffff;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+  transition: flex 0.6s ease;
+}
+
+/* The hovered card grows and the others shrink */
+.terrain-card:hover {
+  flex: 1.9;
+}
+
+.terrain-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.terrain-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Dark gradient at the bottom for text readability */
+.terrain-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.9), rgba(0, 0, 0, 0) 65%);
+}
+
+.terrain-icon {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  transition: background 0.3s, color 0.3s;
+}
+
+.terrain-card:hover .terrain-icon {
+  background: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+.terrain-body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.5rem;
+}
+
+.terrain-body h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.8rem;
+}
+
+.terrain-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Phone and tablet: cards stack */
+@media (max-width: 767px) {
+  .terrain {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .terrain-card,
+  .terrain-card:hover {
+    flex: none;
+    height: 230px;
+  }
+}
+
+
+/* ---------- 4. Timeline ---------- */
+.timeline-section {
+  background: var(--surface);
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 2rem 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+/* Grey line (always visible) and gold line (draws itself when revealed) */
+.timeline-item::before,
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  height: 3px;
+}
+
+.timeline-item::before {
+  width: 100%;
+  background: var(--border);
+}
+
+.timeline-item::after {
+  width: 0;
+  background: var(--gold);
+  transition: width 1s ease var(--delay, 0s);
+}
+
+.timeline-item.visible::after {
+  width: 100%;
+}
+
+.timeline-year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.timeline-item h3 {
+  margin: 0.4rem 0;
+  font-size: 1.3rem;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* The latest stop */
+.timeline-final .timeline-year {
+  font-size: 3.4rem;
+  color: var(--gold);
+}
+
+
+/* ---------- 5. Saudi drivers ---------- */
+.stars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.star {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.star:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+/* Letter avatar (no photos needed) */
+.star-avatar {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+}
+
+.star h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.5rem;
+}
+
+.star-role {
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.star p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}

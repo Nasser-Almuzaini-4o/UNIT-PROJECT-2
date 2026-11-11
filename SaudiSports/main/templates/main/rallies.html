@@ -1,0 +1,312 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الراليات | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/rallies.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/rallies/hero.jpg' %}" alt="سيارة رالي تعبر كثبان الصحراء السعودية">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="مسار التنقل">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>الراليات</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">الراليات..<br> حيث تبدأ الصحراء سباقها</h1>
+      <p class="rise" style="--delay: .2s">
+        من حائل التي شهدت أول رالي عام 2006، إلى داكار وبطولة العالم للراليات في جدة،
+        رمال المملكة صارت حلبة يعرفها العالم.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid reveal">
+      <div class="fact"><strong>7</strong><span>نسخ من داكار على أرض المملكة</span></div>
+      <div class="fact"><strong>2006</strong><span>أول رالي في منطقة حائل</span></div>
+      <div class="fact"><strong>21</strong><span>نسخة من باها حائل الدولي</span></div>
+      <div class="fact"><strong>2025</strong><span>أول جولة لبطولة العالم للراليات في جدة</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. Featured rallies ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ثلاثة سباقات صنعت اسم المملكة</h2>
+      <p>راليات أقيمت على أرضنا، بين الكثبان والجبال وساحل البحر الأحمر.</p>
+    </div>
+
+    <div class="rally-list">
+
+      <!-- Dakar -->
+      <article class="rally reveal" id="dakar">
+        <div class="rally-media">
+          <img src="{% static 'images/rallies/dakar.jpg' %}" alt="سيارات رالي داكار في الصحراء السعودية">
+          <span class="rally-year">2020</span>
+          <span class="rally-status">7 نسخ</span>
+        </div>
+        <div class="rally-body">
+          <span class="rally-tag"><i class="fa-solid fa-route"></i> رالي ماراثوني</span>
+          <h3>رالي داكار السعودية</h3>
+          <p>
+            منذ 2020 صارت المملكة بيتاً لأشهر رالي في العالم. أسبوعان من المراحل بين الكثبان والجبال
+            والسهول. نسخة 2026 ضمّت أكثر من 800 مشارك، ومرحلة تمهيدية و13 مرحلة تنافسية.
+          </p>
+          <dl class="rally-meta">
+            <div><dt>نسخة 2026</dt><dd>3 – 17 يناير</dd></div>
+            <div><dt>الانطلاق</dt><dd>ينبع</dd></div>
+            <div><dt>المنظمون</dt><dd>ASO والشركة السعودية لرياضة المحركات</dd></div>
+          </dl>
+          <div class="rally-note">
+            <i class="bi bi-trophy-fill"></i>
+            <span>في 2025 صار يزيد الراجحي أول سعودي يفوز بلقب فئة السيارات في داكار.</span>
+          </div>
+          <div class="rally-note">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>داكار 2027 ينتقل مؤقتاً إلى البرتغال والمغرب، والمنظمون ينوون إعادته للمملكة في 2028 للنسخة الخمسين.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hail Baja -->
+      <article class="rally flip reveal" id="hail">
+        <div class="rally-media">
+          <img src="{% static 'images/rallies/hail.jpg' %}" alt="سيارة باها في صحراء النفود بمنطقة حائل">
+          <span class="rally-year">2006</span>
+          <span class="rally-status">21 نسخة</span>
+        </div>
+        <div class="rally-body">
+          <span class="rally-tag"><i class="fa-solid fa-flag-checkered"></i> رالي باها دولي</span>
+          <h3>باها حائل تويوتا الدولي</h3>
+          <p>
+            في حائل بدأت قصة الراليات في المملكة، ولا تزال المنطقة تُعرف بأنها موطن هذه السباقات.
+            نسخة 2026 هي الحادية والعشرون، انطلقت بمرحلة تمهيدية في منطقة مشار
+            وعبرت صحراء النفود الكبير.
+          </p>
+          <dl class="rally-meta">
+            <div><dt>نسخة 2026</dt><dd>28 – 31 يناير</dd></div>
+            <div><dt>الموقع</dt><dd>حائل – النفود الكبير</dd></div>
+            <div><dt>المنظم</dt><dd>الاتحاد السعودي للسيارات والدراجات النارية</dd></div>
+          </dl>
+          <div class="rally-note">
+            <i class="bi bi-trophy-fill"></i>
+            <span>كان الجولة الأولى من بطولة تويوتا السعودية للباها: الفوز العام لناصر العطية، ويزيد الراجحي ثانياً، ودانية عقيل ثالثة.</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- WRC Rally Saudi Arabia -->
+      <article class="rally reveal" id="wrc">
+        <div class="rally-media">
+          <img src="{% static 'images/rallies/wrc.jpg' %}" alt="سيارة رالي تتسابق قرب ساحل جدة">
+          <span class="rally-year">2025</span>
+          <span class="rally-status">النسخة الأولى</span>
+        </div>
+        <div class="rally-body">
+          <span class="rally-tag"><i class="fa-solid fa-car-side"></i> بطولة العالم للراليات</span>
+          <h3>رالي السعودية – WRC</h3>
+          <p>
+            في نوفمبر 2025 استضافت جدة لأول مرة جولة من بطولة العالم للراليات. مقر الرالي حلبة كورنيش جدة،
+            ومراحله تجمع بين سرعة الصحراء المفتوحة والمقاطع الصخرية الفنية وإطلالات ساحل البحر الأحمر.
+            وانطلقت المنافسة بمرحلة خاصة طولها 5.22 كم داخل جدة.
+          </p>
+          <dl class="rally-meta">
+            <div><dt>الموعد</dt><dd>26 – 29 نوفمبر 2025</dd></div>
+            <div><dt>مقر الرالي</dt><dd>حلبة كورنيش جدة</dd></div>
+            <div><dt>الراعي</dt><dd>جميل لرياضة المحركات</dd></div>
+          </dl>
+          <div class="rally-note">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>نسخة 2026 لن تكون ضمن بطولة العالم للراليات بسبب تطورات إقليمية.</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Dakar 2026 route ===================== -->
+<section class="section route-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>على خطى داكار 2026</h2>
+      <p>أربع محطات من النسخة السابعة، من ساحل البحر الأحمر إلى جنوب المملكة.</p>
+    </div>
+
+    <div class="route">
+      <div class="route-stop reveal">
+        <h3>ينبع</h3>
+        <p>نقطة الانطلاق على ساحل البحر الأحمر.</p>
+      </div>
+      <div class="route-stop reveal" style="--delay: .15s">
+        <h3>العلا</h3>
+        <p>وجهة المرحلة الثانية القادمة من ينبع.</p>
+      </div>
+      <div class="route-stop reveal" style="--delay: .3s">
+        <h3>حائل</h3>
+        <p>محطة في قلب الشمال عبرتها المرحلة الخامسة.</p>
+      </div>
+      <div class="route-stop reveal" style="--delay: .45s">
+        <h3>بيشة</h3>
+        <p>استضافت المرحلة العاشرة في الجنوب.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 5. Terrains ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ثلاث تضاريس.. حلبة واحدة</h2>
+      <p>كل رالي في المملكة يختبر السائق بطريقة مختلفة.</p>
+    </div>
+
+    <div class="terrain reveal">
+
+      <div class="terrain-card">
+        <img src="{% static 'images/rallies/dunes.jpg' %}" alt="كثبان رملية ذهبية في صحراء النفود">
+        <span class="terrain-icon"><i class="fa-solid fa-sun"></i></span>
+        <div class="terrain-body">
+          <h3>الكثبان</h3>
+          <p>رمال ناعمة وارتفاعات مفاجئة، وأبرزها النفود الكبير في حائل.</p>
+        </div>
+      </div>
+
+      <div class="terrain-card">
+        <img src="{% static 'images/rallies/mountains.jpg' %}" alt="جبال وتكوينات صخرية في العلا">
+        <span class="terrain-icon"><i class="fa-solid fa-mountain"></i></span>
+        <div class="terrain-body">
+          <h3>الجبال والأودية</h3>
+          <p>مسارات صخرية تحتاج ملاحة دقيقة وهدوء أعصاب.</p>
+        </div>
+      </div>
+
+      <div class="terrain-card">
+        <img src="{% static 'images/rallies/coast.jpg' %}" alt="ساحل البحر الأحمر قرب جدة">
+        <span class="terrain-icon"><i class="fa-solid fa-water"></i></span>
+        <div class="terrain-body">
+          <h3>ساحل البحر الأحمر</h3>
+          <p>سرعة عالية بين الرمال والبحر، من ينبع إلى جدة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 6. Timeline ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>رحلة الراليات في المملكة</h2>
+      <p>من رالي في حائل إلى منصة عالمية.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <span class="timeline-year">2006</span>
+        <h3>البداية من حائل</h3>
+        <p>أول رالي في المملكة ينطلق في منطقة حائل.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .15s">
+        <span class="timeline-year">2020</span>
+        <h3>داكار في المملكة</h3>
+        <p>أول نسخة من رالي داكار على أرض المملكة.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .3s">
+        <span class="timeline-year">2025</span>
+        <h3>أول بطل سعودي</h3>
+        <p>يزيد الراجحي يتوج بلقب فئة السيارات في داكار.</p>
+      </div>
+      <div class="timeline-item reveal" style="--delay: .45s">
+        <span class="timeline-year">2025</span>
+        <h3>WRC في جدة</h3>
+        <p>أول جولة لبطولة العالم للراليات في المملكة.</p>
+      </div>
+      <div class="timeline-item timeline-final reveal" style="--delay: .6s">
+        <span class="timeline-year">2026</span>
+        <h3>الأرقام تكبر</h3>
+        <p>النسخة السابعة من داكار والحادية والعشرون من باها حائل.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 7. Saudi drivers ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>أسماء سعودية على منصات التتويج</h2>
+      <p>جيل يكتب اسم المملكة في سجلات الراليات.</p>
+    </div>
+
+    <div class="stars">
+
+      <article class="star reveal">
+        <span class="star-avatar">ي</span>
+        <h3>يزيد الراجحي</h3>
+        <div class="star-role">سائق سيارات</div>
+        <p>أول سعودي يتوج بلقب فئة السيارات في داكار، وحلّ ثانياً في باها حائل 2026.</p>
+      </article>
+
+      <article class="star reveal" style="--delay: .15s">
+        <span class="star-avatar">د</span>
+        <h3>دانية عقيل</h3>
+        <div class="star-role">سائقة سيارات</div>
+        <p>حلّت ثالثة في باها حائل 2026، لتحضر بقوة بين نخبة السائقين.</p>
+      </article>
+
+      <article class="star reveal" style="--delay: .3s">
+        <span class="star-avatar">ح</span>
+        <h3>حمزة بخشب</h3>
+        <div class="star-role">سائق صاعد</div>
+        <p>فاز بباها حائل 2025، وتوّج بلقب «ناكست جن» السعودي في العام نفسه.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 8. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>من الرمال إلى الأسفلت</h2>
+    <p>بعد الراليات، اكتشف سرعة الليل على كورنيش جدة وأحداث المملكة الكبرى.</p>
+    <div class="cta-actions">
+      <a href="{% url 'formula_view' %}" class="btn btn-gold btn-lg">فورمولا 1</a>
+      <a href="{% url 'events_view' %}" class="btn btn-outline-light btn-lg">الفعاليات والبطولات</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

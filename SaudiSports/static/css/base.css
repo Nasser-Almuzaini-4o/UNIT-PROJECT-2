@@ -445,7 +445,7 @@ img {
   position: relative;
   display: flex;
   align-items: center;
-  min-height: 60vh;
+  min-height: 80vh;
   overflow: hidden;
   color: #ffffff;
   background: #0a1a12; /* fallback while the image loads */
