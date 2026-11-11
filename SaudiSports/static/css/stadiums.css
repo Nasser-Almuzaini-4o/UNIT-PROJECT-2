@@ -1,0 +1,624 @@
+/* ==========================================================================
+   SaudiSports - Stadiums Page Styles
+   --------------------------------------------------------------------------
+   1. Latest updates
+   2. Flagship stadium
+   3. City filter 
+   4. Stadiums today
+   5. Halls and arenas
+   6. Timeline
+   ========================================================================== */
+
+
+/* ---------- 1. Latest updates ---------- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.news-card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--muted);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+}
+
+.news-card.is-review {
+  border-top-color: var(--gold);
+}
+
+.news-card.is-next {
+  border-top-color: var(--green-bright);
+}
+
+.news-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.news-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.news-chip {
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.is-review .news-chip {
+  background: transparent;
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+}
+
+.is-next .news-chip {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+.news-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.news-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 2. Flagship stadium ---------- */
+.timeline-section {
+  background: var(--surface);
+}
+
+.flag {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.flag-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 26px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.flag-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.flag:hover .flag-media img {
+  transform: scale(1.06);
+}
+
+/* Dark gradient so the big number stays readable */
+.flag-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.8), rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+
+.flag-badge {
+  position: absolute;
+  top: 1rem;
+  inset-inline-end: 1rem;
+  z-index: 2;
+  padding: 0.3rem 1.1rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Big outlined capacity */
+.flag-big {
+  position: absolute;
+  bottom: 0.4rem;
+  inset-inline-start: 1.2rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+  direction: ltr;
+}
+
+.flag-body h3 {
+  margin: 0.8rem 0 0.6rem;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.flag-body > p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.flag-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1px;
+  margin: 1.5rem 0 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--border);
+}
+
+.flag-meta div {
+  padding: 0.9rem 1.1rem;
+  background: var(--bg);
+}
+
+.flag-meta dt {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.flag-meta dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.flag-points {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+
+.flag-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.flag-points i {
+  margin-top: 0.3rem;
+  color: var(--green-bright);
+}
+
+@media (max-width: 991px) {
+  .flag {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+
+/* ---------- 3. City filter  ---------- */
+/* The radio inputs hold the state; labels act as the filter buttons. */
+.city-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.city-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.city-labels label {
+  padding: 0.4rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.city-labels label:hover {
+  color: var(--accent);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Active filter */
+#c-all:checked ~ .city-labels label[for="c-all"],
+#c-riyadh:checked ~ .city-labels label[for="c-riyadh"],
+#c-jeddah:checked ~ .city-labels label[for="c-jeddah"],
+#c-khobar:checked ~ .city-labels label[for="c-khobar"],
+#c-abha:checked ~ .city-labels label[for="c-abha"],
+#c-neom:checked ~ .city-labels label[for="c-neom"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+/* Visible keyboard focus */
+#c-all:focus-visible ~ .city-labels label[for="c-all"],
+#c-riyadh:focus-visible ~ .city-labels label[for="c-riyadh"],
+#c-jeddah:focus-visible ~ .city-labels label[for="c-jeddah"],
+#c-khobar:focus-visible ~ .city-labels label[for="c-khobar"],
+#c-abha:focus-visible ~ .city-labels label[for="c-abha"],
+#c-neom:focus-visible ~ .city-labels label[for="c-neom"] {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Hide the cards that do not belong to the chosen city */
+#c-riyadh:checked ~ .arena-grid .arena:not([data-city="riyadh"]),
+#c-jeddah:checked ~ .arena-grid .arena:not([data-city="jeddah"]),
+#c-khobar:checked ~ .arena-grid .arena:not([data-city="khobar"]),
+#c-abha:checked ~ .arena-grid .arena:not([data-city="abha"]),
+#c-neom:checked ~ .arena-grid .arena:not([data-city="neom"]) {
+  display: none;
+}
+
+.arena-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+
+.arena {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.arena:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.arena-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.arena-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.arena:hover .arena-media img {
+  transform: scale(1.08);
+}
+
+.arena-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.55), rgba(0, 0, 0, 0) 55%);
+  pointer-events: none;
+}
+
+.arena-tag {
+  position: absolute;
+  top: 0.9rem;
+  inset-inline-end: 0.9rem;
+  z-index: 2;
+  padding: 0.2rem 0.95rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tag-new {
+  background: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+.tag-reno {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.tag-hold {
+  background: #3b3f3c;
+  color: #ffffff;
+}
+
+.arena-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.arena-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.arena-body h3 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: 1.45rem;
+}
+
+/* Capacity meter: the bar grows when the card is revealed */
+.cap {
+  margin-bottom: 1rem;
+}
+
+.cap-top {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.cap-top b {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1.2;
+  color: var(--accent);
+  direction: ltr;
+}
+
+.cap-top span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cap-bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--border);
+}
+
+.cap-bar::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: calc(var(--cap) * 1%);
+  border-radius: 6px;
+  background: linear-gradient(to left, var(--gold), var(--green-bright));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 1s ease 0.2s;
+}
+
+.arena.visible .cap-bar::before {
+  transform: scaleX(1);
+}
+
+.arena-idea {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.arena-idea i {
+  margin-top: 0.3rem;
+  color: var(--gold);
+}
+
+.arena-state {
+  margin: auto 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.state-soon {
+  color: var(--green-bright);
+}
+
+.state-review {
+  color: var(--accent);
+}
+
+.state-hold {
+  color: var(--muted);
+}
+
+/* Shelved stadium: grey image */
+.arena.is-shelved .arena-media img {
+  filter: grayscale(1) brightness(0.85);
+}
+
+
+/* ---------- 4. Stadiums today ---------- */
+.now {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.now-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.now-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.now-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.now-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.now-card:hover .now-media img {
+  transform: scale(1.08);
+}
+
+.now-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.7), rgba(0, 0, 0, 0) 60%);
+  pointer-events: none;
+}
+
+.now-year {
+  position: absolute;
+  bottom: 0.4rem;
+  inset-inline-start: 1rem;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1.1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ffffff;
+}
+
+.now-body {
+  padding: 1.25rem 1.4rem 1.5rem;
+}
+
+.now-body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.45rem;
+}
+
+.now-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.now-meta i {
+  margin-inline-end: 0.3rem;
+}
+
+.now-body p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 5. Halls and arenas ---------- */
+.halls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.hall {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.hall:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.hall.is-soon {
+  border-style: dashed;
+}
+
+.hall-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  background: var(--green);
+  color: var(--gold);
+  font-size: 1.4rem;
+}
+
+.hall h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.hall-cap {
+  display: inline-block;
+  margin-bottom: 0.7rem;
+  padding: 0.2rem 0.9rem;
+  border-radius: 50px;
+  background: var(--surface-2);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.hall p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+

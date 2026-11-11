@@ -1,0 +1,496 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الملاعب والمنشآت | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/stadiums.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/stadiums/hero.jpg' %}" alt="ملعب سعودي كبير مضاء في الليل">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="مسار التنقل">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>الملاعب والمنشآت</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">الملاعب والمنشآت..<br> ميدان الحدث القادم</h1>
+      <p class="rise" style="--delay: .2s">
+        من ملاعب قائمة تعرفها الجماهير، إلى خطة طموحة لكأس العالم 2034،<br>
+        هذه خريطة المنشآت التي تحتضن حماس المملكة.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid reveal">
+      <div class="fact"><strong>15</strong><span>ملعباً في خطة ملف كأس العالم 2034</span></div>
+      <div class="fact"><strong>5</strong><span>مدن مستضيفة: الرياض وجدة والخبر وأبها ونيوم</span></div>
+      <div class="fact"><strong>92,760</strong><span>مقعداً في ملعب الملك سلمان الدولي</span></div>
+      <div class="fact"><strong>2027</strong><span>كأس آسيا على ملاعب المملكة في يناير</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. Latest updates ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>آخر التطورات</h2>
+      <p>الخطة تتغير مع مراجعة المشاريع الكبرى، وهذا ما ورد حتى أكتوبر 2026.</p>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news-card is-hold reveal">
+        <div class="news-head">
+          <span class="news-icon"><i class="fa-solid fa-pause"></i></span>
+          <span class="news-chip">تقارير رويترز</span>
+        </div>
+        <h3>ملعب نيوم معلّق</h3>
+        <p>أفادت تقارير بأن ملعب نيوم (46 ألف مقعد، كان مقرراً على ارتفاع 350 متراً) أُوقف إلى أجل غير مسمى، ولم تعلّق الجهة المستضيفة عليه مباشرة.</p>
+      </article>
+
+      <article class="news-card is-review reveal" style="--delay: .15s">
+        <div class="news-head">
+          <span class="news-icon"><i class="fa-solid fa-scale-balanced"></i></span>
+          <span class="news-chip">غير رسمي</span>
+        </div>
+        <h3>مراجعة الخطة</h3>
+        <p>تقارير تفيد بأن صندوق الاستثمارات العامة قد يستغني عن 5 ملاعب جديدة فينخفض العدد من 15 إلى 10، ولم يصدر تأكيد رسمي. المملكة ما زالت ملتزمة باستضافة البطولة.</p>
+      </article>
+
+      <article class="news-card is-next reveal" style="--delay: .3s">
+        <div class="news-head">
+          <span class="news-icon"><i class="fa-solid fa-flag-checkered"></i></span>
+          <span class="news-chip">قريباً</span>
+        </div>
+        <h3>ملعب أرامكو شبه جاهز</h3>
+        <p>ملعب الخبر ينتظر اكتماله هذا العام واستضافة أول مباراة في يناير، قبل انطلاق كأس آسيا 2027.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Flagship: King Salman ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ملعب الافتتاح والنهائي</h2>
+      <p>الأكبر في المملكة، وعلى أرضه تُرفع كأس العالم 2034.</p>
+    </div>
+
+    <article class="flag reveal">
+      <div class="flag-media">
+        <img src="{% static 'images/stadiums/king-salman.jpg' %}" alt="تصور ملعب الملك سلمان الدولي في الرياض">
+        <span class="flag-badge">افتتاح + نهائي</span>
+        <span class="flag-big">92,760</span>
+      </div>
+      <div class="flag-body">
+        <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض</span>
+        <h3>ملعب الملك سلمان الدولي</h3>
+        <p>
+          يقع شمال شرق الرياض قرب المطار، وتصمّمه Populous. تستلهم الفكرة طبيعة المملكة،
+          ويُتخيَّل كل ملعب في المخطط العام كبذرة تنبت من الأرض.
+        </p>
+        <dl class="flag-meta">
+          <div><dt>السعة</dt><dd>92,760 مقعداً</dd></div>
+          <div><dt>المصمم</dt><dd>Populous</dd></div>
+          <div><dt>الأدوار</dt><dd>مباراة الافتتاح والنهائي</dd></div>
+        </dl>
+        <ul class="flag-points">
+          <li><i class="bi bi-check-circle-fill"></i><span>يصبح بعد البطولة وجهة ترفيه متعددة الاستخدامات.</span></li>
+          <li><i class="bi bi-check-circle-fill"></i><span>مقرر أن يكون بيتاً للمنتخب السعودي.</span></li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ===================== 5. The other 14 stadiums  ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>بقية ملاعب 2034</h2>
+      <p>اختر المدينة لتشاهد ملاعبها، مع فكرة التصميم والحالة الحالية.</p>
+    </div>
+
+    <div class="cityfilter">
+
+      <input type="radio" name="city" id="c-all" class="city-radio" checked>
+      <input type="radio" name="city" id="c-riyadh" class="city-radio">
+      <input type="radio" name="city" id="c-jeddah" class="city-radio">
+      <input type="radio" name="city" id="c-khobar" class="city-radio">
+      <input type="radio" name="city" id="c-abha" class="city-radio">
+      <input type="radio" name="city" id="c-neom" class="city-radio">
+
+      <div class="city-labels">
+        <label for="c-all">الكل</label>
+        <label for="c-riyadh">الرياض</label>
+        <label for="c-jeddah">جدة</label>
+        <label for="c-khobar">الخبر</label>
+        <label for="c-abha">أبها</label>
+        <label for="c-neom">نيوم</label>
+      </div>
+
+      <div class="arena-grid">
+
+        <!-- Riyadh -->
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/king-fahd.jpg' %}" alt="ملعب الملك فهد الدولي في الرياض">
+            <span class="arena-tag tag-reno">تجديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض</span>
+            <h3>ملعب مدينة الملك فهد الرياضية</h3>
+            <div class="cap"><div class="cap-top"><b>70,200</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 76"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>سقف مستوحى من الخيمة البدوية، وسيُوسَّع ليتجاوز 70 ألف متفرج.</span></p>
+            <p class="arena-state">قيد التجديد</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/pmbs.jpg' %}" alt="تصور ملعب الأمير محمد بن سلمان في القدية">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض – القدية</span>
+            <h3>ملعب الأمير محمد بن سلمان</h3>
+            <div class="cap"><div class="cap-top"><b>46,979</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 51"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>يقف على جرف طويق بارتفاع نحو 200 متر، بثلاثة جوانب مغلقة ورابع مفتوح على إطلالة الجرف.</span></p>
+            <p class="arena-state">المشروع مستمر</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/new-murabba.jpg' %}" alt="تصور ملعب المربع الجديد في الرياض">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض</span>
+            <h3>ملعب المربع الجديد</h3>
+            <div class="cap"><div class="cap-top"><b>46,010</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>مستوحى من لحاء شجرة الأكاسيا: طبقات متراكبة وكتل صخرية تفصلها أخاديد.</span></p>
+            <p class="arena-state state-review">تقارير: ضمن مراجعة غير رسمية</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/roshn.jpg' %}" alt="تصور ملعب روشن في جنوب غرب الرياض">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> جنوب غرب الرياض</span>
+            <h3>ملعب روشن</h3>
+            <div class="cap"><div class="cap-top"><b>46,000</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>مدرجات على شكل سرج بارتفاعات مختلفة للظل والتهوية، وصوتيات مضبوطة على طريقة قاعة ألبرت الملكية.</span></p>
+            <p class="arena-state state-review">تقارير: ضمن مراجعة غير رسمية</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/prince-faisal.jpg' %}" alt="ملعب مدينة الأمير فيصل بن فهد الرياضية">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض</span>
+            <h3>ملعب مدينة الأمير فيصل بن فهد الرياضية</h3>
+            <div class="cap"><div class="cap-top"><b>46,865</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 51"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>تفاصيل تصميمه لم تُنشر بعد.</span></p>
+            <p class="arena-state">مخطط</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/south-riyadh.jpg' %}" alt="تصور ملعب جنوب الرياض">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> جنوب الرياض</span>
+            <h3>ملعب جنوب الرياض</h3>
+            <div class="cap"><div class="cap-top"><b>47,060</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 51"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>تفاصيل تصميمه لم تُنشر بعد.</span></p>
+            <p class="arena-state">مخطط</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="riyadh">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/ksu.jpg' %}" alt="ملعب جامعة الملك سعود في الرياض">
+            <span class="arena-tag tag-reno">توسعة</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الرياض</span>
+            <h3>ملعب جامعة الملك سعود</h3>
+            <div class="cap"><div class="cap-top"><b>46,319</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>بيت النصر الحالي، وسيتضاعف تقريباً من نحو 26 ألف مقعد إلى أكثر من 46 ألفاً.</span></p>
+            <p class="arena-state">قائم وسيُوسَّع</p>
+          </div>
+        </article>
+
+        <!-- Jeddah -->
+        <article class="arena reveal" data-city="jeddah">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/jewel.jpg' %}" alt="ملعب الجوهرة المشعة في جدة">
+            <span class="arena-tag tag-reno">تجديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> جدة</span>
+            <h3>ملعب مدينة الملك عبدالله الرياضية</h3>
+            <div class="cap"><div class="cap-top"><b>62,345</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 67"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>الجوهرة المشعة التي افتُتحت عام 2014؛ ستُجدَّد مع الحفاظ على شكلها المميز.</span></p>
+            <p class="arena-state">قائم وسيُجدَّد</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="jeddah">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/qiddiya-coast.jpg' %}" alt="تصور ملعب القدية الساحلي شمال جدة">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> شمال جدة</span>
+            <h3>ملعب القدية الساحلي</h3>
+            <div class="cap"><div class="cap-top"><b>46,096</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>شكل متموج وألوان زاهية تحاكي «الموجة المكسيكية»، تعبيراً عن علاقة الإنسان بالماء.</span></p>
+            <p class="arena-state state-review">تقارير: ضمن مراجعة غير رسمية</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="jeddah">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/jeddah-central.jpg' %}" alt="تصور ملعب وسط جدة">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> جدة – الأندلس</span>
+            <h3>ملعب وسط جدة </h3>
+            <div class="cap"><div class="cap-top"><b>45,794</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 49"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>تصميم gmp وKhatib & Alami مستوحى من عمارة جدة التاريخية (البلد).</span></p>
+            <p class="arena-state">قيد الإنشاء</p>
+          </div>
+        </article>
+
+        <article class="arena reveal" data-city="jeddah">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/kaec.jpg' %}" alt="تصور ملعب مدينة الملك عبدالله الاقتصادية">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> رابغ – على بعد 80 كم من جدة</span>
+            <h3>ملعب مدينة الملك عبدالله الاقتصادية</h3>
+            <div class="cap"><div class="cap-top"><b>45,700</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 49"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>جزء من مدينة جديدة على ساحل البحر الأحمر، ومصمم ليخدم المجتمع بمساحات عامة حوله.</span></p>
+            <p class="arena-state state-review">تقارير: ضمن مراجعة غير رسمية</p>
+          </div>
+        </article>
+
+        <!-- Khobar -->
+        <article class="arena reveal" data-city="khobar">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/aramco.jpg' %}" alt="ملعب أرامكو في الخبر">
+            <span class="arena-tag tag-new">جديد</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> الخبر</span>
+            <h3>ملعب أرامكو</h3>
+            <div class="cap"><div class="cap-top"><b>46,096</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>واجهة حلزونية من أشرعة شفافة تحاكي دوران الأمواج، ومدرجات بيضاوية للتهوية الطبيعية.</span></p>
+            <p class="arena-state state-soon">شبه مكتمل، أول مباراة في يناير 2027</p>
+          </div>
+        </article>
+
+        <!-- Abha -->
+        <article class="arena reveal" data-city="abha">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/kku.jpg' %}" alt="ملعب جامعة الملك خالد في أبها">
+            <span class="arena-tag tag-reno">توسعة</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> أبها</span>
+            <h3>ملعب جامعة الملك خالد</h3>
+            <div class="cap"><div class="cap-top"><b>45,428</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 49"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>ملعب قائم يستقبل نحو 22 ألف متفرج في المتوسط، وسيُوسَّع ليناسب البطولة.</span></p>
+            <p class="arena-state">قائم وسيُوسَّع</p>
+          </div>
+        </article>
+
+        <!-- NEOM -->
+        <article class="arena is-shelved reveal" data-city="neom">
+          <div class="arena-media">
+            <img src="{% static 'images/stadiums/neom.jpg' %}" alt="تصور ملعب نيوم السماوي">
+            <span class="arena-tag tag-hold">موقوف</span>
+          </div>
+          <div class="arena-body">
+            <span class="arena-city"><i class="fa-solid fa-location-dot"></i> نيوم</span>
+            <h3>ملعب نيوم</h3>
+            <div class="cap"><div class="cap-top"><b>46,010</b><span>مقعد</span></div><div class="cap-bar" style="--cap: 50"></div></div>
+            <p class="arena-idea"><i class="bi bi-lightbulb-fill"></i><span>كان مقرراً أن يعلو نحو 350 متراً داخل «ذا لاين» كأول ملعب سماوي في العالم.</span></p>
+            <p class="arena-state state-hold">موقوف إلى أجل غير مسمى (تقارير أكتوبر 2026)</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 6. Stadiums today ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ملاعب اليوم</h2>
+      <p>الملاعب الكبرى التي تحتضن المباريات والحفلات الآن.</p>
+    </div>
+
+    <div class="now">
+
+      <article class="now-card reveal">
+        <div class="now-media">
+          <img src="{% static 'images/stadiums/king-fahd.jpg' %}" alt="ملعب الملك فهد الدولي">
+          <span class="now-year">1987</span>
+        </div>
+        <div class="now-body">
+          <h3>ملعب الملك فهد الدولي</h3>
+          <div class="now-meta"><span><i class="fa-solid fa-location-dot"></i> الرياض</span><span><i class="fa-solid fa-users"></i> نحو 68 ألفاً</span></div>
+          <p>«درة الملاعب» وصاحب السقف الذي يشبه خيمة ضخمة، ومسرح الأحداث الكروية والحفلات الكبرى.</p>
+        </div>
+      </article>
+
+      <article class="now-card reveal" style="--delay: .1s">
+        <div class="now-media">
+          <img src="{% static 'images/stadiums/jewel.jpg' %}" alt="ملعب الجوهرة المشعة في جدة">
+          <span class="now-year">2014</span>
+        </div>
+        <div class="now-body">
+          <h3>الجوهرة المشعة</h3>
+          <div class="now-meta"><span><i class="fa-solid fa-location-dot"></i> جدة</span><span><i class="fa-solid fa-users"></i> أكثر من 60 ألفاً</span></div>
+          <p>معلم جدة الأشهر، وبيت الأهلي والاتحاد، بتصميم يشبه جوهرة تتلألأ ليلاً.</p>
+        </div>
+      </article>
+
+      <article class="now-card reveal" style="--delay: .2s">
+        <div class="now-media">
+          <img src="{% static 'images/stadiums/ksu.jpg' %}" alt="ملعب جامعة الملك سعود بيت النصر">
+          <span class="now-year">2015</span>
+        </div>
+        <div class="now-body">
+          <h3>ملعب جامعة الملك سعود</h3>
+          <div class="now-meta"><span><i class="fa-solid fa-location-dot"></i> الرياض</span><span><i class="fa-solid fa-users"></i> نحو 26 ألفاً</span></div>
+          <p>بيت النصر، وأحد الملاعب التي ستُوسَّع لتصبح ضمن ملاعب كأس العالم.</p>
+        </div>
+      </article>
+
+      <article class="now-card reveal" style="--delay: .3s">
+        <div class="now-media">
+          <img src="{% static 'images/stadiums/kingdom-arena.jpg' %}" alt="مملكة أرينا بسقفها القابل للسحب">
+          <span class="now-year">2023</span>
+        </div>
+        <div class="now-body">
+          <h3>مملكة أرينا</h3>
+          <div class="now-meta"><span><i class="fa-solid fa-location-dot"></i> الرياض</span><span><i class="fa-solid fa-users"></i> 26 ألفاً لكرة القدم</span></div>
+          <p>ملعب مغطى بسقف قابل للسحب، يعمل ملعباً للهلال وساحة للحفلات والفعاليات الكبرى.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 7. Halls and arenas ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>الصالات والأرينات</h2>
+      <p>
+        مقاعد مغطاة لكرة السلة والكرة الطائرة والملاكمة والحفلات.
+        استضافت المملكة كأس آسيا لكرة السلة في الرياض عام 1997 ثم في جدة عام 2025.
+      </p>
+    </div>
+
+    <div class="halls">
+
+      <article class="hall reveal">
+        <span class="hall-icon"><i class="fa-solid fa-basketball"></i></span>
+        <h3>صالة مدينة الملك عبدالله الرياضية</h3>
+        <span class="hall-cap">+15,000 مقعد · جدة</span>
+        <p>الصالة التي أقيم فيها كأس آسيا لكرة السلة 2025 بمشاركة 16 منتخباً.</p>
+      </article>
+
+      <article class="hall reveal" style="--delay: .1s">
+        <span class="hall-icon"><i class="fa-solid fa-building"></i></span>
+        <h3>مملكة أرينا</h3>
+        <span class="hall-cap">حتى 40,000 للفعاليات · الرياض</span>
+        <p>سقف قابل للسحب وشاشات واسعة، تتحول فيها الساحة بين كرة القدم والحفلات.</p>
+      </article>
+
+      <article class="hall reveal" style="--delay: .2s">
+        <span class="hall-icon"><i class="fa-solid fa-microphone-lines"></i></span>
+        <h3>محمد عبده أرينا</h3>
+        <span class="hall-cap">نحو 22,000 مقعد · الرياض</span>
+        <p>ساحة موسم الرياض الأشهر للحفلات الغنائية ومنازلات الملاكمة.</p>
+      </article>
+
+      <article class="hall reveal" style="--delay: .3s">
+        <span class="hall-icon"><i class="fa-solid fa-star"></i></span>
+        <h3>ANB أرينا</h3>
+        <span class="hall-cap">قاعة متوسطة السعة · الرياض</span>
+        <p>قاعة مغلقة لعروض موسم الرياض، واستضافت عرض WWE Crown Jewel 2026.</p>
+      </article>
+
+      <article class="hall is-soon reveal" style="--delay: .4s">
+        <span class="hall-icon"><i class="fa-solid fa-dumbbell"></i></span>
+        <h3>أرينا القدية المغلقة</h3>
+        <span class="hall-cap">قيد التخطيط · القدية</span>
+        <p>ستضم ملاعب لكرة السلة واليد والصالات والطائرة والتنس والملاكمة والجمباز.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ===================== 9. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>من الملعب إلى المدرج</h2>
+    <p>تعرّف على أندية الدوري وأحداث المملكة الكبرى التي تُقام على هذه الملاعب.</p>
+    <div class="cta-actions">
+      <a href="{% url 'football_view' %}" class="btn btn-gold btn-lg">كرة القدم</a>
+      <a href="{% url 'events_view' %}" class="btn btn-outline-light btn-lg">الفعاليات والبطولات</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
