@@ -1,136 +1,15 @@
 /* ==========================================================================
    SaudiSports - Football Page Styles
    --------------------------------------------------------------------------
-   1. Page hero
-   2. Quick facts
-   3. League
-   4. Big clubs
-   5. National team
-   6. What changed
-   7. Gallery
-   8. Call to action
+   
+   1. League
+   2. Big clubs
+   3. National team
+   4. What changed
+   5. Gallery
    ========================================================================== */
 
-
-/* ---------- 1. Page hero ---------- */
-.page-hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 60vh;
-  overflow: hidden;
-  color: #ffffff;
-  background: #0a1a12; /* fallback while the image loads */
-}
-
-.page-hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Dark scrim so the text stays readable on any photo */
-.page-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to left, rgba(5, 35, 20, 0.92), rgba(0, 0, 0, 0.4));
-}
-
-.page-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.page-hero-inner {
-  max-width: 680px;
-  padding: 4rem 0 6rem; /* extra bottom space for the facts card */
-}
-
-.page-hero h1 {
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  margin-bottom: 0.8rem;
-}
-
-.page-hero p {
-  margin: 0;
-  font-size: 1.15rem;
-  opacity: 0.9;
-}
-
-/* Breadcrumb */
-.crumbs {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-
-.crumbs a {
-  color: var(--gold);
-}
-
-.crumbs i {
-  font-size: 0.7rem;
-  opacity: 0.7;
-}
-
-
-/* ---------- 2. Quick facts ---------- */
-/* The card overlaps the bottom of the hero */
-.facts {
-  position: relative;
-  z-index: 3;
-  margin-top: -3rem;
-}
-
-.facts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  overflow: hidden;
-  border-radius: 20px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.fact {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.fact + .fact {
-  border-inline-start: 1px solid var(--border);
-}
-
-.fact strong {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 2.6rem;
-  line-height: 1.2;
-  color: var(--accent);
-}
-
-.fact span {
-  font-size: 0.95rem;
-  color: var(--muted);
-}
-
-@media (max-width: 767px) {
-  .facts-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .fact + .fact {
-    border-inline-start: 0;
-    border-top: 1px solid var(--border);
-  }
-}
-
-
-/* ---------- 3. League ---------- */
+/* ---------- 1. League ---------- */
 .league-text h2 {
   font-size: clamp(2rem, 4vw, 2.8rem);
 }
@@ -179,7 +58,7 @@
 }
 
 
-/* ---------- 4. Big clubs ---------- */
+/* ---------- 2. Big clubs ---------- */
 .clubs-section {
   background: var(--surface);
 }
@@ -267,7 +146,7 @@
 }
 
 
-/* ---------- 5. National team ---------- */
+/* ---------- 3. National team ---------- */
 .team-image {
   height: 100%;
   min-height: 420px;
@@ -335,7 +214,7 @@
 }
 
 
-/* ---------- 6. What changed ---------- */
+/* ---------- 4. What changed ---------- */
 .changes-section {
   background: var(--surface);
 }
@@ -368,7 +247,7 @@
 }
 
 
-/* ---------- 7. Gallery ---------- */
+/* ---------- 5. Gallery ---------- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -445,27 +324,3 @@
   }
 }
 
-
-/* ---------- 8. Call to action ---------- */
-.cta {
-  padding: 5rem 0;
-  background: var(--green);
-  color: #ffffff;
-  text-align: center;
-}
-
-.cta h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-}
-
-.cta p {
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}

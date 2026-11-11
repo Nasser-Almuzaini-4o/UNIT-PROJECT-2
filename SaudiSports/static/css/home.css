@@ -387,26 +387,4 @@
 }
 
 
-/* ---------- 6. Call to action ---------- */
-.cta {
-  padding: 5rem 0;
-  background: var(--green);
-  color: #ffffff;
-  text-align: center;
-}
 
-.cta h2 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-}
-
-.cta p {
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}

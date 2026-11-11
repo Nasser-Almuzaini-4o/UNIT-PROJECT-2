@@ -1,0 +1,408 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}فورمولا 1 | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/formula.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/formula/hero.jpg' %}" alt="سيارات فورمولا 1 على حلبة كورنيش جدة ليلاً">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="breadcrumb">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>فورمولا 1</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">فورمولا 1 في السعودية</h1>
+      <p class="rise" style="--delay: .2s">
+       زوايا حادة، سرعات عالية، سباق ليلي على كورنيش جدة، وحلبة جديدة في القدية.<br> اكتشف الفورمولا 1 في المملكة.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid">
+      <div class="fact reveal">
+        <strong>6.174</strong>
+        <span>كم طول حلبة كورنيش جدة</span>
+      </div>
+      <div class="fact reveal" style="--delay: .1s">
+        <strong>27</strong>
+        <span>منعطفاً، الأكثر في تقويم الفورمولا 1</span>
+      </div>
+      <div class="fact reveal" style="--delay: .2s">
+        <strong>254.6</strong>
+        <span>كم/س أعلى متوسط سرعة في لفة تأهيل</span>
+      </div>
+      <div class="fact reveal" style="--delay: .3s">
+        <strong>أقل من 9</strong>
+        <span>أشهر استغرقها بناء الحلبة</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. Jeddah Corniche Circuit ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Text -->
+      <div class="col-lg-6 reveal">
+        <h2 class="title-lg">حلبة كورنيش جدة</h2>
+        <p class="lead-text">
+          تمتد على كورنيش جدة المطل على البحر الأحمر، وصممها المهندس كارستن تيلكه.
+          هي حلبة شوارع، لكن طابعها مختلف: منعطفات سريعة متصلة بدل المنعطفات الضيقة البطيئة،
+          وسباق ليلي تحت الأضواء.
+        </p>
+        <ul class="check-list">
+          <li><i class="bi bi-water"></i><span>على ساحل البحر الأحمر في جدة.</span></li>
+          <li><i class="bi bi-moon-stars"></i><span>الأسرع بين حلبات الشوارع في تاريخ الفورمولا 1.</span></li>
+          <li><i class="bi bi-arrow-repeat"></i><span>50 لفة، ومسافة السباق 308.45 كم.</span></li>
+          <li><i class="bi bi-shield-check"></i><span>معتمدة من الاتحاد الدولي للسيارات بالدرجة الأولى (Grade 1).</span></li>
+        </ul>
+      </div>
+
+      <!-- Image -->
+      <div class="col-lg-6 reveal" style="--delay: .15s">
+        <div class="photo">
+          <img src="{% static 'images/formula/jeddah-circuit.jpg' %}" alt="منظر جوي لحلبة كورنيش جدة على ساحل البحر الأحمر">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Built in under nine months ===================== -->
+<section class="section build-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>بُنيت في أقل من 9 أشهر</h2>
+      <p>سباق مع الزمن: كان لازم تكون الحلبة جاهزة لسباق ديسمبر 2021.</p>
+    </div>
+
+    <!-- Banner photo with key numbers -->
+    <div class="build-banner reveal">
+      <img src="{% static 'images/formula/construction.jpg' %}" alt="أعمال بناء حلبة كورنيش جدة">
+      <div class="build-chips">
+        <span class="chip"><strong>+30</strong> جنسية بين العاملين</span>
+        <span class="chip"><strong>+30 ألف</strong> طن أسفلت</span>
+        <span class="chip"><strong>600 ألف</strong> ساعة عمل</span>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step-date">ربيع 2021</span>
+        <h3>بدء العمل</h3>
+        <p>انطلقت أعمال الإنشاء على كورنيش جدة.</p>
+      </li>
+      <li class="step reveal" style="--delay: .15s">
+        <span class="step-date">أكتوبر 2021</span>
+        <h3>تمديد الأسفلت</h3>
+        <p>اقتربت طبقات الأسفلت على طول الحلبة من الاكتمال.</p>
+      </li>
+      <li class="step reveal" style="--delay: .3s">
+        <span class="step-date">3 ديسمبر</span>
+        <h3>الافتتاح</h3>
+        <p>افتُتحت الحلبة قبل السباق بيومين.</p>
+      </li>
+      <li class="step reveal" style="--delay: .45s">
+        <span class="step-date">5 ديسمبر</span>
+        <h3>أول سباق</h3>
+        <p>أول جائزة كبرى للفورمولا 1 على أرض المملكة.</p>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+
+<!-- ===================== 5. Opening night ===================== -->
+<section class="night">
+  <!-- Big outlined year behind the content (decoration only) -->
+  <span class="night-year" aria-hidden="true">2021</span>
+
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Photo in a gold frame -->
+      <div class="col-lg-6 reveal">
+        <figure class="frame">
+          <div class="frame-photo">
+            <img src="{% static 'images/formula/mbs-jeddah.jpg' %}" alt="ولي العهد الأمير محمد بن سلمان يرفع يده لتحية الحاضرين في حلبة كورنيش جدة">
+          </div>
+          <figcaption>ولي العهد الأمير محمد بن سلمان يحيّي الحاضرين في حلبة كورنيش جدة</figcaption>
+        </figure>
+      </div>
+
+      <!-- Story -->
+      <div class="col-lg-6 reveal" style="--delay: .15s">
+        <h2 class="night-title">ليلة الافتتاح</h2>
+        <p class="night-text">
+          في 5 ديسمبر 2021 دخلت المملكة تاريخ الفورمولا 1 بأول جائزة كبرى تقام على أرضها.
+          قبل انطلاق السباق حضر ولي العهد الأمير محمد بن سلمان إلى الحلبة وحيّا الحاضرين،
+          ثم أُضيئت الحلبة وانطلقت السيارات.
+        </p>
+        <p class="night-text">
+          كانت ليلة مليئة بالأحداث: مواجهة قوية بين لويس هاميلتون وماكس فيرستابن
+          انتهت بفوز هاميلتون. ومن تلك الليلة صارت الفورمولا 1 جزءاً من خريطة الرياضة
+          السعودية التي تتسع كل عام مع رؤية 2030.
+        </p>
+
+        <ul class="night-facts">
+          <li><span>الفائز</span><strong>لويس هاميلتون</strong></li>
+          <li><span>الوصيف</span><strong>ماكس فيرستابن</strong></li>
+          <li><span>الثالث</span><strong>فالتيري بوتاس</strong></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 6. What the circuit hosted ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>ماذا استضافت الحلبة؟</h2>
+      <p>الفورمولا 1 هي الأشهر، لكن الحلبة استقبلت فئات أخرى من سباقات السيارات.</p>
+    </div>
+
+    <div class="host-grid">
+      <article class="host reveal">
+        <span class="host-icon"><i class="bi bi-flag-fill"></i></span>
+        <span class="host-years">2021 – 2025</span>
+        <h3>فورمولا 1</h3>
+        <p>جائزة السعودية الكبرى: خمس نسخ حتى الآن على كورنيش جدة.</p>
+      </article>
+
+      <article class="host reveal" style="--delay: .1s">
+        <span class="host-icon"><i class="bi bi-layers-fill"></i></span>
+        <span class="host-years">مع كل جولة</span>
+        <h3>فئات الدعم</h3>
+        <p>فورمولا 2 وفورمولا 3 وF1 Academy تقام مع جولة الفورمولا 1.</p>
+      </article>
+
+      <article class="host reveal" style="--delay: .2s">
+        <span class="host-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+        <span class="host-years">2025 – الآن</span>
+        <h3>فورمولا إي</h3>
+        <p>سيارات كهربائية على مسار جدة القصير: 3 كم و19 منعطفاً.</p>
+      </article>
+
+      <article class="host reveal" style="--delay: .3s">
+        <span class="host-icon"><i class="bi bi-stopwatch-fill"></i></span>
+        <span class="host-years">2022 و2024</span>
+        <h3>السياحة والتحمل</h3>
+        <p>كأس العالم للسيارات السياحية (WTCR) في 2022، و6 ساعات جدة للتحمل في 2024.</p>
+      </article>
+    </div>
+
+    <!-- Winners table -->
+    <h3 class="table-title reveal">فائزو جائزة السعودية الكبرى</h3>
+    <div class="table-wrap reveal">
+      <table class="data-table">
+        <thead>
+          <tr><th>السنة</th><th>الفائز</th><th>الفريق</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2021</td><td>لويس هاميلتون</td><td>مرسيدس</td></tr>
+          <tr><td>2022</td><td>ماكس فيرستابن</td><td>ريد بُل</td></tr>
+          <tr><td>2023</td><td>سيرجيو بيريز</td><td>ريد بُل</td></tr>
+          <tr><td>2024</td><td>ماكس فيرستابن</td><td>ريد بُل</td></tr>
+          <tr><td>2025</td><td>أوسكار بياستري</td><td>ماكلارين</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note reveal">
+      <i class="bi bi-info-circle"></i>
+      <span>
+        سباق أبريل 2026 أُلغي ضمن قرار شمل جولتي البحرين وجدة بسبب التوترات الإقليمية،
+        وعادت جدة إلى تقويم 2027.
+      </span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 7. Records board ===================== -->
+<section class="section board-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>لوحة الأرقام القياسية</h2>
+      <p>أسرع اللفات وأبرز الأرقام على حلبة كورنيش جدة.</p>
+    </div>
+
+    <div class="board">
+      <div class="record reveal">
+        <span class="record-value">1:27.294</span>
+        <div class="record-info">
+          <strong>أسرع لفة تأهيل في تاريخ الحلبة</strong>
+          <span>ماكس فيرستابن (ريد بُل) بمتوسط 254.6 كم/س</span>
+        </div>
+        <span class="record-year">2025</span>
+      </div>
+
+      <div class="record reveal" style="--delay: .08s">
+        <span class="record-value">1:30.734</span>
+        <div class="record-info">
+          <strong>رقم أسرع لفة في سباق فورمولا 1</strong>
+          <span>لويس هاميلتون (مرسيدس)</span>
+        </div>
+        <span class="record-year">2021</span>
+      </div>
+
+      <div class="record reveal" style="--delay: .16s">
+        <span class="record-value">1:15.653</span>
+        <div class="record-info">
+          <strong>رقم أسرع لفة في سباق فورمولا إي</strong>
+          <span>جيك دينيس (بورشه) على مسار جدة القصير</span>
+        </div>
+        <span class="record-year">2026</span>
+      </div>
+
+      <div class="record reveal" style="--delay: .24s">
+        <span class="record-value">27</span>
+        <div class="record-info">
+          <strong>منعطفاً، أكثر حلبة في تقويم الفورمولا 1</strong>
+          <span>معظمها منعطفات سريعة ومتصلة</span>
+        </div>
+        <span class="record-year">2021</span>
+      </div>
+
+      <div class="record reveal" style="--delay: .32s">
+        <span class="record-value">×2</span>
+        <div class="record-info">
+          <strong>أكثر السائقين فوزاً بالجائزة الكبرى في جدة</strong>
+          <span>ماكس فيرستابن: 2022 و2024</span>
+        </div>
+        <span class="record-year">حتى 2025</span>
+      </div>
+    </div>
+
+    <p class="board-note reveal">
+      حلبة القدية لم تستضف أي سباق بعد، فلا توجد لها أرقام قياسية حتى الآن.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ===================== 8. Qiddiya Speed Park ===================== -->
+<section class="section qiddiya-section" id="qiddiya">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>القدية: حلبة من الخيال العلمي</h2>
+      <p>
+        في مدينة القدية قرب الرياض تُبنى حلبة "سبيد بارك"، من تصميم هيرمان تيلكه
+        وسائق الفورمولا 1 السابق أليكس فورتس.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Render + numbers -->
+      <div class="col-lg-7 reveal">
+        <div class="photo photo-wide">
+          <img src="{% static 'images/formula/qiddiya.jpg' %}" alt="تصور لحلبة سبيد بارك في القدية مع منعطف الشفرة المرتفع">
+        </div>
+
+        <div class="q-stats">
+          <div class="q-stat"><strong>21</strong><span>منعطفاً</span></div>
+          <div class="q-stat"><strong>108 م</strong><span>فرق الارتفاع في اللفة</span></div>
+          <div class="q-stat"><strong>+325</strong><span>كم/س سرعة قصوى متوقعة</span></div>
+          <div class="q-stat"><strong>3</strong><span>مناطق DRS</span></div>
+          <div class="q-stat"><strong>80</strong><span>كراجاً للفرق</span></div>
+          <div class="q-stat"><strong>+7 كم</strong><span>الطول المتوقع</span></div>
+        </div>
+      </div>
+
+      <!-- The Blade: animated bars -->
+      <div class="col-lg-5 reveal" style="--delay: .15s">
+        <div class="blade-box">
+          <h3>"الشفرة": المنعطف الأول</h3>
+          <p>جزء من المسار يبرز من الأرض بارتفاع 70 متراً، وتزينه إضاءة LED.</p>
+
+          <div class="blade-bars">
+            <div class="blade-bar blade-main" style="--h: 280px">
+              <strong>70 م</strong>
+              <span></span>
+              <small>الشفرة، القدية</small>
+            </div>
+            <div class="blade-bar" style="--h: 120px">
+              <strong>30 م</strong>
+              <span></span>
+              <small>المنعطف الأول في COTA</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Jeddah vs Qiddiya -->
+    <h3 class="table-title reveal">جدة والقدية وجهاً لوجه</h3>
+    <div class="table-wrap reveal">
+      <table class="data-table">
+        <thead>
+          <tr><th></th><th>حلبة جدة</th><th>حلبة القدية</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>النوع</td><td>حلبة شوارع على الكورنيش</td><td>تجمع بين الشوارع والحلبات الدائمة</td></tr>
+          <tr><td>الموقع</td><td>جدة، ساحل البحر الأحمر</td><td>مدينة القدية قرب الرياض</td></tr>
+          <tr><td>الطول</td><td>6.174 كم</td><td>أكثر من 7 كم (متوقع)</td></tr>
+          <tr><td>المنعطفات</td><td>27</td><td>21</td></tr>
+          <tr><td>الحالة</td><td>تستضيف الفورمولا 1 منذ 2021</td><td>قيد الإنشاء، والسباق الأول مخطط في 2028</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note reveal">
+      <i class="bi bi-info-circle"></i>
+      <span>
+        أرقام القدية من تصريحات وتقديرات منشورة، وقد تتغير حتى الافتتاح.
+        تكلفة بناء الحلبة وحدها قُدّرت بنحو 480 مليون دولار.
+      </span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 9. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>من الأسفلت إلى الرمال</h2>
+    <p>السرعة في السعودية ما تقف عند الحلبات. اكتشف الراليات الصحراوية والفعاليات الكبرى.</p>
+    <div class="cta-actions">
+      <a href="{% url 'rallies_view' %}" class="btn btn-gold btn-lg">الراليات</a>
+      <a href="{% url 'events_view' %}" class="btn btn-outline-light btn-lg">الفعاليات والبطولات</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

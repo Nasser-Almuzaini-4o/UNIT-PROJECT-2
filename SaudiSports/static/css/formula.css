@@ -1,0 +1,552 @@
+/* ==========================================================================
+   SaudiSports - Formula 1 Page Styles
+   (page hero, facts card and call to action live in base.css)
+   --------------------------------------------------------------------------
+   1. Shared helpers (titles, photo, lists, tables, notes)
+   2. Built in under nine months
+   3. Opening night
+   4. Hosted races
+   5. Records board
+   6. Qiddiya Speed Park
+   ========================================================================== */
+
+
+/* ---------- 1. Shared helpers ---------- */
+.title-lg {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.lead-text {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.check-list i {
+  font-size: 1.3rem;
+  color: var(--green-bright);
+}
+
+/* Rounded photo with a slow zoom on hover */
+.photo {
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
+}
+
+.photo-wide {
+  aspect-ratio: 16 / 9;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Tables (winners and Jeddah vs Qiddiya) */
+.table-title {
+  margin: 3rem 0 1rem;
+  font-size: 1.8rem;
+}
+
+.table-wrap {
+  overflow-x: auto; /* scrolls sideways on small phones */
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.data-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem 1.25rem;
+  text-align: start;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table th {
+  background: var(--surface-2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.data-table td:first-child {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Information note */
+.note {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  border-inline-start: 4px solid var(--gold);
+  background: var(--surface-2);
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.note i {
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+
+/* ---------- 2. Built in under nine months ---------- */
+.build-section {
+  background: var(--surface);
+}
+
+.build-banner {
+  position: relative;
+  height: clamp(260px, 38vw, 460px);
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border-radius: 24px;
+  background: var(--surface-2);
+}
+
+.build-banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.build-chips {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 2rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(3, 20, 11, 0.9), transparent);
+}
+
+.chip {
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.chip strong {
+  margin-inline-end: 0.3rem;
+  color: var(--gold);
+}
+
+/* Steps: a grey line with a gold line that draws itself when revealed */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 2rem 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.step {
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.step::before,
+.step::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  height: 3px;
+}
+
+.step::before {
+  width: 100%;
+  background: var(--border);
+}
+
+.step::after {
+  width: 0;
+  background: var(--gold);
+  transition: width 1s ease var(--delay, 0s);
+}
+
+.step.visible::after {
+  width: 100%;
+}
+
+.step-date {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+.step h3 {
+  margin: 0.3rem 0;
+  font-size: 1.3rem;
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 3. Opening night ---------- */
+/* Always dark (both modes) to feel like a night race */
+.night {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+  background: #06150d;
+  color: #ffffff;
+}
+
+/* Huge outlined year behind the content */
+.night-year {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: -2%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 22vw, 20rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(212, 166, 42, 0.25);
+  pointer-events: none;
+  user-select: none;
+}
+
+.night .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gold frame around the photo */
+.frame {
+  margin: 0;
+  padding: 12px;
+  border: 2px solid var(--gold);
+  border-radius: 22px;
+}
+
+.frame-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #10291d;
+}
+
+.frame-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%; /* keeps faces in view */
+}
+
+.frame figcaption {
+  padding-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #a9bdb1;
+}
+
+.night-title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.night-text {
+  font-size: 1.1rem;
+  color: #cfdcd4;
+}
+
+.night-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.night-facts span {
+  display: block;
+  font-size: 0.9rem;
+  color: #9db3a5;
+}
+
+.night-facts strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+
+/* ---------- 4. Hosted races ---------- */
+.host-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.host {
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.host:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.host-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  background: var(--green);
+  color: var(--gold);
+  font-size: 1.4rem;
+}
+
+.host-years {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.host h3 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.5rem;
+}
+
+.host p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 5. Records board ---------- */
+/* Styled like a timing screen: dark board with gold numbers */
+.board-section {
+  background: #06150d;
+  color: #ffffff;
+}
+
+.board-section .section-head p {
+  color: #9db3a5;
+}
+
+.board {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+}
+
+.record {
+  display: grid;
+  grid-template-columns: 190px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s;
+}
+
+.record:last-child {
+  border-bottom: 0;
+}
+
+.record:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.record-value {
+  direction: ltr; /* keeps times like 1:27.294 in the right order */
+  text-align: right;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--gold);
+}
+
+.record-info strong {
+  display: block;
+}
+
+.record-info span {
+  font-size: 0.9rem;
+  color: #9db3a5;
+}
+
+.record-year {
+  font-weight: 700;
+  color: #9db3a5;
+}
+
+.board-note {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  color: #9db3a5;
+}
+
+@media (max-width: 767px) {
+  .record {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .record-value {
+    text-align: start;
+  }
+}
+
+
+/* ---------- 6. Qiddiya Speed Park ---------- */
+.qiddiya-section {
+  background: var(--surface);
+}
+
+.q-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.q-stat {
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--surface-2);
+  text-align: center;
+}
+
+.q-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--accent);
+}
+
+.q-stat span {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* The Blade: two bars that grow when the box is revealed */
+.blade-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 430px;
+  padding: 1.75rem;
+  border-radius: 24px;
+  background: var(--surface-2);
+}
+
+.blade-box h3 {
+  font-size: 1.6rem;
+}
+
+.blade-box p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.blade-bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.blade-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.blade-bar strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.blade-bar span {
+  display: block;
+  width: 70px;
+  height: var(--h);
+  border-radius: 12px 12px 0 0;
+  background: var(--green);
+  transition: height 1.2s ease 0.3s;
+}
+
+.blade-main span {
+  background: var(--gold);
+}
+
+.blade-bar small {
+  max-width: 110px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Bars start flat only when JavaScript is running */
+.js .blade-box:not(.visible) .blade-bar span {
+  height: 0;
+}
