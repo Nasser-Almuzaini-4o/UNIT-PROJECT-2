@@ -570,3 +570,36 @@ img {
 }
 
 
+/* ---------- 14. Filter helpers (created by main.js) ---------- */
+.filter-badge {
+  display: inline-block;
+  min-width: 1.5rem;
+  margin-inline-start: 0.5rem;
+  padding: 0 0.45rem;
+  border-radius: 50px;
+  background: rgba(128, 128, 128, 0.22);
+  color: inherit;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.filter-count {
+  margin: -1rem 0 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.filter-empty {
+  display: none;
+  padding: 1.5rem;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.filter-empty.show {
+  display: block;
+}

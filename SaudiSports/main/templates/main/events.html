@@ -1,0 +1,428 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الفعاليات والبطولات | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/events.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+  <img class="page-hero-bg" src="{% static 'images/events/hero.jpg' %}" alt="احتفال جماهيري في حدث رياضي كبير بالمملكة">
+  <div class="page-hero-overlay"></div>
+
+  <div class="container">
+    <div class="page-hero-inner">
+      <nav class="crumbs rise" aria-label="مسار التنقل">
+        <a href="{% url 'home_view' %}">الرئيسية</a>
+        <i class="bi bi-chevron-left"></i>
+        <span>الفعاليات والبطولات</span>
+      </nav>
+      <h1 class="rise" style="--delay: .1s">الفعاليات والبطولات.. تاريخ يُكتب على أرض المملكة</h1>
+      <p class="rise" style="--delay: .2s">
+        من بطولة شطرنج في الرياض عام 2017 إلى كأس العالم 2034،
+        خط زمني لكل ما استضافته المملكة وما تستعد لاستضافته.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+  <div class="container">
+    <div class="facts-grid reveal">
+      <div class="fact"><strong>+100</strong><span>فعالية دولية كبرى منذ 2019 (حتى نهاية 2024)</span></div>
+      <div class="fact"><strong>40</strong><span>رياضة مختلفة استضافتها المملكة</span></div>
+      <div class="fact"><strong>7</strong><span>نسخ من رالي داكار على أرض المملكة</span></div>
+      <div class="fact"><strong>2034</strong><span>كأس العالم لكرة القدم</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 3. Up next ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>على الأبواب</h2>
+      <p>أقرب أربع فعاليات كبرى بعد مراجعة المواعيد في 2026.</p>
+    </div>
+
+    <div class="upnext">
+
+      <article class="up-card reveal">
+        <span class="up-chip">قادمة</span>
+        <span class="up-date">28 مارس – 8 أبريل</span>
+        <span class="up-year">2027</span>
+        <h3>الألعاب الآسيوية للصالات والفنون القتالية</h3>
+        <p class="up-place"><i class="fa-solid fa-location-dot"></i> الرياض</p>
+        <p class="up-note">أُجّلت من ديسمبر 2026 بعد اتفاق اللجنة الأولمبية الآسيوية واللجنة المنظمة.</p>
+      </article>
+
+      <article class="up-card reveal" style="--delay: .1s">
+        <span class="up-chip">قادمة</span>
+        <span class="up-date">يوليو – أغسطس</span>
+        <span class="up-year">2027</span>
+        <h3>كأس العالم للرياضات الإلكترونية</h3>
+        <p class="up-place"><i class="fa-solid fa-location-dot"></i> الرياض</p>
+        <p class="up-note">عودة الحدث إلى مقره بعد نسخة باريس 2026.</p>
+      </article>
+
+      <article class="up-card reveal" style="--delay: .2s">
+        <span class="up-chip">قادمة</span>
+        <span class="up-date">نوفمبر</span>
+        <span class="up-year">2027</span>
+        <h3>كأس الأمم للرياضات الإلكترونية</h3>
+        <p class="up-place"><i class="fa-solid fa-location-dot"></i> الرياض</p>
+        <p class="up-note">أُجّلت من نوفمبر 2026، وتجمع منتخبات أكثر من 100 دولة.</p>
+      </article>
+
+      <article class="up-card reveal" style="--delay: .3s">
+        <span class="up-chip">قادمة</span>
+        <span class="up-date">23 ديسمبر – 21 يناير</span>
+        <span class="up-year">2027 – 2028</span>
+        <h3>كأس آسيا لكرة القدم</h3>
+        <p class="up-place"><i class="fa-solid fa-location-dot"></i> الرياض وجدة والخبر</p>
+        <p class="up-note">أُجّلت في 3 نوفمبر 2026 من يناير 2027 بسبب ظروف إقليمية.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 4. Timeline  ===================== -->
+<section class="section timeline-section">
+  <div class="container">
+
+    <div class="section-head reveal">
+      <h2>الخط الزمني:</h2>
+      <p>اختر نوع الرياضة لتصفية الأحداث، ولاحظ كيف تغيّر جدول 2026.</p>
+    </div>
+
+    <div class="evfilter">
+
+      <input type="radio" name="evcat" id="ev-all" class="ev-radio" checked>
+      <input type="radio" name="evcat" id="ev-football" class="ev-radio">
+      <input type="radio" name="evcat" id="ev-motor" class="ev-radio">
+      <input type="radio" name="evcat" id="ev-esports" class="ev-radio">
+      <input type="radio" name="evcat" id="ev-multi" class="ev-radio">
+      <input type="radio" name="evcat" id="ev-other" class="ev-radio">
+
+      <div class="ev-labels">
+        <label for="ev-all">الكل</label>
+        <label for="ev-football">كرة القدم</label>
+        <label for="ev-motor">رياضة المحركات</label>
+        <label for="ev-esports">الرياضات الإلكترونية</label>
+        <label for="ev-multi">الألعاب القارية</label>
+        <label for="ev-other">رياضات أخرى</label>
+      </div>
+
+      <div class="tl">
+
+        <!-- ================= PAST ================= -->
+        <div class="tl-era era-past"><span class="era-tag"><i class="fa-solid fa-clock-rotate-left"></i> الماضي</span> فعاليات أُقيمت</div>
+
+        <article class="tl-item st-done reveal" data-cat="other">
+          <div class="tl-date"><b>2017</b><span>ديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-chess"></i> رياضات أخرى</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>بطولة الملك سلمان العالمية للشطرنج</h3>
+            <p>بطولة عالمية في الرياض، من أولى الأحداث الدولية في موجة الاستضافة الحديثة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="motor">
+          <div class="tl-date"><b>2018</b><span>ديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-bolt"></i> رياضة المحركات</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>جولة الدرعية للفورمولا إي</h3>
+            <p>سباق للسيارات الكهربائية افتتح موسم الفورمولا إي، وأول سباق من نوعه في المملكة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="football">
+          <div class="tl-date"><b>2019</b><span>يناير</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-futbol"></i> كرة القدم</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>كأس السوبر الإيطالي في جدة</h3>
+            <p>أول مباراة لكبار الكرة الأوروبية على أرض المملكة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="other">
+          <div class="tl-date"><b>2019</b><span>ديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-hand-fist"></i> رياضات أخرى</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>نزال الكثبان في الدرعية</h3>
+            <p>جوشوا يواجه روييز في نزال ملاكمة بحضور عالمي، وبداية مسار الملاكمة في الرياض.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="motor">
+          <div class="tl-date"><b>2020</b><span>يناير</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-route"></i> رياضة المحركات</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>داكار تصل إلى المملكة</h3>
+            <p>أشهر رالي في العالم ينتقل إلى صحراء المملكة، وتتوالى النسخ حتى بلغت سبعاً في 2026.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="motor">
+          <div class="tl-date"><b>2021</b><span>ديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-flag-checkered"></i> رياضة المحركات</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>أول جائزة كبرى للفورمولا 1</h3>
+            <p>سباق ليلي على كورنيش جدة، وهو أول سباق للفورمولا 1 في المملكة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="esports">
+          <div class="tl-date"><b>2022</b><span>الصيف</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>مهرجان Gamers8</h3>
+            <p>مهرجان الرياض للألعاب، والخطوة التي مهّدت لكأس العالم للرياضات الإلكترونية.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="football">
+          <div class="tl-date"><b>2023</b><span>يناير وديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-futbol"></i> كرة القدم</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>السوبر الإسباني وكأس العالم للأندية</h3>
+            <p>نهائي السوبر الإسباني في الرياض، ثم كأس العالم للأندية في جدة نهاية العام.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="esports">
+          <div class="tl-date"><b>2024</b><span>يوليو – أغسطس</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>أول كأس عالم للرياضات الإلكترونية</h3>
+            <p>في الرياض، وتوّج الصقور أول أبطال بطولة الأندية وجائزتها الكبرى 7 ملايين دولار.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="football">
+          <div class="tl-date"><b>2024</b><span>11 ديسمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-futbol"></i> كرة القدم</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>فيفا يمنح المملكة كأس العالم 2034</h3>
+            <p>في الاجتماع الاستثنائي لمؤتمر فيفا تأكد أن البطولة ستُقام لأول مرة في الشرق الأوسط على أرض المملكة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="esports">
+          <div class="tl-date"><b>2025</b><span>يوليو – أغسطس</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>كأس العالم للرياضات الإلكترونية 2025</h3>
+            <p>جوائز بلغت 71.5 مليون دولار، وحافظ الصقور على لقب الأندية.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="other">
+          <div class="tl-date"><b>2025</b><span>5 – 17 أغسطس</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-basketball"></i> رياضات أخرى</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>كأس آسيا لكرة السلة</h3>
+            <p>في جدة بمشاركة 16 منتخباً، وهي المرة الثانية للمملكة بعد الرياض عام 1997.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-cancel reveal" data-cat="esports">
+          <div class="tl-date"><b>2025</b><span>أكتوبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">أُلغيت</span></div>
+            <h3>أولمبياد الرياضات الإلكترونية</h3>
+            <p>اللجنة الأولمبية الدولية والمملكة أنهتا التعاون على النسخة التي كانت مقررة في الرياض 2027.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-done reveal" data-cat="motor">
+          <div class="tl-date"><b>2025</b><span>26 – 29 نوفمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-car-side"></i> رياضة المحركات</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>رالي السعودية ضمن بطولة العالم</h3>
+            <p>أول جولة لبطولة العالم للراليات في جدة.</p>
+          </div>
+        </article>
+
+
+        <!-- ================= PRESENT ================= -->
+        <div class="tl-era era-now">
+          <span class="era-tag"><i class="fa-solid fa-circle-dot"></i> الحاضر</span> 2026 عام غيّرت فيه الظروف الإقليمية جدول الفعاليات
+        </div>
+        <div class="tl-now"><span class="now-dot"></span> أنت هنا: نوفمبر 2026</div>
+
+        <article class="tl-item st-done reveal" data-cat="motor">
+          <div class="tl-date"><b>2026</b><span>يناير</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-route"></i> رياضة المحركات</span><span class="tl-chip">أُقيمت</span></div>
+            <h3>داكار السابع وباها حائل الـ 21</h3>
+            <p>داكار من 3 إلى 17 يناير بانطلاقة من ينبع، وباها حائل من 28 إلى 31 يناير.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-cancel reveal" data-cat="motor">
+          <div class="tl-date"><b>2026</b><span>17 – 19 أبريل</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-flag-checkered"></i> رياضة المحركات</span><span class="tl-chip">أُلغيت</span></div>
+            <h3>جائزة السعودية الكبرى للفورمولا 1</h3>
+            <p>أُلغي سباق جدة من تقويم 2026 دون بديل في موعده، وعقد الاستضافة يمتد حتى 2030.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-moved reveal" data-cat="esports">
+          <div class="tl-date"><b>2026</b><span>6 يوليو – 23 أغسطس</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">نُقلت</span></div>
+            <h3>كأس العالم للرياضات الإلكترونية في باريس</h3>
+            <p>أُقيمت خارج الرياض لأول مرة. الصقور وصيف بطولة الأندية، وتيم فيجن بطل Teamfight Tactics.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-live reveal" data-cat="motor">
+          <div class="tl-date"><b>2026</b><span>نوفمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-car-side"></i> رياضة المحركات</span><span class="tl-chip">جارية الآن</span></div>
+            <h3>رالي جدة تويوتا باها</h3>
+            <p>انطلق هذا الأسبوع، ويليه رالي القصيم من 2 إلى 5 ديسمبر ضمن بطولة تويوتا السعودية للباها.</p>
+          </div>
+        </article>
+
+
+        <!-- ================= FUTURE ================= -->
+        <div class="tl-era era-future"><span class="era-tag"><i class="fa-solid fa-forward"></i> المستقبل</span> ما تستعد له المملكة</div>
+
+        <article class="tl-item st-next reveal" data-cat="multi">
+          <div class="tl-date"><b>2027</b><span>28 مارس – 8 أبريل</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-medal"></i> الألعاب القارية</span><span class="tl-chip">قادمة</span></div>
+            <h3>الألعاب الآسيوية للصالات والفنون القتالية</h3>
+            <p>تجربة كبرى في الرياض قبل الألعاب الآسيوية 2034. أُجّلت من ديسمبر 2026.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-next reveal" data-cat="esports">
+          <div class="tl-date"><b>2027</b><span>يوليو – أغسطس</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-gamepad"></i> الرياضات الإلكترونية</span><span class="tl-chip">قادمة</span></div>
+            <h3>كأس العالم للرياضات الإلكترونية يعود للرياض</h3>
+            <p>العودة إلى المقر الأصلي، وCounter-Strike 2 أول لعبة مؤكدة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-moved reveal" data-cat="esports">
+          <div class="tl-date"><b>2027</b><span>نوفمبر</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-flag"></i> الرياضات الإلكترونية</span><span class="tl-chip">مؤجلة</span></div>
+            <h3>كأس الأمم للرياضات الإلكترونية</h3>
+            <p>أول بطولة منتخبات في الرياضات الإلكترونية. كانت مقررة في نوفمبر 2026.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-moved reveal" data-cat="football">
+          <div class="tl-date"><b>2027  2028</b><span>23 ديسمبر – 21 يناير</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-futbol"></i> كرة القدم</span><span class="tl-chip">مؤجلة</span></div>
+            <h3>كأس آسيا لكرة القدم</h3>
+            <p>أول استضافة سعودية للبطولة بـ 24 منتخباً. أُعلن التأجيل في 3 نوفمبر 2026 من يناير 2027.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-next reveal" data-cat="motor">
+          <div class="tl-date"><b>2028</b><span>مخطط</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-route"></i> رياضة المحركات</span><span class="tl-chip">قادمة</span></div>
+            <h3>عودة داكار إلى المملكة</h3>
+            <p>داكار 2027 ينتقل إلى البرتغال والمغرب، والمنظمون ينوون إعادته للمملكة عام 2028 للنسخة الخمسين.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-moved reveal" data-cat="multi">
+          <div class="tl-date"><b>2029</b><span>بلا موعد جديد</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-snowflake"></i> الألعاب القارية</span><span class="tl-chip">مؤجلة</span></div>
+            <h3>الألعاب الآسيوية الشتوية</h3>
+            <p>أُجّلت نسخة تروجينا 2029، وستستضيف المملكة سلسلة بطولات شتوية مستقلة في السنوات القادمة.</p>
+          </div>
+        </article>
+
+        <article class="tl-item st-next reveal" data-cat="multi">
+          <div class="tl-date"><b>2034</b><span>الرياض</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-medal"></i> الألعاب القارية</span><span class="tl-chip">قادمة</span></div>
+            <h3>الألعاب الآسيوية</h3>
+            <p>أول استضافة سعودية لأكبر حدث رياضي في القارة بعد الأولمبياد.</p>
+          </div>
+        </article>
+
+        <article class="tl-item tl-final st-next reveal" data-cat="football">
+          <div class="tl-date"><b>2034</b><span>كأس العالم</span></div>
+          <div class="tl-card">
+            <div class="tl-top"><span class="tl-cat"><i class="fa-solid fa-trophy"></i> كرة القدم</span><span class="tl-chip">قادمة</span></div>
+            <h3>كأس العالم لكرة القدم</h3>
+            <p>أول نسخة من 48 منتخباً تستضيفها دولة واحدة، والنهائي في ملعب الملك سلمان الدولي.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 5. World Cup spotlight ===================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="wc reveal">
+      <img class="wc-bg" src="{% static 'images/events/worldcup.jpg' %}" alt="تصور لحفل كأس العالم 2034 في الرياض">
+      <div class="wc-overlay"></div>
+      <div class="wc-inner">
+        <span class="wc-badge"><i class="fa-solid fa-trophy"></i> القمة المنتظرة</span>
+        <h2>كأس العالم 2034</h2>
+        <p class="wc-text">
+          أكبر حدث رياضي في تاريخ المملكة، وأول كأس عالم بـ 48 منتخباً تستضيفها دولة واحدة.
+        </p>
+
+        <div class="wc-facts">
+          <div><b>48</b><span>منتخباً</span></div>
+          <div><b>5</b><span>مدن مستضيفة</span></div>
+          <div><b>15</b><span>ملعباً في الخطة المعلنة</span></div>
+          <div><b>92,760</b><span>مقعداً في ملعب النهائي</span></div>
+        </div>
+
+        <p class="wc-note">
+          تقارير غير رسمية في أكتوبر 2026 تتحدث عن احتمال تقليص الملاعب الجديدة من 15 إلى 10،
+          والمملكة ما زالت ملتزمة باستضافة البطولة.
+        </p>
+
+        <a href="{% url 'stadiums_view' %}" class="btn btn-gold btn-lg">تعرّف على الملاعب</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== 6. Call to action ===================== -->
+<section class="cta">
+  <div class="container reveal">
+    <h2>الحدث القادم يبدأ من هنا</h2>
+    <p>تابع الراليات ورياضة الشاشة التي تصنع جزءاً كبيراً من هذا الجدول.</p>
+    <div class="cta-actions">
+      <a href="{% url 'rallies_view' %}" class="btn btn-gold btn-lg">الراليات</a>
+      <a href="{% url 'esports_view' %}" class="btn btn-outline-light btn-lg">الرياضات الإلكترونية</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

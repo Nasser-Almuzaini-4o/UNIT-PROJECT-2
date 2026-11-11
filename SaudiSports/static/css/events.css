@@ -1,0 +1,518 @@
+/* ==========================================================================
+   SaudiSports - Events Page Styles
+   --------------------------------------------------------------------------
+   1. Up next
+   2. Timeline 
+   3. World Cup spotlight
+   ========================================================================== */
+
+
+/* ---------- 1. Up next ---------- */
+.upnext {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.up-card {
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--gold);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.up-card:hover {
+  transform: translateY(-6px);
+}
+
+.up-chip {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.up-date {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1.25;
+  color: var(--accent);
+}
+
+.up-year {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+
+.up-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+}
+
+.up-place {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.up-place i {
+  margin-inline-end: 0.3rem;
+}
+
+.up-note {
+  margin: 0;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+
+/* ---------- 2. Timeline ---------- */
+.timeline-section {
+  background: var(--surface);
+}
+
+/* The radio inputs hold the state; labels act as the filter buttons. */
+.ev-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ev-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.ev-labels label {
+  padding: 0.4rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--bg);
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.ev-labels label:hover {
+  color: var(--accent);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* Active filter */
+#ev-all:checked ~ .ev-labels label[for="ev-all"],
+#ev-football:checked ~ .ev-labels label[for="ev-football"],
+#ev-motor:checked ~ .ev-labels label[for="ev-motor"],
+#ev-esports:checked ~ .ev-labels label[for="ev-esports"],
+#ev-multi:checked ~ .ev-labels label[for="ev-multi"],
+#ev-other:checked ~ .ev-labels label[for="ev-other"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+/* Visible keyboard focus */
+#ev-all:focus-visible ~ .ev-labels label[for="ev-all"],
+#ev-football:focus-visible ~ .ev-labels label[for="ev-football"],
+#ev-motor:focus-visible ~ .ev-labels label[for="ev-motor"],
+#ev-esports:focus-visible ~ .ev-labels label[for="ev-esports"],
+#ev-multi:focus-visible ~ .ev-labels label[for="ev-multi"],
+#ev-other:focus-visible ~ .ev-labels label[for="ev-other"] {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Hide the events that do not belong to the chosen category */
+#ev-football:checked ~ .tl .tl-item:not([data-cat="football"]),
+#ev-motor:checked ~ .tl .tl-item:not([data-cat="motor"]),
+#ev-esports:checked ~ .tl .tl-item:not([data-cat="esports"]),
+#ev-multi:checked ~ .tl .tl-item:not([data-cat="multi"]),
+#ev-other:checked ~ .tl .tl-item:not([data-cat="other"]) {
+  display: none;
+}
+
+/* The vertical line sits at the start edge (right side in Arabic) */
+.tl {
+  position: relative;
+  padding-inline-start: 36px;
+}
+
+.tl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 6px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, var(--muted), var(--green-bright) 45%, var(--gold));
+  opacity: 0.55;
+}
+
+/* Era headings: past / present / future */
+.tl-era {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.2rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.tl-era:first-child {
+  margin-top: 0;
+}
+
+.tl-era::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+}
+
+.era-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 1.1rem;
+  border-radius: 50px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.era-now .era-tag {
+  background: var(--green);
+  color: #ffffff;
+}
+
+.era-future .era-tag {
+  background: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+/* "You are here" marker */
+.tl-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  padding: 0.35rem 1.3rem;
+  border-radius: 50px;
+  background: var(--green);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.now-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: nowPulse 1.6s infinite;
+}
+
+@keyframes nowPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(217, 180, 92, 0.7); }
+  100% { box-shadow: 0 0 0 12px rgba(217, 180, 92, 0); }
+}
+
+/* One event: date column + card */
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.5rem;
+  padding-block: 0.7rem;
+}
+
+/* Dot on the line */
+.tl-item::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  inset-inline-start: -36px;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--muted);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.tl-item.st-next::before {
+  border-color: var(--gold);
+}
+
+.tl-item.st-live::before {
+  border-color: var(--green-bright);
+  background: var(--green-bright);
+}
+
+.tl-item.st-moved::before {
+  border-style: dashed;
+  border-color: var(--accent);
+}
+
+.tl-item.st-cancel::before {
+  background: var(--muted);
+}
+
+.tl-date b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.tl-date span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.tl-card {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.tl-card:hover {
+  transform: translateX(-6px);
+  border-color: var(--gold);
+}
+
+.tl-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tl-cat {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.tl-cat i {
+  margin-inline-end: 0.3rem;
+}
+
+/* Status chips */
+.tl-chip {
+  padding: 0.15rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.st-next .tl-chip {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink-on-gold);
+}
+
+.st-live .tl-chip {
+  background: var(--green-bright);
+  border-color: var(--green-bright);
+  color: #ffffff;
+}
+
+.st-moved .tl-chip {
+  background: transparent;
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+}
+
+.st-cancel .tl-chip {
+  background: transparent;
+  border-color: var(--muted);
+}
+
+/* Cancelled events get a struck-through title */
+.st-cancel .tl-card h3 {
+  text-decoration: line-through;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+}
+
+.tl-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.35rem;
+}
+
+.tl-card p {
+  margin: 0;
+  font-size: 0.93rem;
+  color: var(--muted);
+}
+
+/* The big finale */
+.tl-final .tl-date b {
+  font-size: 3.2rem;
+  color: var(--gold);
+}
+
+.tl-final .tl-card {
+  border-color: var(--gold);
+}
+
+/* Phone: date above the card */
+@media (max-width: 575px) {
+  .tl-item {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .tl-date {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+  }
+
+  .tl-date b {
+    font-size: 2rem;
+  }
+
+  .tl-final .tl-date b {
+    font-size: 2.3rem;
+  }
+
+  .tl-era {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ---------- 3. World Cup spotlight ---------- */
+.wc {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  color: #ffffff;
+  background: #0a1a12; /* fallback while the image loads */
+  box-shadow: var(--shadow);
+}
+
+.wc-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark scrim so the text stays readable on any photo */
+.wc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(5, 35, 20, 0.95), rgba(5, 35, 20, 0.6));
+}
+
+.wc-inner {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+.wc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 1.1rem;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--ink-on-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.wc h2 {
+  margin: 0.9rem 0 0.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.wc-text {
+  max-width: 600px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.wc-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.wc-facts div {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.wc-facts b {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: var(--gold);
+  direction: ltr;
+}
+
+.wc-facts span {
+  font-size: 0.9rem;
+}
+
+.wc-note {
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+@media (max-width: 575px) {
+  .wc-inner {
+    padding: 2rem 1.5rem;
+  }
+}
+/* Era heading with no events for the chosen filter (set by main.js) */
+.tl-era.is-empty {
+  display: none;
+}
