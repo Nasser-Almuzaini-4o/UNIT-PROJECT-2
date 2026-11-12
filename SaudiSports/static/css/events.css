@@ -213,18 +213,6 @@
 }
 
 /* "You are here" marker */
-.tl-now {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 1rem;
-  padding: 0.35rem 1.3rem;
-  border-radius: 50px;
-  background: var(--green);
-  color: #ffffff;
-  font-weight: 700;
-}
-
 .now-dot {
   width: 12px;
   height: 12px;

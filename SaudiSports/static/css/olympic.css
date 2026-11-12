@@ -1,0 +1,687 @@
+/* SaudiSports - Olympic Page Styles
+   1. Medal colors 
+    2. Hero medals 
+    3. Games cards
+    4. Sports filter
+    5. Vision
+    6. Timeline
+    7. Notes
+   */
+
+/* ---------- 1. Medal colors ---------- */
+
+:root {
+    --medal-silver: #a4acb2;
+    --medal-bronze: #b8733a;
+}
+
+.is-gold i { color: var(--gold); }
+.is-silver i { color: var(--medal-silver); }
+.is-bronze i { color: var(--medal-bronze); }
+
+/* ---------- 2. Hero medals ---------- */
+/* Compact hero: the medals strip already fills it, so it needs less height */
+.page-hero {
+    min-height: 0;
+}
+
+.page-hero .page-hero-inner {
+    padding: 2.5rem 0 5rem; 
+}
+
+.page-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.page-hero p {
+    font-size: 1.05rem;
+}
+
+.oly-total {
+    margin-top: 1.25rem;
+}
+
+.oly-medal {
+    padding: 0.6rem 1rem;
+}
+
+.oly-medal strong {
+    font-size: 2rem;
+}
+
+.oly-medal-all strong {
+    font-size: 2.5rem;
+}
+
+.oly-total {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.oly-medal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 104px;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.oly-medal i {
+    margin-bottom: 0.15rem;
+    font-size: 1.3rem;
+}
+
+.oly-medal strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1.1;
+}
+
+.oly-medal span {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.oly-medal-all {
+    min-width: 150px;
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.oly-medal-all strong {
+    color: var(--gold);
+    font-size: 3rem;
+}
+
+.page-hero .oly-total-note {
+    max-width: 70vh;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* ---------- 3. Games cards ---------- */
+.oly-games {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.oly-cell {
+    min-width: 0;
+}
+
+.oly-game {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.oly-game:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.oly-game-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+}
+
+.oly-game-icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--gold);
+    font-size: 1.25rem;
+}
+
+.oly-game-head h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.oly-game-years {
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.oly-tally {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.oly-tally > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.7rem 0.4rem;
+    border-radius: 14px;
+    background: var(--surface-2);
+    text-align: center;
+}
+
+.oly-tally i {
+    font-size: 1.1rem;
+}
+
+.oly-tally b {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.oly-tally small {
+    font-size: 0.78rem;
+    color: var(--muted);
+}
+
+.oly-game-note {
+    flex-grow: 1;
+    margin: 1rem 0 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.oly-game-total {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--border);
+}
+
+.oly-game-total strong {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.oly-game-total span {
+    color: var(--muted);
+}
+
+/* ---------- 4. Sports filter ---------- */
+.oly-filter-section {
+    background: var(--surface);
+}
+
+.oly-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.oly-chip {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.55rem;
+    padding-block: 0.45rem;
+    padding-inline: 1rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.oly-chip i {
+    color: var(--accent);
+}
+
+.oly-chip b {
+    min-width: 28px;
+    padding: 0.1rem 0.5rem;
+    border-radius: 50px;
+    background: var(--surface-2);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.oly-chip:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.oly-chip.is-active {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--ink-on-gold);
+}
+
+.oly-chip.is-active i {
+    color: var(--ink-on-gold);
+}
+
+.oly-chip.is-active b {
+    background: var(--ink-on-gold);
+    color: var(--gold);
+}
+
+/* Summary panel (updated by main.js) */
+.oly-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.4rem 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+}
+
+.oly-summary-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.oly-summary-icon {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.oly-summary h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.oly-summary-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.oly-summary-nums {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.oly-num {
+    min-width: 88px;
+    padding: 0.6rem 0.8rem;
+    border-radius: 14px;
+    background: var(--surface-2);
+    text-align: center;
+}
+
+.oly-num i {
+    font-size: 1rem;
+}
+
+.oly-num strong {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.oly-num span {
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.oly-num-all {
+    border: 1px solid var(--gold);
+}
+
+.oly-num-all strong {
+    padding-top: 1rem;
+    color: var(--accent);
+}
+
+/* Sport cards */
+.oly-sports {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.25rem;
+}
+
+.oly-sport {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.oly-sport[hidden] {
+    display: none;
+}
+
+.oly-sport:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.oly-sport .oly-tally > span {
+    background: var(--surface);
+}
+
+/* Medals per competition */
+.oly-split {
+    margin: 1rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+    list-style: none;
+}
+
+.oly-split li {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, 2.2rem);
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+}
+
+.oly-split li:last-child {
+    border-bottom: 0;
+}
+
+.oly-split li > span {
+    color: var(--muted);
+}
+
+.oly-split b {
+    font-weight: 700;
+    text-align: center;
+}
+
+.oly-split b.zero {
+    opacity: 0.35;
+}
+
+.oly-split-head > span {
+    text-align: center;
+}
+
+/* ---------- 5. Vision (image + text) ---------- */
+.vision-image {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--surface-2);
+    box-shadow: var(--shadow);
+}
+
+.vision-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.vision-image:hover img {
+    transform: scale(1.05);
+}
+
+.vision-badge {
+    position: absolute;
+    bottom: 1rem;
+    inset-inline-start: 1rem;
+    padding: 0.3rem 1.1rem;
+    border-radius: 50px;
+    background: var(--gold);
+    color: var(--ink-on-gold);
+    font-weight: 700;
+}
+
+.vision-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.vision-text {
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+.vision-list {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.vision-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.vision-list i {
+    font-size: 1.3rem;
+    color: var(--green-bright);
+}
+
+/* ---------- 6. Timeline ---------- */
+.timeline-section {
+    background: var(--surface);
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.timeline-item::before,
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    height: 3px;
+}
+
+.timeline-item::before {
+    width: 100%;
+    background: var(--border);
+}
+
+.timeline-item::after {
+    width: 0;
+    background: var(--gold);
+    transition: width 1s ease var(--delay, 0s);
+}
+
+.timeline-item.visible::after {
+    width: 100%;
+}
+
+.timeline-year {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    line-height: 1.1;
+    color: var(--accent);
+}
+
+.timeline-item h3 {
+    margin: 0.4rem 0;
+    font-size: 1.3rem;
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.timeline-final .timeline-year {
+    font-size: 3.4rem;
+    color: var(--gold);
+}
+
+/* ---------- 7. Notes ---------- */
+.oly-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1.1rem;
+    border-inline-start: 4px solid var(--gold);
+    border-radius: 12px;
+    background: var(--surface-2);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.oly-note i {
+    margin-top: 0.25rem;
+    color: var(--accent);
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablet */
+@media (max-width: 991px) {
+    .oly-games {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .oly-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .oly-summary-nums {
+        width: 100%;
+    }
+
+    .oly-num {
+        flex: 1;
+    }
+}
+
+/* Large phone */
+@media (max-width: 767px) {
+    /* Filter chips scroll sideways inside their own box */
+    .oly-chips {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 0.6rem;
+        scrollbar-width: thin;
+    }
+
+    .oly-summary {
+        padding: 1.2rem;
+    }
+
+    .oly-summary-nums {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .oly-num {
+        min-width: 0;
+        padding-inline: 0.3rem;
+    }
+
+    .oly-num strong {
+        font-size: 1.6rem;
+    }
+}
+
+/* Small phone */
+@media (max-width: 575px) {
+    .oly-games {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .oly-total {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+
+    .oly-medal {
+        min-width: 0;
+        padding: 0.7rem 0.4rem;
+    }
+
+    .oly-medal strong {
+        font-size: 1.9rem;
+    }
+
+    .oly-medal-all {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+
+    .oly-medal-all strong {
+        font-size: 2.4rem;
+    }
+
+    .oly-sports {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 991px) {
+    .page-hero-bg {
+        object-fit: contain;
+    }
+}

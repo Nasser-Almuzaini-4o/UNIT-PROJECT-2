@@ -84,6 +84,9 @@
           <li class="nav-item">
             <a class="nav-link {% if page == 'stadiums_view' %}active{% endif %}" href="{% url 'stadiums_view' %}">الملاعب</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {% if page == 'olympic_view' %}active{% endif %}" href="{% url 'olympic_view' %}">الألعاب الأولمبية</a>
+          </li>
         </ul>
 
         <!-- Dark / light mode switch: sends the user to mode_view, which sets the cookie -->
@@ -106,7 +109,7 @@
 
   <main>
 
-    
+
     {% block content %}{% endblock %}
 
 
@@ -128,10 +131,10 @@
            اكتشف شغف الرياضة السعودية، وتعرّف على أبرز أنديتها وأبطالها وبطولاتها وإنجازاتها، واستكشف رحلة المملكة نحو مستقبل رياضي استثنائي.
           </p>
           <div class="footer-social">
-            <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
-            <a href="#" aria-label="Snapchat"><i class="bi bi-snapchat"></i></a>
+            <a href="https://x.com/mosgovsa?lang=ar" aria-label="X" ><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/mosgovsa?lang=ar" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@MOSGOVSA" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.snapchat.com/add/mosgovsa" aria-label="Snapchat"><i class="bi bi-snapchat"></i></a>
           </div>
         </div>
 
@@ -154,6 +157,7 @@
             <li><a href="{% url 'events_view' %}">الفعاليات والبطولات</a></li>
             <li><a href="{% url 'stadiums_view' %}">الملاعب والمنشآت</a></li>
             <li><a href="{% url 'home_view' %}">الرئيسية</a></li>
+            <li><a href="{% url 'olympic_view' %}">الألعاب الأولمبية</a></li>
           </ul>
         </div>
       </div>

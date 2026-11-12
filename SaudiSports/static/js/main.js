@@ -8,9 +8,7 @@
    4. URL hash helpers
    5. Stadiums and events filters
    6. Falcons tabs
-  
-
-  
+   7. Olympic medals filter
    ========================================================================== */
 
 
@@ -397,3 +395,127 @@ initTabs({
     prefix: "fy"
 });
 
+
+/* ==========================================================================
+   7. OLYMPIC MEDALS FILTER
+   Filters the sport cards on the Olympic page, updates the medal summary
+   (gold / silver / bronze / total), and remembers the sport in the URL.
+   Example: /olympic/#sport=athletics
+   Medal numbers are read from data-gold, data-silver and data-bronze
+   on each .oly-sport card.
+   ========================================================================== */
+
+function initMedalFilter() {
+    const root = document.querySelector(".oly-filter");
+
+    if (!root) return;
+
+    const chips = Array.from(root.querySelectorAll(".oly-chip"));
+    const cards = Array.from(root.querySelectorAll(".oly-sport"));
+    const summary = root.querySelector(".oly-summary");
+
+    if (!chips.length || !cards.length || !summary) return;
+
+    const nameEl = summary.querySelector("[data-summary-name]");
+    const subEl = summary.querySelector("[data-summary-sub]");
+    const iconEl = summary.querySelector("[data-summary-icon]");
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+    // Add up the medals of a list of cards.
+    function sumMedals(list) {
+        const result = { gold: 0, silver: 0, bronze: 0, total: 0 };
+
+        list.forEach((card) => {
+            result.gold += Number(card.dataset.gold) || 0;
+            result.silver += Number(card.dataset.silver) || 0;
+            result.bronze += Number(card.dataset.bronze) || 0;
+        });
+
+        result.total = result.gold + result.silver + result.bronze;
+
+        return result;
+    }
+
+    const cardsFor = (value) => {
+        return value === "all"
+            ? cards
+            : cards.filter((card) => card.dataset.sport === value);
+    };
+
+
+    // Show the medal count on every chip.
+    chips.forEach((chip) => {
+        const badge = chip.querySelector("b");
+
+        if (badge) {
+            badge.textContent = sumMedals(cardsFor(chip.dataset.sport)).total;
+        }
+    });
+
+
+    // Show one sport (or all) and update the summary panel.
+    function applyFilter(value) {
+        const chip = chips.find((item) => item.dataset.sport === value);
+
+        if (!chip) return;
+
+        cards.forEach((card) => {
+            card.hidden = value !== "all" && card.dataset.sport !== value;
+        });
+
+        chips.forEach((item) => {
+            const active = item === chip;
+
+            item.classList.toggle("is-active", active);
+            item.setAttribute("aria-pressed", String(active));
+        });
+
+        const totals = sumMedals(cardsFor(value));
+
+        summary.querySelectorAll("[data-sum]").forEach((element) => {
+            element.textContent = totals[element.dataset.sum];
+        });
+
+        const chipName = chip.querySelector("span");
+        const chipIcon = chip.querySelector("i");
+
+        if (nameEl && chipName) nameEl.textContent = chipName.textContent;
+        if (subEl) subEl.textContent = chip.dataset.games || "";
+        if (iconEl && chipIcon) iconEl.className = chipIcon.className;
+    }
+
+
+    // Click on a chip.
+    chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+            applyFilter(chip.dataset.sport);
+
+            setHashParam("sport", chip.dataset.sport, "all");
+
+            chip.scrollIntoView({
+                behavior: prefersReducedMotion ? "auto" : "smooth",
+                inline: "center",
+                block: "nearest"
+            });
+        });
+    });
+
+
+    // Restore the sport from the URL.
+    function fromHash() {
+        const wanted = getHashParams().get("sport") || "all";
+        const exists = chips.some((chip) => chip.dataset.sport === wanted);
+
+        applyFilter(exists ? wanted : "all");
+    }
+
+    fromHash();
+
+    window.addEventListener("hashchange", fromHash);
+}
+
+initMedalFilter();

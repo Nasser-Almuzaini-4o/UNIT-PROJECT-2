@@ -35,6 +35,9 @@ def events_view(request: HttpRequest):
 def stadiums_view(request: HttpRequest):
     return render(request, "main/stadiums.html")
 
+def olympic_view(request: HttpRequest):
+    return render(request, "main/olympic.html")
+
 
 # ---------- Dark / light mode (saved in a cookie) ----------
 

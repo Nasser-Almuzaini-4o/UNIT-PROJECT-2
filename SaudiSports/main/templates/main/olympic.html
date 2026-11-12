@@ -1,0 +1,644 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الأولمبياد والميداليات | SaudiSports{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/olympic.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================== 1. Page hero ===================== -->
+<section class="page-hero">
+    <img class="page-hero-bg" src="{% static 'images/olympic/hero.jpg' %}" alt="منصة تتويج مضاءة عليها ميداليات ذهبية وفضية وبرونزية">
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+        <div class="page-hero-inner">
+            <nav class="crumbs rise" aria-label="مسار التنقل">
+                <a href="{% url 'home_view' %}">الرئيسية</a>
+                <i class="bi bi-chevron-left"></i>
+                <span>الأولمبياد</span>
+            </nav>
+            <h1 class="rise" style="--delay: .1s">ميداليات تروي<br>حكاية وطن</h1>
+            <p class="rise" style="--delay: .2s">
+                من أول ميدالية أولمبية في سيدني 2000 إلى 34 ميدالية في ناغويا 2026،
+                هذه حصيلة المملكة في الدورات الكبرى كلها في مكان واحد.
+            </p>
+
+            <div class="oly-total rise" style="--delay: .3s" role="group" aria-label="إجمالي ميداليات المملكة في الدورات الكبرى">
+                <div class="oly-medal is-gold">
+                    <i class="fa-solid fa-medal"></i>
+                    <strong>181</strong>
+                    <span>ذهبية</span>
+                </div>
+                <div class="oly-medal is-silver">
+                    <i class="fa-solid fa-medal"></i>
+                    <strong>194</strong>
+                    <span>فضية</span>
+                </div>
+                <div class="oly-medal is-bronze">
+                    <i class="fa-solid fa-medal"></i>
+                    <strong>271</strong>
+                    <span>برونزية</span>
+                </div>
+                <div class="oly-medal oly-medal-all">
+                    <strong>646</strong>
+                    <span>إجمالي الميداليات</span>
+                </div>
+            </div>
+
+            <p class="oly-total-note rise" style="--delay: .4s">
+                الحصيلة حتى 12 نوفمبر 2026 في ست دورات: الأولمبية والبارالمبية
+                والآسيوية والبارآسيوية وألعاب التضامن الإسلامي والدورات العربية.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 2. Quick facts ===================== -->
+<section class="facts">
+    <div class="container">
+        <div class="facts-grid reveal">
+            <div class="fact"><strong>2000</strong><span>أول ميدالية أولمبية في سيدني</span></div>
+            <div class="fact"><strong>4</strong><span>ميداليات أولمبية: فضيتان وبرونزيتان</span></div>
+            <div class="fact"><strong>6</strong><span>ميداليات بارالمبية، منها ذهبيتان</span></div>
+            <div class="fact"><strong>17</strong><span>أعلى حصيلة في دورة آسيوية: ناغويا 2026</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 3. Games totals ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <h2>حصيلة كل دورة</h2>
+            <p>ست دورات كبرى، وخلف كل ميدالية فيها لحظة تتويج.</p>
+        </div>
+
+        <div class="oly-games">
+
+            <div class="oly-cell reveal">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-fire-flame-torch"></i></span>
+                        <div>
+                            <h3>الألعاب الأولمبية</h3>
+                            <span class="oly-game-years">سيدني 2000 – طوكيو 2020</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>2</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>2</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">فضية وبرونزية في سيدني، وبرونزية جماعية في لندن 2012، وفضية الكاراتيه في طوكيو 2020.</p>
+                    <div class="oly-game-total"><strong>4</strong><span>ميداليات</span></div>
+                </article>
+            </div>
+
+            <div class="oly-cell reveal" style="--delay: .1s">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-wheelchair"></i></span>
+                        <div>
+                            <h3>الألعاب البارالمبية</h3>
+                            <span class="oly-game-years">بكين 2008 – باريس 2024</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>2</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>2</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>2</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">كلها في ألعاب القوى، وأولى الذهبيتين في بكين 2008 والثانية في باريس 2024.</p>
+                    <div class="oly-game-total"><strong>6</strong><span>ميداليات</span></div>
+                </article>
+            </div>
+
+            <div class="oly-cell reveal" style="--delay: .2s">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-earth-asia"></i></span>
+                        <div>
+                            <h3>الألعاب الآسيوية</h3>
+                            <span class="oly-game-years">نيودلهي 1982 – ناغويا 2026</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>33</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>18</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>37</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">17 ميدالية في ناغويا 2026، أعلى حصيلة في تاريخ مشاركات المملكة.</p>
+                    <div class="oly-game-total"><strong>88</strong><span>ميدالية</span></div>
+                </article>
+            </div>
+
+            <div class="oly-cell reveal">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-wheelchair-move"></i></span>
+                        <div>
+                            <h3>الألعاب البارآسيوية</h3>
+                            <span class="oly-game-years">غوانزو 2010 – ناغويا 2026</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>15</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>21</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>8</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">17 ميدالية في ناغويا 2026، بينما كان أفضل رقم سابق 9 ميداليات في هانغتشو 2022.</p>
+                    <div class="oly-game-total"><strong>44</strong><span>ميدالية</span></div>
+                </article>
+            </div>
+
+            <div class="oly-cell reveal" style="--delay: .1s">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-kaaba"></i></span>
+                        <div>
+                            <h3>ألعاب التضامن الإسلامي</h3>
+                            <span class="oly-game-years">مكة 2005 – الرياض 2025</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>55</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>45</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>68</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">57 ميدالية في الرياض 2025، وجاءت المملكة رابعة في ترتيب الدورة.</p>
+                    <div class="oly-game-total"><strong>168</strong><span>ميدالية</span></div>
+                </article>
+            </div>
+
+            <div class="oly-cell reveal" style="--delay: .2s">
+                <article class="oly-game">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-flag"></i></span>
+                        <div>
+                            <h3>الدورات العربية</h3>
+                            <span class="oly-game-years">حتى الجزائر 2023</span>
+                        </div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>76</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>106</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>154</b><small>برونزية</small></span>
+                    </div>
+                    <p class="oly-game-note">الرياض هي مستضيفة الدورة العربية المقبلة عام 2027.</p>
+                    <div class="oly-game-total"><strong>336</strong><span>ميدالية</span></div>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="oly-note reveal">
+            <i class="bi bi-info-circle-fill"></i>
+            <span>
+                الحصيلة لا تشمل الدورات الخليجية ولا بطولات العالم ولا الدورات الشبابية.
+                أرقام ألعاب التضامن الإسلامي والدورات العربية مأخوذة من سجلات الجهات المنظمة.
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 4. Sports filter ===================== -->
+<section class="section oly-filter-section">
+    <div class="container">
+        <div class="section-head reveal">
+            <h2>حصاد كل لعبة</h2>
+            <p>اختر لعبة لترى ميدالياتها الذهبية والفضية والبرونزية، موزعة على الدورات.</p>
+        </div>
+
+        <div class="oly-filter reveal">
+
+            <div class="oly-chips" role="group" aria-label="تصفية حسب اللعبة">
+                <button type="button" class="oly-chip is-active" data-sport="all" data-games="الأولمبياد · البارالمبياد · الآسياد" aria-pressed="true">
+                    <i class="fa-solid fa-trophy" aria-hidden="true"></i><span>كل الألعاب</span><b>98</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="athletics" data-games="الأولمبياد · البارالمبياد · الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-person-running" aria-hidden="true"></i><span>ألعاب القوى</span><b>44</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="equestrian" data-games="الأولمبياد · الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-horse" aria-hidden="true"></i><span>الفروسية</span><b>16</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="karate" data-games="الأولمبياد · الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-hand-back-fist" aria-hidden="true"></i><span>الكاراتيه</span><b>13</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="jiujitsu" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-user-ninja" aria-hidden="true"></i><span>الجوجيتسو</span><b>7</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="bowling" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-bowling-ball" aria-hidden="true"></i><span>البولينج</span><b>4</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="taekwondo" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-shoe-prints" aria-hidden="true"></i><span>التايكوندو</span><b>3</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="esports" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-gamepad" aria-hidden="true"></i><span>الرياضات الإلكترونية</span><b>3</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="boxing" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-hand-fist" aria-hidden="true"></i><span>الملاكمة</span><b>2</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="football" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-futbol" aria-hidden="true"></i><span>كرة القدم</span><b>2</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="shooting" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-bullseye" aria-hidden="true"></i><span>الرماية</span><b>2</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="handball" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-hand" aria-hidden="true"></i><span>كرة اليد</span><b>1</b>
+                </button>
+                <button type="button" class="oly-chip" data-sport="volleyball" data-games="الآسياد" aria-pressed="false">
+                    <i class="fa-solid fa-volleyball" aria-hidden="true"></i><span>الكرة الطائرة</span><b>1</b>
+                </button>
+            </div>
+
+            <div class="oly-summary" role="status" aria-live="polite">
+                <div class="oly-summary-title">
+                    <span class="oly-summary-icon"><i class="fa-solid fa-trophy" data-summary-icon></i></span>
+                    <div>
+                        <h3 data-summary-name>كل الألعاب</h3>
+                        <span class="oly-summary-sub" data-summary-sub>الأولمبياد · البارالمبياد · الآسياد</span>
+                    </div>
+                </div>
+                <div class="oly-summary-nums">
+                    <div class="oly-num is-gold"><i class="fa-solid fa-medal"></i><strong data-sum="gold">35</strong><span>ذهبية</span></div>
+                    <div class="oly-num is-silver"><i class="fa-solid fa-medal"></i><strong data-sum="silver">22</strong><span>فضية</span></div>
+                    <div class="oly-num is-bronze"><i class="fa-solid fa-medal"></i><strong data-sum="bronze">41</strong><span>برونزية</span></div>
+                    <div class="oly-num oly-num-all"><strong data-sum="total">98</strong><span>الإجمالي</span></div>
+                </div>
+            </div>
+
+            <div class="oly-sports">
+
+                <article class="oly-sport" data-sport="athletics" data-gold="21" data-silver="10" data-bronze="13">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-person-running"></i></span>
+                        <div><h3>ألعاب القوى</h3><span class="oly-game-years">44 ميدالية</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>21</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>10</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>13</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الأولمبياد</span><b class="zero">0</b><b>1</b><b class="zero">0</b></li>
+                        <li><span>البارالمبياد</span><b>2</b><b>2</b><b>2</b></li>
+                        <li><span>الآسياد</span><b>19</b><b>7</b><b>11</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="equestrian" data-gold="9" data-silver="2" data-bronze="5">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-horse"></i></span>
+                        <div><h3>الفروسية</h3><span class="oly-game-years">16 ميدالية</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>9</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>2</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>5</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الأولمبياد</span><b class="zero">0</b><b class="zero">0</b><b>2</b></li>
+                        <li><span>الآسياد</span><b>9</b><b>2</b><b>3</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="karate" data-gold="0" data-silver="6" data-bronze="7">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-hand-back-fist"></i></span>
+                        <div><h3>الكاراتيه</h3><span class="oly-game-years">13 ميدالية</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>6</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>7</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الأولمبياد</span><b class="zero">0</b><b>1</b><b class="zero">0</b></li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b>5</b><b>7</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="jiujitsu" data-gold="2" data-silver="0" data-bronze="5">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-user-ninja"></i></span>
+                        <div><h3>الجوجيتسو</h3><span class="oly-game-years">7 ميداليات</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>2</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>0</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>5</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b>2</b><b class="zero">0</b><b>5</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="bowling" data-gold="2" data-silver="0" data-bronze="2">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-bowling-ball"></i></span>
+                        <div><h3>البولينج</h3><span class="oly-game-years">4 ميداليات</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>2</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>0</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>2</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b>2</b><b class="zero">0</b><b>2</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="taekwondo" data-gold="0" data-silver="0" data-bronze="3">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-shoe-prints"></i></span>
+                        <div><h3>التايكوندو</h3><span class="oly-game-years">3 ميداليات</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>0</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>3</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b class="zero">0</b><b>3</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="esports" data-gold="0" data-silver="1" data-bronze="2">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-gamepad"></i></span>
+                        <div><h3>الرياضات الإلكترونية</h3><span class="oly-game-years">3 ميداليات</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>1</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>2</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b>1</b><b>2</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="boxing" data-gold="0" data-silver="1" data-bronze="1">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-hand-fist"></i></span>
+                        <div><h3>الملاكمة</h3><span class="oly-game-years">2 ميداليتان</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>1</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>1</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b>1</b><b>1</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="football" data-gold="0" data-silver="1" data-bronze="1">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-futbol"></i></span>
+                        <div><h3>كرة القدم</h3><span class="oly-game-years">2 ميداليتان</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>1</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>1</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b>1</b><b>1</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="shooting" data-gold="1" data-silver="1" data-bronze="0">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-bullseye"></i></span>
+                        <div><h3>الرماية</h3><span class="oly-game-years">2 ميداليتان</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>1</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>1</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>0</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b>1</b><b>1</b><b class="zero">0</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="handball" data-gold="0" data-silver="0" data-bronze="1">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-hand"></i></span>
+                        <div><h3>كرة اليد</h3><span class="oly-game-years">ميدالية واحدة</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>0</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>1</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b class="zero">0</b><b>1</b></li>
+                    </ul>
+                </article>
+
+                <article class="oly-sport" data-sport="volleyball" data-gold="0" data-silver="0" data-bronze="1">
+                    <div class="oly-game-head">
+                        <span class="oly-game-icon"><i class="fa-solid fa-volleyball"></i></span>
+                        <div><h3>الكرة الطائرة</h3><span class="oly-game-years">ميدالية واحدة</span></div>
+                    </div>
+                    <div class="oly-tally">
+                        <span class="is-gold"><i class="fa-solid fa-medal"></i><b>0</b><small>ذهبية</small></span>
+                        <span class="is-silver"><i class="fa-solid fa-medal"></i><b>0</b><small>فضية</small></span>
+                        <span class="is-bronze"><i class="fa-solid fa-medal"></i><b>1</b><small>برونزية</small></span>
+                    </div>
+                    <ul class="oly-split">
+                        <li class="oly-split-head"><span></span>
+                            <span class="is-gold"><i class="fa-solid fa-medal"></i><span class="visually-hidden">ذهبية</span></span>
+                            <span class="is-silver"><i class="fa-solid fa-medal"></i><span class="visually-hidden">فضية</span></span>
+                            <span class="is-bronze"><i class="fa-solid fa-medal"></i><span class="visually-hidden">برونزية</span></span>
+                        </li>
+                        <li><span>الآسياد</span><b class="zero">0</b><b class="zero">0</b><b>1</b></li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <div class="oly-note">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>
+                    الفلتر يضم 98 ميدالية من الأولمبياد والبارالمبياد والألعاب الآسيوية، وهي الدورات
+                    المتاح فيها التوزيع حسب اللعبة. أما البارآسيوية والتضامن الإسلامي والدورات العربية
+                    فتظهر في حصيلة الدورات أعلاه.
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 5. Nagoya 2026 ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 reveal">
+                <div class="vision-image">
+                    <img src="{% static 'images/olympic/equestrian.jpg' %}" alt="فارس يقفز بحصانه فوق حاجز في بطولة قفز الحواجز">
+                    <span class="vision-badge">17 ميدالية</span>
+                </div>
+            </div>
+            <div class="col-lg-6 reveal" style="--delay: .15s">
+                <h2 class="vision-title">ناغويا 2026.. أعلى حصيلة في تاريخ الآسياد</h2>
+                <p class="vision-text">
+                    أنهت المملكة الألعاب الآسيوية العشرين في المركز الثامن عشر،
+                    وتجاوزت رقمها السابق البالغ 14 ميدالية في الدوحة 2006.
+                </p>
+                <ul class="vision-list">
+                    <li><i class="bi bi-check-circle-fill"></i><span>4 ذهبيات: جوجيتسو لعمر ندا وعبدالله ندا، وفروسية قفز الحواجز فرقاً وفردياً.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>3 فضيات في الكاراتيه والرياضات الإلكترونية والفروسية.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>10 برونزيات توزعت على خمس رياضات، بينها ألعاب القوى والجوجيتسو.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>دينا مصطفى تسجل أول ميدالية نسائية سعودية للكبار في الآسياد، برونزية الكاراتيه.</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 6. Timeline ===================== -->
+<section class="section timeline-section">
+    <div class="container">
+        <div class="section-head reveal">
+            <h2>على منصات الأولمبياد والبارالمبياد</h2>
+            <p>من سيدني إلى باريس، محطات صنعت التاريخ.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <span class="timeline-year">2000</span>
+                <h3>أول ميداليات أولمبية</h3>
+                <p>فضية هادي سوعان الصوملي في 400م حواجز، وبرونزية خالد العيد في قفز الحواجز.</p>
+            </div>
+            <div class="timeline-item reveal" style="--delay: .15s">
+                <span class="timeline-year">2008</span>
+                <h3>أول ذهبية بارالمبية</h3>
+                <p>أسامة الشنقيطي يتوج بالوثب الثلاثي T12 في بكين، ويضيف فضية الوثب الطويل.</p>
+            </div>
+            <div class="timeline-item reveal" style="--delay: .3s">
+                <span class="timeline-year">2012</span>
+                <h3>برونزية الفرسان</h3>
+                <p>فريق قفز الحواجز يحصد برونزية لندن، وهاني النخلي يفوز بفضية رمي القرص.</p>
+            </div>
+            <div class="timeline-item reveal" style="--delay: .45s">
+                <span class="timeline-year">2016</span>
+                <h3>برونزية في ريو</h3>
+                <p>هاني النخلي يضيف برونزية دفع الجلة F33 إلى رصيد المملكة البارالمبي.</p>
+            </div>
+            <div class="timeline-item reveal" style="--delay: .6s">
+                <span class="timeline-year">2020</span>
+                <h3>فضية طوكيو</h3>
+                <p>طارق حامدي يعتلي منصة الكاراتيه في +75 كجم، وعبدالرحمن القرشي ينال برونزية 100م T53.</p>
+            </div>
+            <div class="timeline-item timeline-final reveal" style="--delay: .75s">
+                <span class="timeline-year">2024</span>
+                <h3>ذهب باريس</h3>
+                <p>القرشي يتوج بذهبية 100م T53، ودنيا أبو طالب تقترب من برونزية التايكوندو.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 7. Paralympic ===================== -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-lg-2 reveal">
+                <div class="vision-image">
+                    <img src="{% static 'images/olympic/para-athletics.jpg' %}" alt="متسابق على كرسي سباق يعبر خط النهاية في مضمار ألعاب القوى">
+                    <span class="vision-badge">البارالمبية</span>
+                </div>
+            </div>
+            <div class="col-lg-6 reveal" style="--delay: .15s">
+                <h2 class="vision-title">أبطال لا تقف أمامهم الحواجز</h2>
+                <p class="vision-text">
+                    في البارالمبياد والألعاب البارآسيوية، يكتب الأبطال السعوديون
+                    بعضاً من أجمل صفحات الإنجاز في تاريخ الرياضة السعودية.
+                </p>
+                <ul class="vision-list">
+                    <li><i class="bi bi-check-circle-fill"></i><span>6 ميداليات بارالمبية، كلها في ألعاب القوى.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>17 ميدالية في ناغويا 2026: 8 ذهبيات و8 فضيات وبرونزية.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>الأولى عربياً والعاشرة آسيوياً في جدول الدورة.</span></li>
+                    <li><i class="bi bi-check-circle-fill"></i><span>14 ميدالية من ألعاب القوى، وفضيتان في كرة الطاولة.</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 8. Call to action ===================== -->
+<section class="cta">
+    <div class="container reveal">
+        <h2>الطريق إلى 2034</h2>
+        <p>الميداليات تكبر، والرياض تستعد لاستضافة الألعاب الآسيوية 2034. تابع الفعاليات الكبرى وكرة القدم.</p>
+        <div class="cta-actions">
+            <a href="{% url 'events_view' %}" class="btn btn-gold btn-lg">الفعاليات والبطولات</a>
+            <a href="{% url 'stadiums_view' %}" class="btn btn-outline-light btn-lg">الملاعب</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

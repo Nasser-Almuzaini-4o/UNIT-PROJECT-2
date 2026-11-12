@@ -11,4 +11,5 @@ urlpatterns = [
     path("events/", views.events_view, name="events_view"),
     path("stadiums/", views.stadiums_view, name="stadiums_view"),
     path("mode/<mode>/", views.mode_view, name="mode_view"),
+    path("olympic/", views.olympic_view, name="olympic_view"),
 ]
