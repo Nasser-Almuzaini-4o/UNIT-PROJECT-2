@@ -603,3 +603,282 @@ img {
 .filter-empty.show {
   display: block;
 }
+
+/* ==========================================
+   RESPONSIVE IMPROVEMENTS
+   ========================================== */
+
+/* Prevent elements from exceeding their containers */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  min-width: 320px;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+.container,
+.container-fluid,
+.row > *,
+main,
+section,
+article,
+aside {
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+a,
+button {
+  overflow-wrap: break-word;
+}
+
+/* Navbar */
+.site-nav .container {
+  flex-wrap: wrap;
+}
+
+.site-nav .navbar-collapse {
+  min-width: 0;
+}
+
+.site-nav .navbar-nav {
+  min-width: 0;
+}
+
+.site-nav .nav-link {
+  white-space: normal;
+}
+
+.navbar-toggler {
+  flex-shrink: 0;
+}
+
+/* Inner page hero */
+.page-hero {
+  min-height: 80vh;
+  min-height: 80svh;
+}
+
+.page-hero-inner {
+  width: 100%;
+  min-width: 0;
+}
+
+.page-hero p {
+  max-width: 100%;
+}
+
+/* Facts cards */
+.facts-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+}
+
+.fact {
+  min-width: 0;
+}
+
+/* Sections */
+.section,
+.cta {
+  min-width: 0;
+}
+
+.section-head {
+  width: 100%;
+}
+
+/* Footer */
+.site-footer .row > * {
+  min-width: 0;
+}
+
+.footer-about {
+  max-width: 100%;
+}
+
+.footer-bottom {
+  overflow-wrap: anywhere;
+}
+
+/* Back to top */
+.to-top {
+  inset-inline-start: 24px;
+  inset-inline-end: auto;
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+  .section {
+    padding-block: 4rem;
+  }
+
+  .page-hero {
+    min-height: 65vh;
+    min-height: 65svh;
+  }
+
+  .page-hero-inner {
+    padding-block: 3rem 5rem;
+  }
+
+  .site-nav .navbar-collapse {
+    padding-top: 1rem;
+  }
+
+  .site-nav .navbar-nav {
+    align-items: stretch !important;
+  }
+
+  .site-nav .nav-link {
+    padding-block: 0.65rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .section {
+    padding-block: 3rem;
+  }
+
+  .page-hero {
+    min-height: 60vh;
+    min-height: 60svh;
+  }
+
+  .page-hero-inner {
+    padding-block: 3rem 4rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .page-hero p {
+    font-size: 1rem;
+  }
+
+  .section-head {
+    margin-bottom: 1.75rem;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  .facts {
+    margin-top: -2rem;
+  }
+
+  .fact {
+    padding: 1rem 0.65rem;
+  }
+
+  .fact strong {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+  }
+
+  .fact span {
+    font-size: 0.85rem;
+  }
+
+  .cta {
+    padding-block: 3rem;
+  }
+
+  .site-footer {
+    padding-top: 3rem;
+  }
+
+  .to-top {
+    bottom: 16px;
+    inset-inline-start: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 575.98px) {
+  .brand-ar {
+    font-size: 1.55rem;
+  }
+
+  .site-nav {
+    padding-block: 0.45rem;
+  }
+
+  .navbar-toggler {
+    padding: 0.1rem 0.45rem;
+  }
+
+  .page-hero {
+    min-height: 55vh;
+    min-height: 55svh;
+  }
+
+  .page-hero-inner {
+    padding-block: 2.5rem 3.5rem;
+  }
+
+  .facts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 359.98px) {
+  .brand-ar {
+    font-size: 1.35rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fact {
+    padding: 0.9rem;
+  }
+}

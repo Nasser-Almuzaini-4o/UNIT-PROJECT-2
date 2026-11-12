@@ -1,257 +1,399 @@
 /* ==========================================================================
-   SaudiSports - Main JavaScript (shared by every page)
-   --------------------------------------------------------------------------
-   1. Scroll effects (navbar shadow, progress bar, back-to-top button)
+   SaudiSports - Main JavaScript
+   Shared by all pages
+
+   1. Scroll effects
    2. Reveal on scroll
-   3. Ticker (home page)
-   4. Filters (stadiums city filter + events category filter)
-   5. Tabs memory (Falcons journey on the esports page)
+   3. Home ticker
+   4. URL hash helpers
+   5. Stadiums and events filters
+   6. Falcons tabs
+  
+
+  
    ========================================================================== */
 
 
-/* ---------- 1. Scroll effects ---------- */
+/* ==========================================================================
+   1. SCROLL EFFECTS
+   Navbar shadow, scroll progress, and back-to-top button
+   ========================================================================== */
+
 const siteNav = document.getElementById("siteNav");
 const scrollProgress = document.getElementById("scrollProgress");
 const toTopButton = document.getElementById("toTop");
 
 function handleScroll() {
-  const scrollTop = window.scrollY;
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTop = window.scrollY;
+    const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
 
-  // Progress bar width = how far the user has scrolled (0% to 100%)
-  if (scrollProgress) {
-    scrollProgress.style.width = maxScroll > 0 ? (scrollTop / maxScroll) * 100 + "%" : "0%";
-  }
+    if (scrollProgress) {
+        const progress = maxScroll > 0
+            ? (scrollTop / maxScroll) * 100
+            : 0;
 
-  // Add a shadow to the navbar after the first few pixels
-  if (siteNav) siteNav.classList.toggle("scrolled", scrollTop > 20);
+        scrollProgress.style.width = `${progress}%`;
+    }
 
-  // Show the back-to-top button after 400px
-  if (toTopButton) toTopButton.classList.toggle("show", scrollTop > 400);
+    if (siteNav) {
+        siteNav.classList.toggle("scrolled", scrollTop > 20);
+    }
+
+    if (toTopButton) {
+        toTopButton.classList.toggle("show", scrollTop > 400);
+    }
 }
 
-window.addEventListener("scroll", handleScroll);
-handleScroll(); // run once on page load
+window.addEventListener("scroll", handleScroll, { passive: true });
+handleScroll();
 
 if (toTopButton) {
-  toTopButton.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    toTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 }
 
 
-/* ---------- 2. Reveal on scroll ---------- */
-// Elements with class "reveal" get class "visible" when they enter the screen.
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-      revealObserver.unobserve(entry.target); // animate only once
-    }
-  });
-}, { threshold: 0.15 });
+/* ==========================================================================
+   2. REVEAL ON SCROLL
+   Elements with .reveal become visible when entering the viewport.
+   ========================================================================== */
 
-document.querySelectorAll(".reveal").forEach((element) => {
-  revealObserver.observe(element);
-});
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+} else {
+    revealElements.forEach((element) => {
+        element.classList.add("visible");
+    });
+}
 
 
-/* ---------- 3. Ticker (home page) ---------- */
-// Repeats the group of sports 3 more times so the loop is seamless on wide screens.
+/* ==========================================================================
+   3. HOME PAGE TICKER
+   Duplicates the original ticker group for a seamless animation.
+   ========================================================================== */
+
 const tickerTrack = document.querySelector(".ticker-track");
 
 if (tickerTrack) {
-  const original = tickerTrack.firstElementChild;
+    const originalGroup = tickerTrack.firstElementChild;
 
-  for (let i = 0; i < 3; i++) {
-    const copy = original.cloneNode(true);
-    copy.setAttribute("aria-hidden", "true"); // hide copies from screen readers
-    copy.querySelectorAll("a").forEach((link) => link.setAttribute("tabindex", "-1"));
-    tickerTrack.appendChild(copy);
-  }
+    if (originalGroup) {
+        for (let i = 0; i < 3; i++) {
+            const copy = originalGroup.cloneNode(true);
 
-  tickerTrack.classList.add("running"); // start the animation
+            copy.setAttribute("aria-hidden", "true");
+
+            copy.querySelectorAll("a").forEach((link) => {
+                link.setAttribute("tabindex", "-1");
+            });
+
+            tickerTrack.appendChild(copy);
+        }
+
+        tickerTrack.classList.add("running");
+    }
 }
 
 
-/* ---------- 4. Filters ---------- */
-// The filters already work with CSS only (radio buttons). This code adds:
-//   - a number badge on every filter button
-//   - a live counter ("showing 7 of 14")
-//   - an empty message
-//   - hiding timeline era headings that have no events
-//   - remembering the choice in the URL: /stadiums/#city=jeddah
+/* ==========================================================================
+   4. URL HASH HELPERS
+   Shared by filters and Falcons tabs.
+   ========================================================================== */
 
-// Read / write the "#key=value" part of the address without jumping the page.
+// Read parameters from the URL hash.
 function getHashParams() {
-  return new URLSearchParams(window.location.hash.slice(1));
+    return new URLSearchParams(window.location.hash.slice(1));
 }
 
+// Update one parameter without jumping to another page section.
 function setHashParam(key, value, defaultValue) {
-  const params = getHashParams();
+    const params = getHashParams();
 
-  if (value === defaultValue) {
-    params.delete(key);
-  } else {
-    params.set(key, value);
-  }
+    if (value === defaultValue) {
+        params.delete(key);
+    } else {
+        params.set(key, value);
+    }
 
-  const hash = params.toString();
-  const url = window.location.pathname + window.location.search + (hash ? "#" + hash : "");
-  history.replaceState(null, "", url);
+    const hash = params.toString();
+
+    const url =
+        window.location.pathname +
+        window.location.search +
+        (hash ? `#${hash}` : "");
+
+    history.replaceState(null, "", url);
 }
 
-// "c-riyadh" -> "riyadh", "ev-all" -> "all"
+// Convert radio IDs such as "c-riyadh" into "riyadh".
 function radioValue(radio) {
-  return radio.id.split("-").slice(1).join("-");
+    return radio.id.split("-").slice(1).join("-");
 }
 
-// One entry per filtered section. root = wrapper, itemAttr = attribute on each card.
+
+/* ==========================================================================
+   5. STADIUMS AND EVENTS FILTERS
+   Adds counters, filter badges, empty messages, and URL memory.
+   ========================================================================== */
+
 const FILTER_GROUPS = [
-  {
-    root: ".cityfilter",           // stadiums.html
-    labels: ".city-labels",
-    itemSelector: ".arena",
-    itemAttr: "data-city",
-    param: "city",
-    unit: "ملعباً",
-    emptyText: "لا توجد ملاعب في هذه المدينة ضمن الخطة الحالية.",
-  },
-  {
-    root: ".evfilter",             // events.html
-    labels: ".ev-labels",
-    itemSelector: ".tl-item",
-    itemAttr: "data-cat",
-    param: "type",
-    unit: "حدثاً",
-    emptyText: "لا توجد أحداث من هذا النوع.",
-    groupHead: ".tl-era",         // era headings: past / present / future
-    groupKeep: ".era-now",        // the present era always stays (it holds the "you are here" marker)
-  },
+    {
+        root: ".cityfilter",
+        labels: ".city-labels",
+        itemSelector: ".arena",
+        itemAttr: "data-city",
+        param: "city",
+        unit: "ملعباً",
+        emptyText: "لا توجد ملاعب في هذه المدينة ضمن الخطة الحالية."
+    },
+    {
+        root: ".evfilter",
+        labels: ".ev-labels",
+        itemSelector: ".tl-item",
+        itemAttr: "data-cat",
+        param: "type",
+        unit: "حدثاً",
+        emptyText: "لا توجد أحداث من هذا النوع.",
+        groupHead: ".tl-era",
+        groupKeep: ".era-now"
+    }
 ];
 
-function initFilter(cfg) {
-  const root = document.querySelector(cfg.root);
-  if (!root) return;
+function initFilter(config) {
+    const root = document.querySelector(config.root);
 
-  const radios = Array.from(root.querySelectorAll('input[type="radio"]'));
-  const items = Array.from(root.querySelectorAll(cfg.itemSelector));
-  const labelsBox = root.querySelector(cfg.labels);
-  if (!radios.length || !items.length || !labelsBox) return;
+    if (!root) return;
 
-  const total = items.length;
-  const matches = (item, value) => value === "all" || item.getAttribute(cfg.itemAttr) === value;
+    const radios = Array.from(
+        root.querySelectorAll('input[type="radio"]')
+    );
 
-  // 1. Number badge inside every filter button
-  radios.forEach((radio) => {
-    const label = root.querySelector('label[for="' + radio.id + '"]');
-    if (!label) return;
+    const items = Array.from(
+        root.querySelectorAll(config.itemSelector)
+    );
 
-    const badge = document.createElement("span");
-    badge.className = "filter-badge";
-    badge.textContent = items.filter((item) => matches(item, radioValue(radio))).length;
-    label.appendChild(badge);
-  });
+    const labelsBox = root.querySelector(config.labels);
 
-  // 2. Live counter under the buttons (announced politely to screen readers)
-  const counter = document.createElement("p");
-  counter.className = "filter-count";
-  counter.setAttribute("role", "status");
-  counter.setAttribute("aria-live", "polite");
-  labelsBox.after(counter);
+    if (!radios.length || !items.length || !labelsBox) return;
 
-  // 3. Empty message after the list
-  const empty = document.createElement("div");
-  empty.className = "filter-empty";
-  empty.textContent = cfg.emptyText;
-  items[0].parentElement.after(empty);
+    const total = items.length;
 
-  // Hide era headings that have no visible events (events page only)
-  function syncGroups(value) {
-    if (!cfg.groupHead) return;
+    const matches = (item, value) => {
+        return value === "all" ||
+            item.getAttribute(config.itemAttr) === value;
+    };
 
-    root.querySelectorAll(cfg.groupHead).forEach((head) => {
-      let node = head.nextElementSibling;
-      let hasVisible = false;
 
-      while (node && !node.matches(cfg.groupHead)) {
-        if (node.matches(cfg.itemSelector) && matches(node, value)) hasVisible = true;
-        node = node.nextElementSibling;
-      }
+    // Add a number badge to each filter label.
+    radios.forEach((radio) => {
+        const label = root.querySelector(
+            `label[for="${radio.id}"]`
+        );
 
-      const keep = cfg.groupKeep && head.matches(cfg.groupKeep);
-      head.classList.toggle("is-empty", !hasVisible && !keep);
+        if (!label || label.querySelector(".filter-badge")) return;
+
+        const badge = document.createElement("span");
+
+        badge.className = "filter-badge";
+        badge.textContent = items.filter((item) => {
+            return matches(item, radioValue(radio));
+        }).length;
+
+        label.appendChild(badge);
     });
-  }
 
-  function apply(value) {
-    const shown = items.filter((item) => matches(item, value)).length;
 
-    counter.textContent = value === "all"
-      ? "يعرض " + total + " " + cfg.unit
-      : "يعرض " + shown + " من " + total + " " + cfg.unit;
+    // Create the live counter.
+    let counter = root.querySelector(".filter-count");
 
-    empty.classList.toggle("show", shown === 0);
-    syncGroups(value);
-  }
+    if (!counter) {
+        counter = document.createElement("p");
+        counter.className = "filter-count";
+        counter.setAttribute("role", "status");
+        counter.setAttribute("aria-live", "polite");
 
-  // Check the radio that matches a value; returns false if there is none
-  function select(value) {
-    const radio = radios.find((r) => radioValue(r) === value);
-    if (!radio) return false;
-    radio.checked = true;
-    apply(value);
-    return true;
-  }
+        labelsBox.after(counter);
+    }
 
-  // A click or arrow key changes the radio: update counter + address
-  root.addEventListener("change", (event) => {
-    if (!event.target.matches('input[type="radio"]')) return;
-    const value = radioValue(event.target);
-    apply(value);
-    setHashParam(cfg.param, value, "all");
-  });
 
-  // Apply the choice stored in the address (on load, and on back / forward)
-  function fromHash() {
-    const wanted = getHashParams().get(cfg.param) || "all";
-    if (!select(wanted)) select("all");
-  }
+    // Create the empty message.
+    let empty = root.querySelector(".filter-empty");
 
-  fromHash();
-  window.addEventListener("hashchange", fromHash);
+    if (!empty) {
+        empty = document.createElement("div");
+        empty.className = "filter-empty";
+        empty.textContent = config.emptyText;
+
+        items[0].parentElement.after(empty);
+    }
+
+
+    // Hide timeline headings that have no visible events.
+    function syncGroups(value) {
+        if (!config.groupHead) return;
+
+        root.querySelectorAll(config.groupHead).forEach((heading) => {
+            let node = heading.nextElementSibling;
+            let hasVisibleItems = false;
+
+            while (node && !node.matches(config.groupHead)) {
+                if (
+                    node.matches(config.itemSelector) &&
+                    matches(node, value)
+                ) {
+                    hasVisibleItems = true;
+                }
+
+                node = node.nextElementSibling;
+            }
+
+            const keepHeading =
+                config.groupKeep &&
+                heading.matches(config.groupKeep);
+
+            heading.classList.toggle(
+                "is-empty",
+                !hasVisibleItems && !keepHeading
+            );
+        });
+    }
+
+
+    // Update the counter and empty message.
+    function applyFilter(value) {
+        const shown = items.filter((item) => {
+            return matches(item, value);
+        }).length;
+
+        counter.textContent = value === "all"
+            ? `يعرض ${total} ${config.unit}`
+            : `يعرض ${shown} من ${total} ${config.unit}`;
+
+        empty.classList.toggle("show", shown === 0);
+
+        syncGroups(value);
+    }
+
+
+    // Select a filter using its value.
+    function selectFilter(value) {
+        const radio = radios.find((item) => {
+            return radioValue(item) === value;
+        });
+
+        if (!radio) return false;
+
+        radio.checked = true;
+        applyFilter(value);
+
+        return true;
+    }
+
+
+    // Listen for filter changes.
+    root.addEventListener("change", (event) => {
+        if (!event.target.matches('input[type="radio"]')) return;
+
+        const value = radioValue(event.target);
+
+        applyFilter(value);
+
+        setHashParam(config.param, value, "all");
+    });
+
+
+    // Restore the filter from the URL.
+    function fromHash() {
+        const wanted = getHashParams().get(config.param) || "all";
+
+        if (!selectFilter(wanted)) {
+            selectFilter("all");
+        }
+    }
+
+    fromHash();
+
+    window.addEventListener("hashchange", fromHash);
 }
 
 FILTER_GROUPS.forEach(initFilter);
 
 
-/* ---------- 5. Tabs memory ---------- */
-// The Falcons tabs also work with CSS only. This remembers the chosen year in the URL:
-// /esports/#falcons=2026
-function initTabs(cfg) {
-  const root = document.querySelector(cfg.root);
-  if (!root) return;
+/* ==========================================================================
+   6. FALCONS TABS
+   Remembers the selected year in the URL.
+   Example: /esports/#falcons=2026
+   ========================================================================== */
 
-  const radios = Array.from(root.querySelectorAll('input[type="radio"]'));
-  if (!radios.length) return;
+function initTabs(config) {
+    const root = document.querySelector(config.root);
 
-  const valueOf = (radio) => radio.id.replace(cfg.prefix, "");
-  const defaultValue = valueOf(radios[0]);
+    if (!root) return;
 
-  radios.forEach((radio) => {
-    radio.addEventListener("change", () => {
-      setHashParam(cfg.param, valueOf(radio), defaultValue);
+    const radios = Array.from(
+        root.querySelectorAll('input[type="radio"]')
+    );
+
+    if (!radios.length) return;
+
+    const valueOf = (radio) => {
+        return radio.id.replace(config.prefix, "");
+    };
+
+    const defaultValue = valueOf(radios[0]);
+
+
+    // Save the selected year.
+    radios.forEach((radio) => {
+        radio.addEventListener("change", () => {
+            setHashParam(
+                config.param,
+                valueOf(radio),
+                defaultValue
+            );
+        });
     });
-  });
 
-  function fromHash() {
-    const wanted = getHashParams().get(cfg.param);
-    const found = radios.find((radio) => valueOf(radio) === wanted) || radios[0];
-    found.checked = true;
-  }
 
-  fromHash();
-  window.addEventListener("hashchange", fromHash);
+    // Restore the selected year from the URL.
+    function fromHash() {
+        const wanted = getHashParams().get(config.param);
+
+        const selected = radios.find((radio) => {
+            return valueOf(radio) === wanted;
+        }) || radios[0];
+
+        selected.checked = true;
+    }
+
+    fromHash();
+
+    window.addEventListener("hashchange", fromHash);
 }
 
-initTabs({ root: ".ftabs", param: "falcons", prefix: "fy" });
+initTabs({
+    root: ".ftabs",
+    param: "falcons",
+    prefix: "fy"
+});
+

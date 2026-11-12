@@ -1,0 +1,180 @@
+/* Community Page */
+
+.community-hero {
+    background: var(--deep);
+}
+
+.community-image {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.community-label {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.sports-types,
+.benefits-section,
+.sources-section {
+    background: var(--surface);
+}
+
+.sport-card,
+.community-card,
+.volunteer-card,
+.benefit-item {
+    height: 100%;
+    padding: 1.7rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sport-card:hover,
+.community-card:hover,
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.sport-icon,
+.benefit-item > i,
+.community-card > i,
+.volunteer-card > i {
+    display: inline-grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1rem;
+    border-radius: 14px;
+    background: var(--surface-2);
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.sport-card h3,
+.community-card h3,
+.volunteer-card h3 {
+    font-size: 1.4rem;
+}
+
+.sport-card p,
+.community-card p,
+.volunteer-card p,
+.benefit-item p {
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 1.3rem 0.8rem;
+}
+
+.benefit-item > i {
+    border-radius: 50%;
+}
+
+.benefit-item h4 {
+    font-size: 1.15rem;
+}
+
+.activity-goal {
+    background: var(--surface);
+}
+
+.goal-card {
+    max-width: 850px;
+    margin-inline: auto;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    text-align: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.goal-icon {
+    color: var(--gold);
+    font-size: 2.5rem;
+}
+
+.goal-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-block: 2rem;
+}
+
+.goal-details div {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.goal-details strong {
+    color: var(--accent);
+    font: 2rem var(--font-display);
+}
+
+.goal-details span,
+.goal-note {
+    color: var(--muted);
+}
+
+.source-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    height: 100%;
+    padding: 1.2rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.source-link i:first-child {
+    color: var(--gold);
+    font-size: 1.4rem;
+}
+
+.source-link i:last-child {
+    margin-inline-start: auto;
+    color: var(--muted);
+}
+
+.source-link:hover {
+    color: var(--accent);
+    border-color: var(--gold);
+}
+
+@media (max-width: 767px) {
+    .community-image {
+        height: 260px;
+    }
+
+    .sport-card,
+    .community-card {
+        padding: 1.2rem;
+    }
+
+    .goal-details {
+        gap: 1.2rem;
+    }
+}

@@ -1,0 +1,458 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}الرياضة المجتمعية | الرياضة السعودية{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/community.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="page-hero community-hero">
+    <img src="{% static 'images/community/hero.jpg' %}"
+         class="page-hero-bg" alt="مجموعة من أفراد المجتمع يمارسون الرياضة">
+
+    <div class="page-hero-overlay"></div>
+
+    <div class="container">
+        <div class="page-hero-inner rise">
+            <div class="crumbs">
+                <a href="{% url 'home_view' %}">الرئيسية</a>
+                <i class="bi bi-chevron-left"></i>
+                <span>الرياضة المجتمعية</span>
+            </div>
+
+            <h1>مجتمع يتحرك.. ومستقبل أكثر صحة</h1>
+
+            <p>
+                الرياضة أسلوب حياة يجمع أفراد المجتمع، ويمنح الجميع
+                فرصة لاكتشاف قدراتهم والاستمتاع بحياة أكثر نشاطاً وحيوية.
+            </p>
+
+            <a href="#sports-types" class="btn btn-gold mt-4">
+                اكتشف أنواع الرياضات
+                <i class="bi bi-arrow-down-short"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics -->
+<section class="facts">
+    <div class="container">
+        <div class="facts-grid">
+            <div class="fact">
+                <strong>59.1%</strong>
+                <span>من البالغين يمارسون النشاط البدني 150 دقيقة أسبوعياً أو أكثر</span>
+            </div>
+
+            <div class="fact">
+                <strong>150</strong>
+                <span>دقيقة نشاط بدني موصى بها أسبوعياً للبالغين</span>
+            </div>
+
+            <div class="fact">
+                <strong>60</strong>
+                <span>دقيقة يومياً للأطفال واليافعين</span>
+            </div>
+
+            <div class="fact">
+                <strong>2030</strong>
+                <span>عام مستهدفات جودة الحياة والرياضة في المملكة</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 reveal">
+                <div class="section-head">
+                    <span class="community-label">الرياضة للجميع</span>
+                    <h2>الحركة حق لكل فرد</h2>
+                    <p>
+                        لا تقتصر الرياضة على المحترفين أو أصحاب اللياقة العالية،
+                        بل تبدأ من خطوات بسيطة يمكن لأي شخص إضافتها إلى يومه.
+                    </p>
+                </div>
+
+                <p>
+                    تعمل المبادرات الرياضية في المملكة على جعل النشاط البدني
+                    جزءاً من الحياة اليومية، من خلال توفير الفرص والمساحات
+                    والبرامج التي تناسب مختلف الأعمار والقدرات.
+                </p>
+
+                <p>
+                    سواء كنت تفضل المشي في الحي، أو ركوب الدراجة، أو ممارسة
+                    لعبة جماعية، فإن كل حركة تمثل خطوة نحو حياة أفضل.
+                </p>
+
+                <a href="https://sportsforall.com.sa/" target="_blank"
+                   rel="noopener noreferrer" class="text-link">
+                    اكتشف مبادرات الاتحاد السعودي للرياضة للجميع
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+            </div>
+
+            <div class="col-lg-6 reveal">
+                <img src="{% static 'images/community/community.jpg' %}"
+                     alt="أنشطة رياضية مجتمعية في المملكة"
+                     class="community-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sports Types -->
+<section class="section sports-types" id="sports-types">
+    <div class="container">
+        <div class="section-head text-center mx-auto">
+            <span class="community-label">مجالات متنوعة</span>
+            <h2>اختر الرياضة التي تناسبك</h2>
+            <p>
+                تتعدد أشكال النشاط البدني، ولكل نوع منها تجربة مختلفة
+                وفوائد تساعدك على بناء نمط حياة نشط.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-person-walking"></i>
+                    </div>
+                    <h3>رياضات فردية</h3>
+                    <p>
+                        مثل المشي والجري والسباحة وركوب الدراجات.
+                        تمنحك فرصة للتحكم في وتيرتك وتطوير لياقتك
+                        وتحقيق أهدافك الشخصية.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h3>رياضات جماعية</h3>
+                    <p>
+                        مثل كرة القدم وكرة السلة والكرة الطائرة.
+                        تعزز روح الفريق والتواصل والتعاون،
+                        وتضيف أجواء من التنافس والمتعة.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <h3>رياضات اللياقة</h3>
+                    <p>
+                        مثل تمارين القوة والتمارين الهوائية واليوغا.
+                        تساعد على تحسين التحمل والمرونة وتقوية العضلات
+                        والمحافظة على النشاط.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-water"></i>
+                    </div>
+                    <h3>الرياضات المائية</h3>
+                    <p>
+                        مثل السباحة والأنشطة المائية المختلفة.
+                        تساهم في تنشيط الجسم وتطوير القدرة على التحمل
+                        وتحريك مجموعات عضلية متعددة.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-tree"></i>
+                    </div>
+                    <h3>رياضات الهواء الطلق</h3>
+                    <p>
+                        مثل المشي الجبلي والتخييم النشط وركوب الدراجات.
+                        تجمع بين الحركة واستكشاف الطبيعة والاستمتاع
+                        بالمساحات المفتوحة.
+                    </p>
+                </article>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <article class="sport-card">
+                    <div class="sport-icon">
+                        <i class="bi bi-controller"></i>
+                    </div>
+                    <h3>الرياضات الإلكترونية</h3>
+                    <p>
+                        تفتح مجالاً للمنافسة والتفكير الاستراتيجي
+                        والعمل الجماعي، مع أهمية الموازنة بينها
+                        وبين الحركة والنشاط البدني.
+                    </p>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Benefits -->
+<section class="section benefits-section">
+    <div class="container">
+        <div class="section-head text-center mx-auto">
+            <span class="community-label">أثر يتجاوز الملعب</span>
+            <h2>ماذا تمنحك الرياضة؟</h2>
+            <p>
+                فوائد النشاط البدني لا تتوقف عند تحسين اللياقة،
+                بل تمتد إلى جوانب متعددة من حياتك.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-6 col-lg-3 reveal">
+                <div class="benefit-item">
+                    <i class="bi bi-heart-pulse"></i>
+                    <h4>صحة أفضل</h4>
+                    <p>دعم صحة القلب وتحسين الدورة الدموية واللياقة البدنية.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 reveal">
+                <div class="benefit-item">
+                    <i class="bi bi-emoji-smile"></i>
+                    <h4>راحة نفسية</h4>
+                    <p>المساعدة على تحسين المزاج وتقليل التوتر وتعزيز جودة الحياة.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 reveal">
+                <div class="benefit-item">
+                    <i class="bi bi-people"></i>
+                    <h4>روابط اجتماعية</h4>
+                    <p>بناء الصداقات وتعزيز التعاون والانتماء للمجتمع.</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 reveal">
+                <div class="benefit-item">
+                    <i class="bi bi-lightning-charge"></i>
+                    <h4>طاقة ونشاط</h4>
+                    <p>تطوير القدرة على التحمل وتحسين النشاط خلال اليوم.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Everyone -->
+<section class="section">
+    <div class="container">
+        <div class="section-head text-center mx-auto">
+            <span class="community-label">مساحة للجميع</span>
+            <h2>الرياضة تجمع كل فئات المجتمع</h2>
+            <p>
+                تختلف الاحتياجات والأهداف، لكن الفرصة لممارسة الرياضة
+                يجب أن تكون متاحة للجميع.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 reveal">
+                <div class="community-card">
+                    <i class="bi bi-person-arms-up"></i>
+                    <h3>الرياضة النسائية</h3>
+                    <p>
+                        توسيع فرص ممارسة المرأة للرياضة من خلال الأنشطة
+                        والبرامج والمرافق التي تشجع على المشاركة
+                        وتطوير المواهب.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 reveal">
+                <div class="community-card">
+                    <i class="bi bi-mortarboard"></i>
+                    <h3>الشباب والأطفال</h3>
+                    <p>
+                        غرس حب الحركة منذ الصغر، وتنمية المهارات
+                        الحركية وروح المنافسة والعمل الجماعي،
+                        وجعل الرياضة عادة مستمرة.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 reveal">
+                <div class="community-card">
+                    <i class="bi bi-universal-access"></i>
+                    <h3>الرياضة الدامجة</h3>
+                    <p>
+                        تهيئة الفرص والأنشطة لتناسب الأشخاص ذوي الإعاقة
+                        ومختلف القدرات، وتعزيز مشاركتهم في الحياة الرياضية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 reveal">
+                <div class="community-card">
+                    <i class="bi bi-house-heart"></i>
+                    <h3>الرياضة العائلية</h3>
+                    <p>
+                        أنشطة تجمع أفراد الأسرة مثل المشي وركوب الدراجات
+                        والألعاب الحركية، وتحول وقت الرياضة إلى تجربة مشتركة.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Weekly Activity -->
+<section class="section activity-goal">
+    <div class="container">
+        <div class="goal-card reveal">
+            <div class="goal-icon">
+                <i class="bi bi-stopwatch"></i>
+            </div>
+
+            <span class="community-label">تحدي النشاط الأسبوعي</span>
+            <h2>150 دقيقة تصنع فرقاً</h2>
+
+            <p>
+                اجعل هدفك ممارسة 150 دقيقة على الأقل من النشاط البدني
+                متوسط الشدة أسبوعياً. وزّعها على أيام الأسبوع بالطريقة
+                التي تناسب جدولك وقدرتك.
+            </p>
+
+            <div class="goal-details">
+                <div>
+                    <strong>30 دقيقة</strong>
+                    <span>يومياً لمدة 5 أيام</span>
+                </div>
+
+                <div>
+                    <strong>150 دقيقة</strong>
+                    <span>الهدف الأسبوعي</span>
+                </div>
+            </div>
+
+            <p class="goal-note">
+                ابدأ تدريجياً واختر نشاطاً يناسب مستوى لياقتك،
+                واستشر مختصاً صحياً عند الحاجة.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Volunteering -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8 reveal">
+                <span class="community-label">كن جزءاً من التغيير</span>
+                <h2>الرياضة تحتاج إلى متطوعين أيضاً</h2>
+                <p>
+                    خلف كل فعالية رياضية ناجحة فريق من المنظمين والمتطوعين.
+                    المشاركة في تنظيم السباقات والبطولات والأنشطة المجتمعية
+                    تمنحك فرصة لخدمة المجتمع واكتساب خبرات جديدة.
+                </p>
+                <a href="https://nvg.gov.sa/" target="_blank"
+                   rel="noopener noreferrer" class="text-link">
+                    استكشف الفرص التطوعية
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+            </div>
+
+            <div class="col-lg-4 reveal">
+                <div class="volunteer-card">
+                    <i class="bi bi-hand-thumbs-up"></i>
+                    <h3>شارك بوقتك</h3>
+                    <p>ساهم في صناعة تجربة رياضية يستفيد منها الجميع.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sources -->
+<section class="section sources-section">
+    <div class="container">
+        <div class="section-head text-center mx-auto">
+            <span class="community-label">للمزيد من المعرفة</span>
+            <h2>مصادر ومراجع رسمية</h2>
+            <p>روابط لجهات ومصادر تساعدك على معرفة المزيد عن النشاط البدني والرياضة في المملكة.</p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-md-4 reveal">
+                <a href="https://sportsforall.com.sa/" target="_blank"
+                   rel="noopener noreferrer" class="source-link">
+                    <i class="bi bi-people"></i>
+                    <span>الاتحاد السعودي للرياضة للجميع</span>
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <a href="https://www.moh.gov.sa/healthawareness/educationalcontent/miscellaneous/pages/physical-activity.aspx"
+                   target="_blank" rel="noopener noreferrer" class="source-link">
+                    <i class="bi bi-heart-pulse"></i>
+                    <span>وزارة الصحة – النشاط البدني</span>
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+            </div>
+
+            <div class="col-md-4 reveal">
+                <a href="https://www.stats.gov.sa/ar/statistics-tabs?tab=436312&category=1278616" target="_blank"
+                   rel="noopener noreferrer" class="source-link">
+                    <i class="bi bi-bar-chart"></i>
+                    <span>إحصاءات الرياضة و النشاط البدني </span>
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>ابدأ بخطوة.. واصنع أسلوب حياة</h2>
+        <p>
+            لا تحتاج إلى معدات كثيرة أو وقت طويل لتبدأ،
+            اختر نشاطك المفضل واجعل الحركة جزءاً من يومك.
+        </p>
+
+        <div class="cta-actions">
+            <a href="{% url 'home_view' %}" class="btn btn-gold">
+                استكشف الرياضة السعودية
+            </a>
+            <a href="#sports-types" class="btn btn-outline-light">
+                تعرف على الرياضات
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
